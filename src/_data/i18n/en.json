@@ -1,0 +1,29 @@
+{
+ "note":"Design preview — name, photos, books and paintings are placeholders.",
+ "name":"Dr. [Name]","menu":"Menu","lang_label":"Language",
+ "n_about":"About","n_books":"Books","n_paint":"Paintings","n_contact":"Contact",
+ "kick":"Doctor of Arabic Literature",
+ "lede":"Writer of books on language, memory and the Arabic word. Painter of what the word cannot hold.",
+ "cta":"Explore the books","ph":"Portrait photo<br>goes here","cap":"Dr. [Name], in the studio","portrait_label":"Portrait placeholder",
+ "h_about":"The writer and the painter","s_about":"Two hands, one practice.",
+ "a1":"Dr. [Name] holds a doctorate in Arabic literature and has spent his life between the manuscript and the canvas. His books study how a single word carries a civilisation; his paintings begin where the sentence ends.",
+ "a2":"He writes in Arabic and is read in translation across several countries. In the studio he works in ink, pigment and paper, often using the line of the calligrapher as the first stroke of a painting.",
+ "h_books":"Books","s_books":"Selected works, shown here for reading and reference.","all_books":"See all books",
+ "back":"All books","m_pub":"Publisher","m_year":"Year","m_pages":"Pages","m_isbn":"ISBN",
+ "buy":"Buy the book","exc":"Read an excerpt","also":"Also available at:","r1":"Publisher","r2":"Online store","r3":"Local bookshop","h_more":"More books",
+ "h_paint":"Paintings","s_paint":"Ink and pigment on paper and canvas.","s_paint2":"Select a painting to open it full screen and zoom in.","all_paint":"See all paintings",
+ "v_in":"Zoom in","v_out":"Zoom out","v_reset":"Reset zoom","v_close":"Close","v_prev":"Previous painting","v_next":"Next painting",
+ "q":"A word is a small house; a painting is the window left open.","qc":"— Dr. [Name]",
+ "h_contact":"Write to him","cp":"For invitations, translations, exhibitions and press.","copy":"© 2026 Dr. [Name]. All rights reserved.",
+ "meta":{
+  "home":{"title":"Dr. [Name] — Writer & Painter","desc":"Dr. [Name], doctor of Arabic literature: books on language, memory and the Arabic word, and paintings in ink and pigment."},
+  "books":{"title":"Books — Dr. [Name]","desc":"Selected books by Dr. [Name] on Arabic language, literature and memory."},
+  "paintings":{"title":"Paintings — Dr. [Name]","desc":"Paintings in ink and pigment on paper and canvas by Dr. [Name]."}
+ },
+ "books":{
+  "book-1":{"title":"Book Title One","type":"Essays, 2026","d1":"A paragraph about the book goes here: what it is about, who it is for, and what a reader will find inside.","d2":"A second paragraph: the idea behind the book, a short review quote, or the story of how it was written."},
+  "book-2":{"title":"Book Title Two","type":"Criticism, 2022","d1":"A paragraph about the book goes here: what it is about, who it is for, and what a reader will find inside.","d2":"A second paragraph: the idea behind the book, a short review quote, or the story of how it was written."},
+  "book-3":{"title":"Book Title Three","type":"Memoir, 2018","d1":"A paragraph about the book goes here: what it is about, who it is for, and what a reader will find inside.","d2":"A second paragraph: the idea behind the book, a short review quote, or the story of how it was written."}
+ },
+ "paintings":{"p1":"Untitled I","p2":"Untitled II","p3":"Untitled III","p4":"Untitled IV","p5":"Untitled V"}
+}

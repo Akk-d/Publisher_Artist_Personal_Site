@@ -1,0 +1,11 @@
+---
+layout: layouts/base.njk
+pageKey: book
+navKey: books
+pagination: { data: entries.book, size: 1, alias: entry, addAllPagesToCollections: true }
+---
+{% from "components/macros.njk" import bookCard, bookCover %}
+{% set bt = t.books[book.slug] %}
+<main id="app"><div class="wrap bookpg"><div>{{ bookCover(book, bt) }}</div><div><a class="type" href="{{ '/books/' | href(lang) }}">{{ t.back }}</a><h1>{{ bt.title }}</h1><dl class="meta"><dt>{{ t.m_pub }}</dt><dd>{{ book.publisher }}</dd><dt>{{ t.m_year }}</dt><dd>{{ book.year }}</dd><dt>{{ t.m_pages }}</dt><dd>{{ book.pages }}</dd><dt>{{ t.m_isbn }}</dt><dd>{{ book.isbn }}</dd></dl><p class="drop">{{ bt.d1 }}</p><p>{{ bt.d2 }}</p><a class="btn" href="#">{{ t.buy }}</a><a class="btn ghost" href="#">{{ t.exc }}</a><div class="shops type"><span>{{ t.also }}</span> <a href="#">{{ t.r1 }}</a><a href="#">{{ t.r2 }}</a><a href="#">{{ t.r3 }}</a></div></div></div>
+<section style="padding-top:1rem"><div class="wrap"><h2>{{ t.h_more }}</h2><div class="shelf" style="margin-top:1.5rem">{% for b in books %}{% if b.slug != book.slug %}{{ bookCard(b, t.books[b.slug], lang) }}{% endif %}{% endfor %}</div></div></section>
+</main>

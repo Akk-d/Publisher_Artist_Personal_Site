@@ -1,0 +1,10 @@
+/* Additions needed by the Eleventy version. style.css is not modified.
+   1) Language switcher: prototype used <button>, now real <a> links (needed for SEO).
+      These rules reproduce the look of ".lang button" exactly.
+   2) h1.page-title: books/paintings pages need a real <h1> for SEO but must look
+      exactly like the prototype's <h2>. */
+.lang a,[dir=rtl] .lang a{font-family:var(--f-type);font-size:.8rem;letter-spacing:0;background:none;border:1px solid var(--soft);padding:.25rem .7rem;cursor:pointer;min-height:36px;display:inline-flex;align-items:center;text-decoration:none;color:inherit}
+.lang a[aria-current=true]{background:var(--ink);color:var(--paper);border:1px solid var(--ink)}
+.lang a:not([aria-current]):hover{color:inherit}
+h1.page-title{font-family:var(--f-en);font-style:normal;font-weight:600;font-size:clamp(1.9rem,6vw,3.2rem);margin:0 0 .5rem;line-height:1.2}
+[dir=rtl] h1.page-title{font-family:var(--f-cal);font-style:normal;font-weight:600;line-height:1.6}

@@ -1,0 +1,3 @@
+{% macro bookCover(b, bt) %}<div class="cover {{ b.cover }}"><small>{{ b.publisher }}</small><strong>{{ bt.title }}</strong><small>{{ b.year }}</small></div>{% endmacro %}
+{% macro bookCard(b, bt, lang) %}<a class="book" href="{{ ('/books/' + b.slug + '/') | href(lang) }}">{{ bookCover(b, bt) }}<h3>{{ bt.title }}</h3><p>{{ bt.type }}</p></a>{% endmacro %}
+{% macro paintingFrame(p, caption) %}<figure class="frame" tabindex="0">{{ p.svg | safe }}<figcaption>{{ caption }}</figcaption></figure>{% endmacro %}

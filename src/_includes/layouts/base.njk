@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="{{ lang.code }}" dir="{{ lang.dir }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+{% include "components/seo-head.njk" %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/css/style.css' | asset }}">
+<link rel="stylesheet" href="{{ '/css/stage2-additions.css' | asset }}">
+{%- for css in styles %}
+<link rel="stylesheet" href="{{ css | asset }}">
+{%- endfor %}
+</head>
+<body>
+{% include "components/header.njk" %}
+{{ content | safe }}
+{% include "components/footer.njk" %}
+{%- if hasViewer %}
+{% include "components/viewer.njk" %}
+{%- endif %}
+<script src="{{ '/js/nav.js' | asset }}"></script>
+{%- for js in scripts %}
+<script src="{{ js | asset }}"></script>
+{%- endfor %}
+</body>
+</html>

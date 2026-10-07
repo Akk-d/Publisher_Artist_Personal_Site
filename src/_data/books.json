@@ -1,0 +1,5 @@
+[
+  { "slug": "book-1", "cover": "c1", "year": "2026", "publisher": "[Publisher]", "pages": "240", "isbn": "[ISBN]" },
+  { "slug": "book-2", "cover": "c2", "year": "2022", "publisher": "[Publisher]", "pages": "312", "isbn": "[ISBN]" },
+  { "slug": "book-3", "cover": "c3", "year": "2018", "publisher": "[Publisher]", "pages": "188", "isbn": "[ISBN]" }
+]

@@ -1,13 +1,21 @@
-// STAGE 1: skeleton. Output must be byte-identical to the prototype.
+import { base, asset, href, abs, defaultLang, origin } from "./lib/urls.js";
+
 export default function (eleventyConfig) {
-  // Copied as-is, no processing. Moved into css/ and js/ in Stage 2.
-  eleventyConfig.addPassthroughCopy("src/style.css");
-  eleventyConfig.addPassthroughCopy("src/site.js");
+  // Copied as-is, never processed.
+  eleventyConfig.addPassthroughCopy("src/css");
+  eleventyConfig.addPassthroughCopy("src/js");
+  eleventyConfig.addPassthroughCopy("src/assets");
+
+  eleventyConfig.addFilter("href", href);                 // page link in a language
+  eleventyConfig.addFilter("abs", abs);                   // absolute URL (canonical, sitemap)
+  eleventyConfig.addFilter("asset", asset);               // /css/style.css -> with base path
+  eleventyConfig.addFilter("prependOrigin", (p) => origin + p);
+  eleventyConfig.addFilter("absDefault", (r) => abs(r, defaultLang));
+  eleventyConfig.addFilter("hrefDefault", (r) => href(r, defaultLang));
 
   return {
     dir: { input: "src", output: "_site" },
-    // .html files are treated as plain HTML: no template engine touches them.
-    htmlTemplateEngine: false,
+    pathPrefix: base,
     markdownTemplateEngine: "njk",
   };
 }

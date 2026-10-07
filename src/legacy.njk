@@ -1,0 +1,15 @@
+---
+pagination: { data: legacy, size: 1, alias: item }
+permalink: "{{ item.from }}"
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>{{ i18n.ar.name }}</title>
+<link rel="canonical" href="{{ item.to | absDefault }}">
+<meta http-equiv="refresh" content="0; url={{ item.to | hrefDefault }}">
+</head>
+<body><p><a href="{{ item.to | hrefDefault }}">{{ item.to | hrefDefault }}</a></p></body>
+</html>

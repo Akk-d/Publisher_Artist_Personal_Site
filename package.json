@@ -1,14 +1,16 @@
 {
   "name": "dr-name-site",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
-  "description": "Static site built with Eleventy",
+  "description": "Multilingual static site built with Eleventy",
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy",
-    "clean": "rm -rf _site",
-    "verify": "node tools/verify-identical.mjs"
+    "build:pages": "PATH_PREFIX=/Publisher_Artist_Personal_Site/ eleventy",
+    "check": "node tools/check-site.mjs",
+    "check:pages": "PATH_PREFIX=/Publisher_Artist_Personal_Site/ node tools/check-site.mjs",
+    "clean": "rm -rf _site"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0"
