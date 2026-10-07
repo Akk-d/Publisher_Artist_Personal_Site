@@ -1,0 +1,16 @@
+{
+  "name": "dr-name-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Static site built with Eleventy",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "rm -rf _site",
+    "verify": "node tools/verify-identical.mjs"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
