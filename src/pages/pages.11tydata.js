@@ -5,6 +5,10 @@ const ROUTES = {
   home: () => "/",
   books: () => "/books/",
   paintings: () => "/paintings/",
+  bio: () => "/biography/",
+  qualifications: () => "/qualifications/",
+  herbal: () => "/herbal-medicine/",
+  publications: () => "/publications/",
   book: (d) => `/books/${d.entry.book.slug}/`,
 };
 

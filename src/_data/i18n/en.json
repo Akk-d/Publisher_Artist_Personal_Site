@@ -2,6 +2,7 @@
  "note":"Design preview — name, photos, books and paintings are placeholders.",
  "name":"Dr. [Name]","menu":"Menu","lang_label":"Language",
  "n_about":"About","n_books":"Books","n_paint":"Paintings","n_contact":"Contact",
+ "n_bio":"Biography","n_qual":"Qualifications","n_herbal":"Herbal Medicine","n_pubs":"Publications",
  "kick":"Doctor of Arabic Literature",
  "lede":"Writer of books on language, memory and the Arabic word. Painter of what the word cannot hold.",
  "cta":"Explore the books","ph":"Portrait photo<br>goes here","cap":"Dr. [Name], in the studio","portrait_label":"Portrait placeholder",
@@ -16,10 +17,15 @@
  "q":"A word is a small house; a painting is the window left open.","qc":"— Dr. [Name]",
  "h_contact":"Write to him","cp":"For invitations, translations, exhibitions and press.","copy":"© 2026 Dr. [Name]. All rights reserved.",
  "meta":{
+  "bio":{"title":"Biography — Dr. [Name]","desc":"The biography of Dr. [Name]: background, education, and literary and artistic career."},
+  "qualifications":{"title":"Qualifications — Dr. [Name]","desc":"Academic qualifications and degrees of Dr. [Name]."},
+  "herbal":{"title":"Herbal Medicine — Dr. [Name]","desc":"Work and writing by Dr. [Name] on herbal medicine."},
+  "publications":{"title":"Publications — Dr. [Name]","desc":"Research, articles and publications by Dr. [Name]."},
   "home":{"title":"Dr. [Name] — Writer & Painter","desc":"Dr. [Name], doctor of Arabic literature: books on language, memory and the Arabic word, and paintings in ink and pigment."},
   "books":{"title":"Books — Dr. [Name]","desc":"Selected books by Dr. [Name] on Arabic language, literature and memory."},
   "paintings":{"title":"Paintings — Dr. [Name]","desc":"Paintings in ink and pigment on paper and canvas by Dr. [Name]."}
  },
+ "sections":{"bio":{"h":"Biography","sub":"Background and career."},"qualifications":{"h":"Qualifications","sub":"Degrees and academic credentials."},"herbal":{"h":"Herbal Medicine","sub":"Work and writing on herbal medicine."},"publications":{"h":"Publications","sub":"Research, articles and publications."},"soon":"Content coming soon."},
  "books":{
   "book-1":{"title":"Book Title One","type":"Essays, 2026","d1":"A paragraph about the book goes here: what it is about, who it is for, and what a reader will find inside.","d2":"A second paragraph: the idea behind the book, a short review quote, or the story of how it was written."},
   "book-2":{"title":"Book Title Two","type":"Criticism, 2022","d1":"A paragraph about the book goes here: what it is about, who it is for, and what a reader will find inside.","d2":"A second paragraph: the idea behind the book, a short review quote, or the story of how it was written."},
