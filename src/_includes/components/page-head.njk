@@ -1,5 +1,6 @@
-{#- Page title + sub, with the doctor photo for this page (heroes.json) beside it. Set headH/headSub before including. -#}
+{#- Page title + sub, with the doctor photo for this page (heroes.json) beside it. Set headH/headSub before including; optional headList (+ headListH) adds a checklist under the sub. -#}
 {%- set heroKey = heroes[pageKey] -%}
-<div class="pagehead{% if heroKey == 'studio' %} wide{% endif %}"><div><h1 class="page-title">{{ headH }}</h1><p class="sub">{{ headSub }}</p></div>
+<div class="pagehead{% if heroKey == 'studio' %} wide{% endif %}"><div><h1 class="page-title">{{ headH }}</h1><p class="sub">{{ headSub }}</p>
+{%- if headList %}<div class="glance">{% if headListH %}<p class="glance-h">{{ headListH }}</p>{% endif %}<ul class="checklist">{% for li in headList %}<li>{{ li }}</li>{% endfor %}</ul></div>{% endif %}</div>
 {%- for ph in drphotos %}{% if ph.key == heroKey %}<figure class="page-hero"><img src="{{ ('/assets/images/dr/' + ph.key + '.jpg') | asset }}" width="{{ ph.w }}" height="{{ ph.h }}" alt="{{ t.photos[ph.key].alt }}" fetchpriority="high"><figcaption>{{ t.photos[ph.key].cap }}</figcaption></figure>{% endif %}{% endfor -%}
 </div>

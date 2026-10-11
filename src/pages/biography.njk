@@ -3,16 +3,22 @@ layout: layouts/base.njk
 pageKey: bio
 navKey: bio
 pagination: { data: entries.bio, size: 1, alias: entry, addAllPagesToCollections: true }
-styles: ["/css/stage4-additions.css"]
+styles: ["/css/stage4-additions.css", "/css/stage5-additions.css"]
 ---
-{#- Text comes from my-content/biography/Bio.pdf via i18n `bio`. -#}
-<main><section><div class="wrap">{% set headH = t.sections.bio.h %}{% set headSub = t.sections.bio.sub %}{% include "components/page-head.njk" %}
+{#- Text comes from my-content/biography/Bio.pdf via i18n `bio`. Layout: summary header, table of contents, then one section per part. -#}
+<main><section class="bio-page"><div class="wrap">{% set headH = t.sections.bio.h %}{% set headSub = t.sections.bio.sub %}{% set headList = t.bio.highlights %}{% set headListH = t.bio.glance %}{% include "components/page-head.njk" %}
+<nav class="bio-toc" aria-labelledby="bio-toc-h"><p id="bio-toc-h" class="bio-toc-h">{{ t.bio.toc }}</p><ol>
+<li><a href="#intro">{{ t.bio.introH }}</a></li>
+{%- for part in t.bio.parts %}<li><a href="#part-{{ loop.index }}">{{ part.h }}</a></li>{% endfor %}</ol></nav>
 <div class="bio">
-<div class="bio-intro">{% for p in t.bio.intro %}<p>{{ p }}</p>{% endfor %}</div>
-{% for part in t.bio.parts %}<section class="bio-part"><h2>{{ part.h }}</h2>
+<section class="bio-part" id="intro" aria-labelledby="intro-h"><h2 id="intro-h">{{ t.bio.introH }}</h2>
+<div class="bio-intro">{% for p in t.bio.intro %}<p>{{ p }}</p>{% endfor %}</div></section>
+{% for part in t.bio.parts %}<section class="bio-part" id="part-{{ loop.index }}" aria-labelledby="part-{{ loop.index }}-h"><h2 id="part-{{ loop.index }}-h">{{ part.h }}</h2>
 {%- for p in part.p %}<p>{{ p }}</p>{% endfor %}
 {%- if part.list %}<ul class="bio-list">{% for li in part.list %}<li>{{ li }}</li>{% endfor %}</ul>{% endif %}
-{%- if part.works %}<ol class="bio-works">{% for w in part.works %}<li>{% if w.slug %}<a href="{{ ('/books/' + w.slug + '/') | href(lang) }}">{{ w.t }}</a>{% else %}{{ w.t }}{% endif %}{% if w.soon %} <span class="soon">({{ t.bio.soon }})</span>{% endif %}</li>{% endfor %}</ol>{% endif %}
-{%- if part.books %}<ul class="bio-books">{% for b in part.books %}<li><cite{% if b.l %} lang="{{ b.l }}" dir="ltr"{% endif %}>{{ b.t }}</cite>{{ t.bio.sep }}<span{% if b.l %} lang="{{ b.l }}" dir="ltr"{% endif %}>{{ b.a }}</span></li>{% endfor %}</ul>{% endif %}
-</section>
+{%- if part.works %}<ol class="bio-works">{% for w in part.works %}<li>{% if w.slug %}<a href="{{ ('/books/' + w.slug + '/') | href(lang) }}">{{ w.t }}</a>{% else %}<span>{{ w.t }}</span>{% endif %}{% if w.soon %} <span class="soon">{{ t.bio.soon }}</span>{% endif %}</li>{% endfor %}</ol>{% endif %}
+{%- if part.cards %}<div class="bio-cards">{% for c in part.cards %}<div class="bio-card"><h3>{{ c.h }}</h3><p>{{ c.p }}</p></div>{% endfor %}</div>{% endif %}
+{%- if part.books %}<ul class="bio-books">{% for b in part.books %}<li><cite{% if b.l %} lang="{{ b.l }}" dir="ltr"{% endif %}>{{ b.t }}</cite><span class="by"{% if b.l %} lang="{{ b.l }}" dir="ltr"{% endif %}>{{ b.a }}</span></li>{% endfor %}</ul>{% endif %}
+{%- for p in part.end %}<p>{{ p }}</p>{% endfor %}
+<p class="bio-top"><a href="#top">{{ t.bio.top }}</a></p></section>
 {% endfor %}</div></div></section></main>

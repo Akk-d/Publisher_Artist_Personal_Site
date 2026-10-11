@@ -69,6 +69,17 @@
  "bio":{
    "soon": "forthcoming",
    "sep": ", ",
+   "glance": "At a glance",
+   "toc": "On this page",
+   "introH": "Introduction",
+   "top": "Back to top",
+   "highlights": [
+     "Doctorate in public health; professor of natural herbal medicine",
+     "Specialist in treating cancer and chronic diseases; founder of a medical research centre in Ukraine",
+     "Doctorate in Arabic language and literature; poet and author of 17 literary works",
+     "Speaks five languages",
+     "Visual artist and athlete"
+   ],
    "intro": [
      "In the procession of great lives, among the bright halls of distinction, and in the records of those whose names do not pass like clouds but stand firm as mountains, shine like stars and take root like deep foundations, rises the name of the writer and author Yousef Ahmad Al-Maiari. It stands tall and unbending, and it shines as a great meaning shines when it is joined to virtue, when virtue is crowned by creativity, and when creativity is upheld by knowledge, refined by taste and guarded by dignity.",
      "This is not a man who can be summed up by a single quality, confined to one title or captured in a short phrase. His is a composite character, made of many virtues. Where the sciences are mentioned, he holds a leading place; where the arts are mentioned, he holds a share of mastery. In medicine he gives proof of skill and precision; in literature he shows the brilliance of eloquence and the authority of the pen; in poetry he brings a breath like light travelling through the night; and in art and painting he has the hand of an image-maker who makes colour speak, sets the line free and awakens in the picture a glow of captivating beauty.",
@@ -174,9 +185,11 @@
      },
      {
        "h": "Languages and artistic abilities",
-       "p": [
-         "He speaks five languages fluently: Arabic, Russian, Ukrainian, German and Italian.",
-         "Alongside his medicine and his writing, he is a visual artist and an athlete. He uses painting and sport together to strengthen focus and build inner balance, combining physical strength with artistic imagination, and disciplined movement with sensitivity of feeling.",
+       "cards": [
+         { "h": "Languages", "p": "He speaks five languages fluently: Arabic, Russian, Ukrainian, German and Italian." },
+         { "h": "Art and sport", "p": "Alongside his medicine and his writing, he is a visual artist and an athlete. He uses painting and sport together to strengthen focus and build inner balance, combining physical strength with artistic imagination, and disciplined movement with sensitivity of feeling." }
+       ],
+       "end": [
          "This rich career shows that Yousef Ahmad Al-Maiari has made science more than food for the mind and art more than an ornament for the soul: he has made them two wings on which a person can rise towards creativity and reform, meaning and lasting impact. For him, joining medicine and thought, the pen and the brush, is neither a luxury nor a pastime, but a covenant of the spirit and the conviction of a soul that chose to unite the light of insight with the beauty of the image, the majesty of truth with the grace of expression. In his hands science softens without losing its firmness, and art finds order without losing its life, until the two meet in one harmony where precision is reconciled with beauty and reason with taste. His mind stays bright, his heart sensitive, his influence lasting and his memory ever renewed. His life then becomes not a story to be told but an example to follow; not words to be spoken but a value that gives life meaning, a vision that awakens awareness, and proof that a person who builds himself honestly can turn his knowledge into mercy, his art into wisdom and his life into a legacy that endures."
        ]
      },

@@ -1,0 +1,66 @@
+/* Stage 5 additions: organised biography layout (summary, contents, sections). Does not touch style.css. */
+
+/* "At a glance" checklist in the page header (components/page-head.njk, headList). */
+.glance{margin-top:1.8rem}
+.glance-h{font-family:var(--f-type);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin:0 0 .7rem}
+[dir=rtl] .glance-h{font-family:var(--f-ar);font-size:1rem;letter-spacing:0;font-weight:700}
+.checklist{list-style:none;margin:0;padding:0;display:grid;gap:.55rem}
+.checklist li{position:relative;padding-inline-start:2rem;line-height:1.5}
+.checklist li::before{content:"";position:absolute;inset-inline-start:0;top:.2em;width:1.2rem;height:1.2rem;border-radius:50%;background:var(--gold) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M4 8.5l2.6 2.6L12 5.6' fill='none' stroke='%23f4ecd8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/80% no-repeat}
+[dir=rtl] .checklist li::before{top:.35em}
+
+/* Contents box. */
+.bio-page .pagehead{margin-bottom:2.8rem}
+nav.bio-toc{display:block;padding-block:1.4rem 1.5rem}
+nav.bio-toc a,[dir=rtl] nav.bio-toc a{font-family:inherit;font-size:inherit;letter-spacing:0}
+.bio-toc{border-block:1px solid color-mix(in srgb,var(--ink) 22%,transparent);padding:1.4rem 0 1.5rem;margin-bottom:1rem}
+.bio-toc-h{font-family:var(--f-type);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin:0 0 .8rem}
+[dir=rtl] .bio-toc-h{font-family:var(--f-ar);font-size:1rem;letter-spacing:0;font-weight:700}
+.bio-toc ol{margin:0;padding-inline-start:1.4rem;columns:2;column-gap:3rem}
+[dir=rtl] .bio-toc ol{list-style-type:arabic-indic}
+.bio-toc li{break-inside:avoid;margin-bottom:.3rem}
+.bio-toc li::marker{color:var(--gold)}
+.bio-toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--ink) 25%,transparent)}
+.bio-toc a:hover,.bio-toc a:focus-visible{color:var(--lapis);border-bottom-color:var(--lapis)}
+
+/* Sections: one reading column, separated by a thin rule. */
+.bio{max-width:70ch}
+.bio-page .bio-part{padding:2.6rem 0 0;margin:2.6rem 0 0;border-top:1px solid color-mix(in srgb,var(--ink) 15%,transparent)}
+.bio-page .bio-part:first-child{border-top:0;margin-top:1.4rem;padding-top:0}
+.bio-page .bio-part h2{font-size:clamp(1.45rem,3.4vw,1.9rem);margin:0 0 1.2rem;scroll-margin-top:5rem}
+[dir=rtl] .bio-page .bio-part h2{font-size:clamp(1.6rem,3.8vw,2.1rem)}
+.bio-intro p:first-child{font-size:1.12em;line-height:1.65}
+[dir=rtl] .bio-intro p:first-child{line-height:1.9}
+
+/* Bulleted list (memberships). */
+.bio-page .bio-list{list-style:none;padding:0}
+.bio-page .bio-list li{position:relative;padding-inline-start:1.4rem;margin-bottom:.45rem}
+.bio-page .bio-list li::before{content:"";position:absolute;inset-inline-start:.2rem;top:.72em;width:.42rem;height:.42rem;border-radius:50%;background:var(--gold)}
+
+/* Works: two-column numbered list with a "forthcoming" tag. */
+.bio-page .bio-works{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem 2.4rem;padding-inline-start:1.6rem;max-width:none}
+.bio-page .bio-works li{margin:0;line-height:1.5}
+.bio-page .bio-works li::marker{color:var(--gold)}
+.bio-page .bio-works .soon{display:inline-block;margin-inline-start:.35rem;padding:0 .5rem;border:1px solid color-mix(in srgb,var(--soft) 50%,transparent);border-radius:999px;font-size:.72em;line-height:1.6;vertical-align:.12em;color:var(--soft)}
+
+/* Languages / art & sport cards. */
+.bio-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem;margin:0 0 1.6rem}
+.bio-card{background:color-mix(in srgb,var(--paper2) 70%,transparent);border:1px solid color-mix(in srgb,var(--ink) 12%,transparent);padding:1.2rem 1.3rem}
+.bio-card h3{font-family:var(--f-en);font-weight:600;font-size:1.2rem;margin:0 0 .5rem}
+[dir=rtl] .bio-card h3{font-family:var(--f-ar);font-weight:700;font-size:1.2rem}
+.bio .bio-card p{margin:0;font-size:.95em}
+
+/* Reading list: two columns, title over author. */
+.bio-page .bio-books{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem 2.4rem}
+.bio-page .bio-books li{margin:0;padding-inline-start:.9rem;border-inline-start:2px solid color-mix(in srgb,var(--gold) 60%,transparent);line-height:1.45}
+.bio-page .bio-books cite{display:block}
+.bio-books .by{display:block;color:var(--soft);font-size:.88em}
+
+.bio-top{margin:1.4rem 0 0;font-family:var(--f-type);font-size:.78rem}
+[dir=rtl] .bio-top{font-family:var(--f-ar);font-size:.95rem}
+.bio-top a{color:var(--soft)}
+
+@media(max-width:700px){
+  .bio-toc ol{columns:1}
+  .bio-page .bio-works,.bio-cards,.bio-page .bio-books{grid-template-columns:1fr}
+}
