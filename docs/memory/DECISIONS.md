@@ -16,3 +16,4 @@ Format: - YYYY-MM-DD: <decision>. <reason>.
 - 2026-10-11: Biography laid out like jamesclear.com/about (user request): summary checklist + contents + ruled sections, all source text kept visible. Long pages stay readable without cutting client text.
 - 2026-10-11: Deploy via GitHub Actions (build on push to main), `_site/` stays gitignored. No manual deploy step; checks gate publishing.
 - 2026-10-12: Buttons restyled for visibility (users couldn't see the menu): solid ink fill, 44px targets, lapis hover, gold focus, CSS-only ☰/✕ icon (no new i18n text). Stage 6 CSS loads after per-page styles so it wins over them.
+- 2026-10-12: Text darkened on user feedback but must stay warm brown, never black/grey (user's explicit rule). Done by overriding `--ink`/`--soft` tokens in a stage CSS file, not editing style.css.

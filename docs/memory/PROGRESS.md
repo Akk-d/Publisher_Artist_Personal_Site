@@ -3,9 +3,11 @@ _Last updated: 2026-10-12_
 ## Current state
 - Stages 1–6 committed: Eleventy 3 site, Arabic at `/`, English at `/en/`, per-language pages, hreflang, sitemap, robots, legacy redirects, real images, per-page header photos (`heroes.json`), James Clear–style biography (Stage 5, `stage5-additions.css`), deploy workflow.
 - Stage 6 (`f817f23`): button renovation in `src/css/stage6-additions.css` (loaded last in `base.njk`): solid ink mobile menu button with CSS ☰/✕ icon and lapis open state, framed open-menu panel, segmented language switcher, larger `.btn`/`.btn.ghost` with offset shadow (RTL-aware), outlined "Back to top" with ↑. Build + check pass; checked ar/en, desktop + mobile.
+- Stage 7 (`e65bd9a`): darker text per user feedback, still brown: `--ink` #2a2118→#241a10, `--soft` #5b4c38→#45372a (contrast on paper 10.6:1 / 7.1:1) in `stage7-additions.css`. Build + check pass. If still too light, next step ~#3d3024 for `--soft`.
 - Stub sections ("coming soon"): qualifications, herbal medicine, publications.
 - `site.js` has `preview: true` (shows "Design preview" banner).
 ## To confirm with user
+- New untracked photo `my-content/dr_photos/Pasted 2026-10-12 at 2.26.53 AM.heic` (added by user): not yet used on the site.
 - Wording of the "At a glance" lines and card titles (ar + en), written by Claude from Bio.pdf facts.
 - Whether to fold the 10-paragraph intro behind "Read more" (currently all visible).
 - "قيد الصدور" assigned to جمهورية الأقنعة ج2 (it sat on its own line in the PDF).

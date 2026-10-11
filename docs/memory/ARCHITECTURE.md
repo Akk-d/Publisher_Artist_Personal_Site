@@ -16,7 +16,7 @@
 - `src/_includes/layouts/base.njk`: HTML shell.
 - `src/_includes/components/`: header, footer, seo-head, viewer (painting lightbox), section-stub, page-head (title + header photo + optional `headList` checklist), macros.
 - `src/legacy.njk`, `src/sitemap.njk`, `src/robots.njk`: redirects, sitemap.xml, robots.txt.
-- `src/css/style.css`: prototype design (don't edit); `stage2-additions.css`, `stage3-additions.css`, `stage4-additions.css` (page header photos, biography), `stage5-additions.css` (biography layout: glance checklist, contents, cards, 2-col lists), `stage6-additions.css` (site-wide buttons: menu toggle, lang switcher, .btn, back-to-top; loaded last in base.njk), `home.css`: additions.
+- `src/css/style.css`: prototype design (don't edit); `stage2-additions.css`, `stage3-additions.css`, `stage4-additions.css` (page header photos, biography), `stage5-additions.css` (biography layout: glance checklist, contents, cards, 2-col lists), `stage6-additions.css` (site-wide buttons: menu toggle, lang switcher, .btn, back-to-top), `stage7-additions.css` (darker brown `--ink`/`--soft` token overrides; loaded last in base.njk), `home.css`: additions.
 - `src/js/`: `nav.js` (menu), `viewer.js` (painting viewer), `home-bg.js` (home background).
 - `src/assets/images/{books,dr,paintings}/`: site images.
 - `tools/check-site.mjs`: post-build checks on `_site/`.
