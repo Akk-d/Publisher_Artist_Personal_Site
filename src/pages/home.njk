@@ -12,8 +12,8 @@ scripts: ["/js/viewer.js", "/js/home-bg.js"]
 <div class="wrap hero">
  <div class="reveal"><div class="kicker">{{ t.kick }}</div><h1>{{ t.name }}</h1>
   <svg class="ink-line" viewBox="0 0 340 18" fill="none" aria-hidden="true"><path d="M2 12 C60 2, 110 16, 170 9 S290 4, 338 11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
-  <p class="lede">{{ t.lede }}</p>
-  <figure class="lede-photo"><img src="{{ '/assets/images/dr/standing.jpg' | asset }}" width="960" height="1280" alt="{{ t.lede_photo_alt }}" fetchpriority="high"></figure></div>
+  <p class="lede">{{ t.lede }}</p><a class="btn hero-cta" href="{{ '/books/' | href(lang) }}">{{ t.cta }}</a>
+  <figure class="lede-photo"><img src="{{ '/assets/images/dr/standing.jpg' | asset }}" width="960" height="1280" alt="{{ t.lede_photo_alt }}" loading="lazy"></figure></div>
  <div class="prints" role="img" aria-label="{{ t.portrait_label }}"><div class="print b torn"><div class="ph"><img class="ph-img" src="{{ '/assets/images/dr/portrait.jpg' | asset }}" width="960" height="1280" alt=""></div></div><div class="print torn"><div class="ph"><img class="ph-img studio" src="{{ '/assets/images/dr/studio.jpg' | asset }}" width="1600" height="901" alt=""></div><div class="cap">{{ t.cap }}</div></div></div>
 </div></div>
 <section id="about" style="padding-top:1rem"><div class="wrap"><h2>{{ t.h_about }}</h2><p class="sub">{{ t.s_about }}</p>

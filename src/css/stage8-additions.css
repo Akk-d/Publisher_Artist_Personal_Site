@@ -1,5 +1,7 @@
-/* Stage 8: doctor photo under the home hero lede (replaces the "Explore the books" button). */
-.lede-photo{margin:1.75rem 0 0;max-width:300px;background:#efe6cf;padding:10px 10px 14px;box-shadow:0 8px 20px rgba(30,20,5,.3);transform:rotate(-1.2deg)}
-[dir=rtl] .lede-photo{transform:rotate(1.2deg)}
-.lede-photo img{display:block;width:100%;height:auto}
-@media(max-width:800px){.lede-photo{max-width:260px}}
+/* Stage 8: on mobile only, the doctor photo sits directly under the home hero lede and replaces the "Explore the books" button. Desktop keeps the original hero. */
+.lede-photo{display:none}
+@media(max-width:800px){
+  .hero .hero-cta{display:none}
+  .lede-photo{display:block;margin:1rem 0 0;max-width:260px;background:#efe6cf;padding:10px;box-shadow:0 8px 20px rgba(30,20,5,.3)}
+  .lede-photo img{display:block;width:100%;height:auto}
+}
