@@ -14,9 +14,9 @@
 - `src/pages/*.njk`: one template per page type (home, books, book, paintings, biography, qualifications, herbal-medicine, publications).
 - `src/pages/pages.11tydata.js`: ROUTES, permalink, title, description, canonical, hreflang.
 - `src/_includes/layouts/base.njk`: HTML shell.
-- `src/_includes/components/`: header, footer, seo-head, viewer (painting lightbox), section-stub, page-head (title + header photo), macros.
+- `src/_includes/components/`: header, footer, seo-head, viewer (painting lightbox), section-stub, page-head (title + header photo + optional `headList` checklist), macros.
 - `src/legacy.njk`, `src/sitemap.njk`, `src/robots.njk`: redirects, sitemap.xml, robots.txt.
-- `src/css/style.css`: prototype design (don't edit); `stage2-additions.css`, `stage3-additions.css`, `stage4-additions.css` (page header photos, biography), `home.css`: additions.
+- `src/css/style.css`: prototype design (don't edit); `stage2-additions.css`, `stage3-additions.css`, `stage4-additions.css` (page header photos, biography), `stage5-additions.css` (biography layout: glance checklist, contents, cards, 2-col lists), `home.css`: additions.
 - `src/js/`: `nav.js` (menu), `viewer.js` (painting viewer), `home-bg.js` (home background).
 - `src/assets/images/{books,dr,paintings}/`: site images.
 - `tools/check-site.mjs`: post-build checks on `_site/`.

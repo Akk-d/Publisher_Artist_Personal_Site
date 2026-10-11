@@ -13,3 +13,4 @@ Format: - YYYY-MM-DD: <decision>. <reason>.
 - 2026-10-11: `my-content/` is the committed source of truth for content; `my-content.zip` removed as a duplicate. One canonical place for the client's material.
 - 2026-10-11: Page header photos use only the client's own photos (no generated images), mapped per page in `heroes.json`; pages without a fitting photo get none (herbal medicine). Keep imagery authentic.
 - 2026-10-11: Long-form content (biography) stored in i18n as structured arrays (`bio.intro`, `bio.parts[]` with p/list/works/books), Arabic keeping the source's full diacritics; English is a Claude translation approved by the user. Keeps all text in i18n while letting templates loop.
+- 2026-10-11: Biography laid out like jamesclear.com/about (user request): summary checklist + contents + ruled sections, all source text kept visible. Long pages stay readable without cutting client text.
