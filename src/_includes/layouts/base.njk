@@ -13,6 +13,7 @@
 {%- for css in styles %}
 <link rel="stylesheet" href="{{ css | asset }}">
 {%- endfor %}
+<link rel="stylesheet" href="{{ '/css/stage6-additions.css' | asset }}">
 </head>
 <body>
 {% include "components/header.njk" %}

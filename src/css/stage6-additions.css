@@ -1,0 +1,47 @@
+/* Stage 6: button renovation (users found the menu button hard to see).
+   Same palette as the prototype: ink fill, paper text, lapis hover, gold focus ring.
+   Shared: 44px touch target, 1.5px border, slight lift on hover. style.css is not modified. */
+
+/* ---- shared base ---- */
+.btn,#menu,.lang a,.bio-top a{transition:background-color .2s ease,color .2s ease,border-color .2s ease,box-shadow .2s ease,transform .2s ease;-webkit-tap-highlight-color:transparent}
+.btn:focus-visible,#menu:focus-visible,.lang a:focus-visible,.bio-top a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* ---- primary / ghost buttons ---- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:46px;padding:.7rem 1.7rem;border:1.5px solid var(--ink);border-radius:2px;line-height:1.2;box-shadow:3px 3px 0 color-mix(in srgb,var(--ink) 22%,transparent)}
+[dir=rtl] .btn{box-shadow:-3px 3px 0 color-mix(in srgb,var(--ink) 22%,transparent)}
+.btn:hover{background:var(--lapis);border-color:var(--lapis);color:#fff;transform:translateY(-1px)}
+.btn:active{transform:translateY(1px);box-shadow:none}
+.btn.ghost{background:color-mix(in srgb,var(--paper2) 55%,transparent);color:var(--ink);border-color:var(--ink)}
+.btn.ghost:hover{background:var(--lapis);border-color:var(--lapis);color:#fff}
+
+/* ---- language switcher ---- */
+.lang{gap:0;border:1.5px solid var(--ink);border-radius:2px}
+.lang a,[dir=rtl] .lang a{min-height:40px;min-width:44px;justify-content:center;padding:.25rem .8rem;border:0;font-size:.85rem;font-weight:600;color:var(--ink);background:color-mix(in srgb,var(--paper2) 55%,transparent)}
+.lang a+a{border-inline-start:1.5px solid var(--ink)}
+.lang a[aria-current=true]{border:0;background:var(--ink);color:var(--paper)}
+.lang a+a[aria-current=true]{border-inline-start:1.5px solid var(--ink)}
+.lang a:not([aria-current]):hover{background:var(--lapis);color:#fff}
+
+/* ---- mobile menu button (shown ≤800px by style.css) ---- */
+#menu{position:relative;display:none;align-items:center;gap:.6rem;min-height:44px;padding:.45rem 1rem;border:1.5px solid var(--ink);border-radius:2px;background:var(--ink);color:var(--paper);font-size:.9rem;font-weight:600;letter-spacing:.06em;box-shadow:2px 2px 0 color-mix(in srgb,var(--ink) 25%,transparent)}
+[dir=rtl] #menu{font-family:var(--f-ar);font-size:1.05rem;letter-spacing:0;box-shadow:-2px 2px 0 color-mix(in srgb,var(--ink) 25%,transparent)}
+/* hamburger icon drawn in CSS; turns into ✕ when open */
+#menu::before{content:"";width:18px;height:2px;flex:none;background:currentColor;box-shadow:0 -6px 0 currentColor,0 6px 0 currentColor;transition:transform .2s ease,box-shadow .2s ease}
+#menu::after{content:"";position:absolute;inset-inline-start:1rem;top:50%;width:18px;height:2px;margin-top:-1px;background:currentColor;transform:rotate(-45deg);opacity:0;transition:opacity .2s ease}
+#menu[aria-expanded=true]{background:var(--lapis);border-color:var(--lapis);color:#fff}
+#menu[aria-expanded=true]::before{box-shadow:none;transform:rotate(45deg)}
+#menu[aria-expanded=true]::after{opacity:1}
+#menu:hover{background:var(--lapis);border-color:var(--lapis);color:#fff}
+@media(max-width:800px){
+ #menu{display:inline-flex}
+ nav .links.open{background:color-mix(in srgb,var(--paper2) 45%,transparent);border-top:2px solid var(--gold);margin-top:.4rem;padding-inline:.8rem}
+ nav .links.open a:first-child{border-top:0}
+ .btn{display:flex;width:100%}
+}
+
+/* ---- "Back to top" (biography) ---- */
+.bio-top a{display:inline-flex;align-items:center;gap:.4rem;min-height:40px;padding:.3rem .9rem;border:1.5px solid color-mix(in srgb,var(--ink) 55%,transparent);border-radius:2px;color:var(--ink);text-decoration:none}
+.bio-top a::before{content:"↑"}
+.bio-top a:hover{background:var(--lapis);border-color:var(--lapis);color:#fff}
+
+@media(prefers-reduced-motion:reduce){.btn,#menu,.lang a,.bio-top a,#menu::before,#menu::after{transition:none}.btn:hover{transform:none}}
