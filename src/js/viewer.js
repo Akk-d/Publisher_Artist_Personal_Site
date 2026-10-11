@@ -22,6 +22,8 @@
     V.i = (i + frames.length) % frames.length; V.s = 1; V.x = V.y = 0;
     const f = frames[V.i];
     vs.innerHTML = f.querySelector('svg,img').outerHTML;
+    const im = vs.querySelector('img');
+    if (im) { im.removeAttribute('loading'); if (im.dataset.full) im.src = im.dataset.full; }  // zoom uses the full-size file
     $('#vcap').textContent = f.querySelector('figcaption').textContent;
     draw();
   }

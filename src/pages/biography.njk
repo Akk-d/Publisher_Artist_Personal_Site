@@ -2,7 +2,8 @@
 layout: layouts/base.njk
 pageKey: bio
 navKey: bio
-secKey: bio
 pagination: { data: entries.bio, size: 1, alias: entry, addAllPagesToCollections: true }
 ---
-{% include "components/section-stub.njk" %}
+<main><section><div class="wrap"><h1 class="page-title">{{ t.sections.bio.h }}</h1><p class="sub">{{ t.sections.bio.sub }}</p>
+<div class="snaps">{% for ph in drphotos %}<figure class="snap"><img src="{{ ('/assets/images/dr/' + ph.key + '.jpg') | asset }}" width="{{ ph.w }}" height="{{ ph.h }}" alt="{{ t.photos[ph.key].alt }}"{% if not loop.first %} loading="lazy"{% endif %}><figcaption>{{ t.photos[ph.key].cap }}</figcaption></figure>{% endfor %}</div>
+<p class="sub">{{ t.sections.soon }}</p></div></section></main>

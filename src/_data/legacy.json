@@ -1,7 +1,7 @@
 [
   { "from": "books.html",     "to": "/books/" },
-  { "from": "book-1.html",    "to": "/books/book-1/" },
-  { "from": "book-2.html",    "to": "/books/book-2/" },
-  { "from": "book-3.html",    "to": "/books/book-3/" },
+  { "from": "book-1.html",    "to": "/books/nahr-al-ishq-wa-bahr-al-gharam/" },
+  { "from": "book-2.html",    "to": "/books/ala-jidar-al-zaman/" },
+  { "from": "book-3.html",    "to": "/books/dostori/" },
   { "from": "paintings.html", "to": "/paintings/" }
 ]

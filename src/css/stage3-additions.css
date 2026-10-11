@@ -1,0 +1,19 @@
+/* Stage 3 additions: real images. Does not touch style.css. */
+.cover-img{display:block;width:100%;max-width:230px;height:auto;margin:0 auto;box-shadow:8px 10px 0 rgba(30,20,5,.25),0 14px 24px rgba(30,20,5,.3);transition:transform .2s}
+a.book:hover .cover-img{transform:translateY(-6px)}
+.bookpg .cover-img{max-width:320px;position:sticky;top:6rem}
+.frame img{display:block;width:100%;height:auto}
+#vs img{max-width:92vw;max-height:80vh;width:auto;height:auto;box-shadow:0 20px 60px #000;pointer-events:none}
+.ph .ph-img{display:block;width:100%;height:100%;object-fit:cover}
+.ph .ph-img.studio{object-position:62% 50%}
+.snaps{display:grid;grid-template-columns:repeat(2,1fr);gap:1.8rem;margin-bottom:2rem}
+.snap{margin:0;background:#efe6cf;padding:10px 10px 38px;box-shadow:0 8px 20px rgba(30,20,5,.3);position:relative}
+.snap:last-child{grid-column:1/-1}
+.snap img{display:block;width:100%;height:auto}
+.snap figcaption{position:absolute;bottom:8px;inset-inline:10px;text-align:center;font-family:var(--f-type);font-size:.78rem;color:#3a2f20}
+[dir=rtl] .snap figcaption{font-family:var(--f-ar);font-size:1rem}
+@media(max-width:800px){.bookpg .cover-img{position:static;max-width:240px}.snaps{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.cover-img{transition:none}}
+/* The real name is much longer than the placeholder, so the hero title is scaled down. */
+.hero h1{font-size:clamp(2.1rem,4.6vw,3.7rem)}
+.bookpg h1{font-size:clamp(1.9rem,4vw,3.2rem)}

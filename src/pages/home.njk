@@ -13,11 +13,11 @@ scripts: ["/js/viewer.js", "/js/home-bg.js"]
  <div class="reveal"><div class="kicker">{{ t.kick }}</div><h1>{{ t.name }}</h1>
   <svg class="ink-line" viewBox="0 0 340 18" fill="none" aria-hidden="true"><path d="M2 12 C60 2, 110 16, 170 9 S290 4, 338 11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
   <p class="lede">{{ t.lede }}</p><a class="btn" href="{{ '/books/' | href(lang) }}">{{ t.cta }}</a></div>
- <div class="prints" role="img" aria-label="{{ t.portrait_label }}"><div class="print b torn"><div class="ph"></div></div><div class="print torn"><div class="ph"><span>{{ t.ph | safe }}</span></div><div class="cap">{{ t.cap }}</div></div></div>
+ <div class="prints" role="img" aria-label="{{ t.portrait_label }}"><div class="print b torn"><div class="ph"><img class="ph-img" src="{{ '/assets/images/dr/portrait.jpg' | asset }}" width="960" height="1280" alt=""></div></div><div class="print torn"><div class="ph"><img class="ph-img studio" src="{{ '/assets/images/dr/studio.jpg' | asset }}" width="1600" height="901" alt=""></div><div class="cap">{{ t.cap }}</div></div></div>
 </div></div>
 <section id="about" style="padding-top:1rem"><div class="wrap"><h2>{{ t.h_about }}</h2><p class="sub">{{ t.s_about }}</p>
  <div class="about"><div><p class="drop">{{ t.a1 }}</p></div><div><p>{{ t.a2 }}</p></div></div></div></section>
 <section id="books" style="padding-top:1rem"><div class="wrap"><h2>{{ t.h_books }}</h2><p class="sub">{{ t.s_books }}</p><div class="shelf">{% for b in books %}{{ bookCard(b, t.books[b.slug], lang) }}{% endfor %}</div><p class="more"><a class="btn ghost" href="{{ '/books/' | href(lang) }}">{{ t.all_books }}</a></p></div></section>
-<section id="paintings" class="paint"><div class="wrap"><h2>{{ t.h_paint }}</h2><p class="sub">{{ t.s_paint2 }}</p><div class="gal">{% for p in paintings %}{{ paintingFrame(p, t.paintings[p.id]) }}{% endfor %}</div><p class="more"><a class="btn ghost" href="{{ '/paintings/' | href(lang) }}">{{ t.all_paint }}</a></p></div></section>
-<section><div class="wrap"><blockquote><span>{{ t.q }}</span><cite>{{ t.qc }}</cite></blockquote></div></section>
+<section id="paintings" class="paint"><div class="wrap"><h2>{{ t.h_paint }}</h2><p class="sub">{{ t.s_paint2 }}</p><div class="gal">{% for p in paintings %}{{ paintingFrame(p, t.paintings[p.id], t.palt[p.id]) }}{% endfor %}</div><p class="more"><a class="btn ghost" href="{{ '/paintings/' | href(lang) }}">{{ t.all_paint }}</a></p></div></section>
+{% if t.q %}<section><div class="wrap"><blockquote><span>{{ t.q }}</span><cite>{{ t.qc }}</cite></blockquote></div></section>{% endif %}
 </main>

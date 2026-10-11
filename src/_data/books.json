@@ -1,5 +1,5 @@
 [
-  { "slug": "book-1", "cover": "c1", "year": "2026", "publisher": "[Publisher]", "pages": "240", "isbn": "[ISBN]" },
-  { "slug": "book-2", "cover": "c2", "year": "2022", "publisher": "[Publisher]", "pages": "312", "isbn": "[ISBN]" },
-  { "slug": "book-3", "cover": "c3", "year": "2018", "publisher": "[Publisher]", "pages": "188", "isbn": "[ISBN]" }
+  {"slug": "nahr-al-ishq-wa-bahr-al-gharam", "image": "/assets/images/books/nahr-al-ishq-wa-bahr-al-gharam.jpg", "w": 671, "h": 936, "year": "", "pages": "", "isbn": "", "buy": "", "excerpt": ""},
+  {"slug": "ala-jidar-al-zaman", "image": "/assets/images/books/ala-jidar-al-zaman.jpg", "w": 564, "h": 784, "year": "", "pages": "", "isbn": "", "buy": "", "excerpt": ""},
+  {"slug": "dostori", "image": "/assets/images/books/dostori.jpg", "w": 846, "h": 1182, "year": "", "pages": "", "isbn": "", "buy": "", "excerpt": ""}
 ]

@@ -7,4 +7,4 @@ hasViewer: true
 scripts: ["/js/viewer.js"]
 ---
 {% from "components/macros.njk" import paintingFrame %}
-<main><section class="paint" style="border-top:0"><div class="wrap"><h1 class="page-title">{{ t.h_paint }}</h1><p class="sub">{{ t.s_paint2 }}</p><div class="gal2">{% for p in paintings %}{{ paintingFrame(p, t.paintings[p.id]) }}{% endfor %}</div></div></section></main>
+<main><section class="paint" style="border-top:0"><div class="wrap"><h1 class="page-title">{{ t.h_paint }}</h1><p class="sub">{{ t.s_paint2 }}</p><div class="gal2">{% for p in paintings %}{{ paintingFrame(p, t.paintings[p.id], t.palt[p.id]) }}{% endfor %}</div></div></section></main>
