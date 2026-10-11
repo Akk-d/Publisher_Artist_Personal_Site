@@ -1,19 +1,24 @@
 # Progress
 _Last updated: 2026-10-11_
 ## Current state
-- Stage 1–3 committed: Eleventy 3 site, Arabic at `/`, English at `/en/`, per-language pages, hreflang, sitemap, robots, legacy `.html` redirects.
-- Sections live: home, books (+ one page per book), paintings (with viewer), biography.
+- Stages 1–3 committed: Eleventy 3 site, Arabic at `/`, English at `/en/`, per-language pages, hreflang, sitemap, robots, legacy `.html` redirects, real images.
+- Stage 4 (uncommitted, build + check pass):
+  - `my-content/` is the source of truth (rule in CLAUDE.md); `my-content.zip` deleted.
+  - Biography page shows the full `Bio.pdf` content (i18n `bio`, ar + en translation): intro, academic, medical, literary, 17 works (3 linked to book pages, 3 marked forthcoming), languages/arts, reading list (36 books).
+  - Header photo per page via `heroes.json` + `components/page-head.njk`: books=reading, paintings=studio, bio/qualifications/publications=portrait (writing); herbal has none (user said drop the flowers painting).
+  - Preview banner no longer lists the biography as placeholder.
 - Stub sections ("coming soon"): qualifications, herbal medicine, publications.
 - `site.js` has `preview: true` (shows "Design preview" banner).
-## In progress
-- Uncommitted: real images (`src/assets/images/{books,dr,paintings}`, `drphotos.json`, `stage3-additions.css`) wired into books, book, paintings, home, biography; i18n ar/en, books.json, legacy.json, paintings.js updated.
-- `my-content/` + `my-content.zip` (raw source material from the client) untracked; not yet decided whether to commit or gitignore.
+## To confirm with user
+- "قيد الصدور" assigned to جمهورية الأقنعة ج2 (it sat on its own line in the PDF).
+- Source fixes: "مِنْهَجُ"→"مَنْهَجُ" in دستوري; stray "ن" before التحصيل removed.
 ## Next up
-1. Verify and commit the real-images work (`npm run build && npm run check`).
-2. Fill stub sections from `my-content/` (qualifications, herbal-medicine, publications are empty so far; biography has `Bio.pdf`).
-3. Home & contact content (`my-content/home-and-contact/` empty).
-4. Before launch: set `preview: false`, set real domain in `lib/urls.js`, replace "Dr. [Name]" placeholder.
+1. Commit Stage 4.
+2. Qualifications page: could reuse the academic part of the bio (degrees) until `my-content/qualifications/` has material.
+3. Herbal medicine, publications: wait for content in `my-content/`.
+4. Home & contact content (`my-content/home-and-contact/` empty).
+5. Before launch: `preview: false`, real domain in `lib/urls.js`, decide name form ("يوسف بن أحمد" on site vs "يوسف أحمد" in Bio.pdf), replace "Dr. [Name]" placeholders.
 ## Known issues
-- No TODO/FIXME comments in code.
 - README title still "Dr. [Name]" placeholder and says "Stage 2".
-- `/wrapup` runs `git add -A`: would commit `my-content.zip` and `my-content/` unless gitignored.
+- An old server may hold port 8080; preview config uses 8091.
+- User's `!` shell in Claude doesn't load nvm (`~/.zshrc`); run npm in a real terminal or `source ~/.nvm/nvm.sh` first.

@@ -9,6 +9,7 @@ Multilingual (Arabic default, English) static personal site for a doctor, author
 
 ## Conventions
 - Node ESM (`"type": "module"`); templates are Nunjucks (`.njk`).
+- `my-content/` is the source of truth for content (client PDFs, photos). Site text and images are derived from it; when they disagree, `my-content/` wins. Never edit or delete files there.
 - All user-facing text lives in `src/_data/i18n/{ar,en}.json`; never hard-code text in templates. Keep both files in sync (same keys).
 - Book facts in `src/_data/books.json`; book titles/descriptions in i18n under `books.<slug>`.
 - Languages, domain and base path only in `lib/urls.js`. Always build links with filters: `href`, `asset`, `abs` (never raw `/...` paths) so `PATH_PREFIX` works.

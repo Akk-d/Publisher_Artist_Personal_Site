@@ -3,7 +3,16 @@ layout: layouts/base.njk
 pageKey: bio
 navKey: bio
 pagination: { data: entries.bio, size: 1, alias: entry, addAllPagesToCollections: true }
+styles: ["/css/stage4-additions.css"]
 ---
-<main><section><div class="wrap"><h1 class="page-title">{{ t.sections.bio.h }}</h1><p class="sub">{{ t.sections.bio.sub }}</p>
-<div class="snaps">{% for ph in drphotos %}<figure class="snap"><img src="{{ ('/assets/images/dr/' + ph.key + '.jpg') | asset }}" width="{{ ph.w }}" height="{{ ph.h }}" alt="{{ t.photos[ph.key].alt }}"{% if not loop.first %} loading="lazy"{% endif %}><figcaption>{{ t.photos[ph.key].cap }}</figcaption></figure>{% endfor %}</div>
-<p class="sub">{{ t.sections.soon }}</p></div></section></main>
+{#- Text comes from my-content/biography/Bio.pdf via i18n `bio`. -#}
+<main><section><div class="wrap">{% set headH = t.sections.bio.h %}{% set headSub = t.sections.bio.sub %}{% include "components/page-head.njk" %}
+<div class="bio">
+<div class="bio-intro">{% for p in t.bio.intro %}<p>{{ p }}</p>{% endfor %}</div>
+{% for part in t.bio.parts %}<section class="bio-part"><h2>{{ part.h }}</h2>
+{%- for p in part.p %}<p>{{ p }}</p>{% endfor %}
+{%- if part.list %}<ul class="bio-list">{% for li in part.list %}<li>{{ li }}</li>{% endfor %}</ul>{% endif %}
+{%- if part.works %}<ol class="bio-works">{% for w in part.works %}<li>{% if w.slug %}<a href="{{ ('/books/' + w.slug + '/') | href(lang) }}">{{ w.t }}</a>{% else %}{{ w.t }}{% endif %}{% if w.soon %} <span class="soon">({{ t.bio.soon }})</span>{% endif %}</li>{% endfor %}</ol>{% endif %}
+{%- if part.books %}<ul class="bio-books">{% for b in part.books %}<li><cite{% if b.l %} lang="{{ b.l }}" dir="ltr"{% endif %}>{{ b.t }}</cite>{{ t.bio.sep }}<span{% if b.l %} lang="{{ b.l }}" dir="ltr"{% endif %}>{{ b.a }}</span></li>{% endfor %}</ul>{% endif %}
+</section>
+{% endfor %}</div></div></section></main>

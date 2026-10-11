@@ -3,6 +3,7 @@ layout: layouts/base.njk
 pageKey: books
 navKey: books
 pagination: { data: entries.books, size: 1, alias: entry, addAllPagesToCollections: true }
+styles: ["/css/stage4-additions.css"]
 ---
 {% from "components/macros.njk" import bookCard %}
-<main><section><div class="wrap"><h1 class="page-title">{{ t.h_books }}</h1><p class="sub">{{ t.s_books }}</p><div class="shelf">{% for b in books %}{{ bookCard(b, t.books[b.slug], lang) }}{% endfor %}</div></div></section></main>
+<main><section><div class="wrap">{% set headH = t.h_books %}{% set headSub = t.s_books %}{% include "components/page-head.njk" %}<div class="shelf">{% for b in books %}{{ bookCard(b, t.books[b.slug], lang) }}{% endfor %}</div></div></section></main>

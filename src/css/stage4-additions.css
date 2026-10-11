@@ -1,0 +1,31 @@
+/* Stage 4 additions: page header photos and the full biography. Does not touch style.css. */
+
+/* Page header: title + sub beside a doctor photo (components/page-head.njk). */
+.pagehead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,280px);gap:2.5rem;align-items:center;margin-bottom:2.4rem}
+.pagehead.wide{grid-template-columns:minmax(0,1fr) minmax(0,420px)}
+.pagehead .sub{margin-bottom:0}
+.page-hero{margin:0;background:#efe6cf;padding:10px 10px 38px;box-shadow:0 8px 20px rgba(30,20,5,.3);position:relative;transform:rotate(1.6deg)}
+[dir=rtl] .page-hero{transform:rotate(-1.6deg)}
+.page-hero img{display:block;width:100%;height:auto}
+.page-hero figcaption{position:absolute;bottom:8px;inset-inline:10px;text-align:center;font-family:var(--f-type);font-size:.78rem;color:#3a2f20}
+[dir=rtl] .page-hero figcaption{font-family:var(--f-ar);font-size:1rem}
+
+/* Biography text (content from my-content/biography/Bio.pdf). */
+.bio{max-width:68ch}
+.bio p{margin:0 0 1.2rem}
+.bio-part{margin-top:2.8rem}
+.bio-part h2{font-size:clamp(1.5rem,4vw,2.2rem)}
+.bio-list,.bio-works,.bio-books{margin:0 0 1.2rem;padding-inline-start:1.4rem}
+.bio-works li,.bio-books li{margin-bottom:.35rem}
+.bio-works a{color:var(--lapis);text-underline-offset:.35em;text-decoration-thickness:1px}
+[dir=rtl] .bio-works{list-style-type:arabic-indic}
+.bio-works .soon{color:var(--soft);font-size:.9em}
+.bio-books cite{font-style:italic}
+[dir=rtl] .bio-books cite{font-style:normal;font-weight:700}
+.bio-books [lang]:not([lang=ar]){font-family:var(--f-en)}
+
+@media(max-width:800px){
+  .pagehead,.pagehead.wide{grid-template-columns:1fr;gap:1.8rem}
+  .page-hero{max-width:240px;justify-self:center}
+  .pagehead.wide .page-hero{max-width:380px}
+}

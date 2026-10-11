@@ -1,1 +1,1 @@
-<main><section><div class="wrap"><h1 class="page-title">{{ t.sections[secKey].h }}</h1><p class="sub">{{ t.sections[secKey].sub }}</p><p class="sub">{{ t.sections.soon }}</p></div></section></main>
+<main><section><div class="wrap">{% set headH = t.sections[secKey].h %}{% set headSub = t.sections[secKey].sub %}{% include "components/page-head.njk" %}<p class="sub">{{ t.sections.soon }}</p></div></section></main>

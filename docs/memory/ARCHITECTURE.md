@@ -14,14 +14,15 @@
 - `src/pages/*.njk`: one template per page type (home, books, book, paintings, biography, qualifications, herbal-medicine, publications).
 - `src/pages/pages.11tydata.js`: ROUTES, permalink, title, description, canonical, hreflang.
 - `src/_includes/layouts/base.njk`: HTML shell.
-- `src/_includes/components/`: header, footer, seo-head, viewer (painting lightbox), section-stub, macros.
+- `src/_includes/components/`: header, footer, seo-head, viewer (painting lightbox), section-stub, page-head (title + header photo), macros.
 - `src/legacy.njk`, `src/sitemap.njk`, `src/robots.njk`: redirects, sitemap.xml, robots.txt.
-- `src/css/style.css`: prototype design (don't edit); `stage2-additions.css`, `stage3-additions.css`, `home.css`: additions.
+- `src/css/style.css`: prototype design (don't edit); `stage2-additions.css`, `stage3-additions.css`, `stage4-additions.css` (page header photos, biography), `home.css`: additions.
 - `src/js/`: `nav.js` (menu), `viewer.js` (painting viewer), `home-bg.js` (home background).
 - `src/assets/images/{books,dr,paintings}/`: site images.
 - `tools/check-site.mjs`: post-build checks on `_site/`.
 - `prototype-original/`: frozen original HTML prototype. Never edit.
-- `my-content/`: raw client material (PDFs, photos) to turn into site content; not part of the build.
+- `my-content/`: source of truth for content (client PDFs, photos); committed, not part of the build. `biography/Bio.pdf` → i18n `bio`.
+- `src/_data/heroes.json`: which doctor photo (`drphotos.json` key) heads each page; rendered by `components/page-head.njk`.
 - `_site/`: build output (gitignored).
 
 ## Flow
@@ -31,3 +32,4 @@ data (`src/_data` + `lib/urls.js`) → `entries.js` × languages → `pages.11ty
 - `npm start` / `npm run build` → `eleventy.config.js`.
 - Routes: `/`, `/books/`, `/books/<slug>/`, `/paintings/`, `/biography/`, `/qualifications/`, `/herbal-medicine/`, `/publications/`; English under `/en/...`.
 - `npm run check` → `tools/check-site.mjs`.
+- `.claude/launch.json`: preview server config (Eleventy on port 8091).

@@ -1,5 +1,5 @@
 {
- "note":"Design preview — biography, book descriptions and painting titles are placeholders.",
+ "note":"Design preview — book descriptions and painting titles are placeholders.",
  "name":"Dr. Yousef bin Ahmad Al-Maiari",
  "menu":"Menu",
  "lang_label":"Language",
@@ -65,5 +65,289 @@
  "paintings":{"p1":"Untitled I","p2":"Untitled II","p3":"Untitled III","p4":"Untitled IV"},
  "soon_book":"Book description coming soon.",
  "palt":{"p1":"Painting of a white horse among pink flowers in a gold frame","p2":"Painting of a path between birch trees in a dark wooden frame","p3":"Painting of a vase of roses in an ornate gold frame","p4":"Painting of a canal between terracotta-roofed buildings, hung on a wall"},
- "photos":{"portrait":{"cap":"Writing","alt":"Dr. Yousef bin Ahmad Al-Maiari writing in a notebook at a table"},"reading":{"cap":"Reading","alt":"Dr. Yousef bin Ahmad Al-Maiari reading, with the book “On the Wall of Time” beside him"},"studio":{"cap":"In the studio","alt":"Dr. Yousef bin Ahmad Al-Maiari painting at an easel by a window"}}
+ "photos":{"portrait":{"cap":"Writing","alt":"Dr. Yousef bin Ahmad Al-Maiari writing in a notebook at a table"},"reading":{"cap":"Reading","alt":"Dr. Yousef bin Ahmad Al-Maiari reading, with the book “On the Wall of Time” beside him"},"studio":{"cap":"In the studio","alt":"Dr. Yousef bin Ahmad Al-Maiari painting at an easel by a window"}},
+ "bio":{
+   "soon": "forthcoming",
+   "sep": ", ",
+   "intro": [
+     "In the procession of great lives, among the bright halls of distinction, and in the records of those whose names do not pass like clouds but stand firm as mountains, shine like stars and take root like deep foundations, rises the name of the writer and author Yousef Ahmad Al-Maiari. It stands tall and unbending, and it shines as a great meaning shines when it is joined to virtue, when virtue is crowned by creativity, and when creativity is upheld by knowledge, refined by taste and guarded by dignity.",
+     "This is not a man who can be summed up by a single quality, confined to one title or captured in a short phrase. His is a composite character, made of many virtues. Where the sciences are mentioned, he holds a leading place; where the arts are mentioned, he holds a share of mastery. In medicine he gives proof of skill and precision; in literature he shows the brilliance of eloquence and the authority of the pen; in poetry he brings a breath like light travelling through the night; and in art and painting he has the hand of an image-maker who makes colour speak, sets the line free and awakens in the picture a glow of captivating beauty.",
+     "In medicine he is not merely a practitioner but a man of sight and insight, of thought and perception. He reads the body not only with the eye of the profession but with the eye of wisdom as well. He reaches the source of illness with an expert’s precision and seeks the paths of healing with a caring hand, uniting the exactness of science with the warmth of humanity, the rigour of diagnosis with sensitivity of feeling, and knowledge of the cause with attention to its effects. His horizon did not narrow before alternative and complementary medicine; it widened to embrace them with the depth of a dedicated researcher. He made of treatment an understanding, of care a kindness, of his profession a covenant, and of his experience a key to a world where the health of the body meets the calm of the soul, and where the wisdom of science embraces human compassion.",
+     "In literature he is a true man of letters. When he writes, the phrase shines in his hand like a polished gem; when he shapes a meaning, he dresses it in such beauty of wording and strength of composition that it gains splendour upon splendour and grace upon grace. His words do not fall loosely as they come, nor do they scatter like dry straw; they are strung on a tight thread and set in a measured order, until his prose becomes an architecture of meanings, a procession of forms, a garden of images and a season of significance. Reading him, you feel you are before a pen that does not merely write letters but opens a road for meaning, raises an edifice for ideas and lifts a banner for beauty.",
+     "In poetry he is a poet who does not borrow sensitivity; it flows from him. He does not force the glow; it springs from within. When his poetry runs, it runs like streams through a garden; when it glows, it glows like dawn at the edges of night; and when it touches hearts, it touches them as the breeze touches branches, moving them without harshness and filling them without noise. His verse has a tenderness that does not weaken, a strength that is never harsh, a beauty that does not break and a meaning that does not narrow. When he speaks, he does not merely utter words: he plants feelings. He does not just arrange lines: he builds atmospheres. He does not just make images: he paints scenes that stay in the memory long after the reading is done.",
+     "In art and painting he is an artist in whose breath colours turn into melodies, lines into echoes, and the canvas from a silent surface into a living being with an eye that sees, a heart that feels and a spirit that soars through the space of form. When he takes up colour, he holds it not as a tool but as a language; when he draws a line, he sends it not as a movement but as a pulse; and when he builds a painting, he builds it not only as a shape but as a vision and a symbol. It is as if in painting he were a poet without words, and in poetry a painter without colours. In both he reaches a depth of effect that turns reception into wonder, wonder into admiration, and admiration into insight.",
+     "The great secret of this remarkable character is that it rests neither on a cold collection of talents nor on a silent pile of qualities, but on a fertile harmony in which the faculties are ordered, the paths unite and differences fuse until they become one in appearance and one in essence. For him medicine is not one door, literature another and art a third; they are rivers flowing into one sea, branches rising from one trunk, and lights pouring from one lamp. His knowledge is blended with wisdom, his wisdom shaped by taste, his taste grounded in thought, and his thought adorned with feeling, until his character became a solid structure whose parts support one another, a lofty tower whose summit draws its strength from its base, and a radiant crown in which pearls of every colour and shape are set together.",
+     "So his career was never a passing success or a moment of distinction that fades, but a continuous ascent towards a complete form, a gradual building of values, and a steady climb towards peaks that rise and do not dim. He was not content to be successful; he aspired to be unique. He was not satisfied with being accomplished; he sought to be complete. He did not settle for having talent; he made it his aim to have a whole character, in which talent and profession are brothers, knowledge and inspiration embrace, thought and image intertwine, and work and beauty become one, until the self becomes a great unity with no division in its parts, no weakness in its joints and no disorder in its structure. He is, in short, not just a name to be written but a horizon to contemplate; not just a life to be told but a painting with gilded edges, bright colours and deep shadows; not just a man who combined different arts but one who made harmony from their differences and order from their diversity. His life shows that a person of high resolve, pure taste, broad mind and steady effort can unite the majesty of science with the beauty of art, the precision of craft with the splendour of the image, and the dignity of standing with the sweetness of lasting influence.",
+     "A figure of this stature deserves to have its story written in the ink of reverence, not in the passing ink of description, and to be told in a style worthy of it, not in words that fall short. For this is a character that is not simply mentioned and praised: it is cited as an example of completeness and held up as evidence of true talent. In it one sees how a person can rise from the limits of a specialty to a broad purpose, from mere success to a lasting legacy, and from excellence to uniqueness.",
+     "The writer and author Yousef Ahmad Al-Maiari is a towering figure: where knowledge is present, he brings its dignity; where literature is present, its splendour; where poetry is present, its radiance; and where art is present, its magic. Taken as a whole, his is a character crowned by knowledge, adorned with talent, grounded in experience and clothed in dignity. If it can be said of some people that they are repeated copies of the ordinary, then the truth about this man is that he is of a rare and fine kind: a beautiful weave, a shining example, a noble metal, a precious gem, a generous character, an upright path, a sound method, a lasting influence and a fragrant memory. His equal is rare, his worth undiminished, and his name does not pass by as passers-by do."
+   ],
+   "parts": [
+     {
+       "h": "Academic and scientific training",
+       "p": [
+         "The academic and scientific training of the writer and author Yousef Ahmad Al-Maiari rests on a solid foundation of structured study, multiple specialisations and a breadth of knowledge spanning health and therapy, management and development. His academic path is the picture of continuous effort, cumulative learning and a vision that does not stop at the borders of a single field.",
+         "He earned a doctorate in public health, combined with a specialisation in complementary natural medicine and herbal medicine. He holds the title of professor of natural herbal medicine and earned a second doctorate in the philosophy of natural therapy, reflecting his deep interest in the theoretical and practical foundations of treatment and his effort to connect medical knowledge with its philosophical horizon.",
+         "In management and human development his training broadened remarkably: he earned a doctorate in business administration and human resources and a research master’s degree in human development, as well as diplomas in human resources and development, in “triple power”, and in human energy. Together these give him a training that joins management in its organisational sense with development in its human sense, showing a wide horizon and a varied set of tools.",
+         "His qualifications did not remain theoretical. He has taken on professional, advisory and development roles, working as a family counsellor and a mental health specialist, as a legal adviser, and as a trainer of trainers in management consulting and human resources. This highlights the practical side of his work and shows that his experience was never confined to lecture halls and certificates, but extended into practice, service and real influence.",
+         "This academic and scientific training is therefore not only a list of qualifications. It reveals a person who made learning a path, knowledge a structure, and specialisation a bridge to a broader understanding of people: their health, their management, their awareness, their energy and their capacity to grow and rise."
+       ]
+     },
+     {
+       "h": "Medical and therapeutic achievements",
+       "p": [
+         "The writer and author Yousef Ahmad Al-Maiari is known for his specialisation in treating cancer and chronic diseases, combining modern medical methods with the long-established principles of alternative medicine and traditional herbal therapy. He founded a medical centre for research and studies in Ukraine, which provides consultations and treatment for complex conditions including cancer, multiple sclerosis, diabetes and neurological diseases.",
+         "He also received the gold medal in reproductive medicine and is a member of a number of respected international academic organisations and bodies, including:"
+       ],
+       "list": [
+         "The International Association of Alternative Medicine.",
+         "The International Academy of Natural Medicine.",
+         "The General Union of Arab Writers and Authors."
+       ]
+     },
+     {
+       "h": "Literary and intellectual achievements",
+       "p": [
+         "The writer and author Yousef Ahmad Al-Maiari holds a doctorate in Arabic language and literature and is regarded as one of the leading poetic and intellectual voices of his time, combining in his style the richness of the classical heritage with the vitality of the present. He is a member of the General Union of Arab Writers and Authors, his works have been translated into several languages, and he has left a clear mark on literature, poetry and humanistic thought, one that reflects mastery of expression and depth of vision."
+       ]
+     },
+     {
+       "h": "Literary works",
+       "works": [
+         {
+           "t": "Manifestations of Fatherhood in the Silence of Life"
+         },
+         {
+           "t": "Keys of Affection in the Locks of Life"
+         },
+         {
+           "t": "In the Cities of Devotion, Closeness Dwells"
+         },
+         {
+           "t": "In the Stillness of Words, Hearts Speak"
+         },
+         {
+           "t": "My Constitution… A Balance of the Heart and a Way of Life",
+           "slug": "dostori"
+         },
+         {
+           "t": "We Are the Origin of the Story"
+         },
+         {
+           "t": "Between the Lines… the Vision Beats"
+         },
+         {
+           "t": "In the Presence of Silence"
+         },
+         {
+           "t": "In the Realm of Freedom"
+         },
+         {
+           "t": "On the Wall of Time",
+           "slug": "ala-jidar-al-zaman"
+         },
+         {
+           "t": "A Word of Promise and a Banner of Closeness"
+         },
+         {
+           "t": "The River of Passion and the Sea of Love",
+           "slug": "nahr-al-ishq-wa-bahr-al-gharam"
+         },
+         {
+           "t": "The Height of Emotion and the Sovereignty of Love"
+         },
+         {
+           "t": "The Republic of Masks, Part One"
+         },
+         {
+           "t": "The Republic of Masks, Part Two",
+           "soon": true
+         },
+         {
+           "t": "The Majesty of Meaning in the Qur’an, Part One",
+           "soon": true
+         },
+         {
+           "t": "What We Leave Behind to Survive",
+           "soon": true
+         }
+       ]
+     },
+     {
+       "h": "Languages and artistic abilities",
+       "p": [
+         "He speaks five languages fluently: Arabic, Russian, Ukrainian, German and Italian.",
+         "Alongside his medicine and his writing, he is a visual artist and an athlete. He uses painting and sport together to strengthen focus and build inner balance, combining physical strength with artistic imagination, and disciplined movement with sensitivity of feeling.",
+         "This rich career shows that Yousef Ahmad Al-Maiari has made science more than food for the mind and art more than an ornament for the soul: he has made them two wings on which a person can rise towards creativity and reform, meaning and lasting impact. For him, joining medicine and thought, the pen and the brush, is neither a luxury nor a pastime, but a covenant of the spirit and the conviction of a soul that chose to unite the light of insight with the beauty of the image, the majesty of truth with the grace of expression. In his hands science softens without losing its firmness, and art finds order without losing its life, until the two meet in one harmony where precision is reconciled with beauty and reason with taste. His mind stays bright, his heart sensitive, his influence lasting and his memory ever renewed. His life then becomes not a story to be told but an example to follow; not words to be spoken but a value that gives life meaning, a vision that awakens awareness, and proof that a person who builds himself honestly can turn his knowledge into mercy, his art into wisdom and his life into a legacy that endures."
+       ]
+     },
+     {
+       "h": "The sources of my learning and how I read",
+       "p": [
+         "The value of reading is not measured by the number of pages we turn, but by the depth of the meanings we understand, the accuracy of the knowledge we gain and the soundness of the judgements we build. I have read these books in full, reflected on the knowledge, methods and experience they contain, and been influenced by much of what I found in them: careful research, breadth of view, beauty of expression and a deep portrayal of people and life.",
+         "But reading something does not mean endorsing it, and being influenced does not mean adopting it. Not everything that is read is accepted, and not everything that is beautifully worded is true. Listing these books is not an endorsement of all their contents, nor agreement with every word, opinion or idea in them. Whatever contradicts my faith and my principles I reject and do not follow: the fame of a speaker does not make his words true, and elegant phrasing does not make an error right.",
+         "This is my approach to reading Arabic and foreign books alike. I stress in particular that benefiting from foreign books does not mean accepting anything in them that contradicts our faith, our values and our good customs and traditions. Knowing an opinion is one thing; adopting it is another.",
+         "I read to understand and to discern, to benefit from what is right, to set aside what is wrong, and to grow in knowledge while staying true to my principles. Knowledge comes through learning, and thoughtful reading is one of its means; but reading alone is not enough to master a field or become qualified in it. Some of my reading is for study and learning, and some is for enjoyment and widening my horizons. Real mastery of a subject requires structured learning, careful understanding, patient review and turning to specialists where things are unclear. What counts is sound understanding, not the quantity of quotations; mastery of knowledge, not the number of books.",
+         "Among these books:"
+       ],
+       "books": [
+         {
+           "t": "Ithaf al-Sada al-Muttaqin bi-Sharh Ihya’ ‘Ulum al-Din",
+           "a": "by Muhammad Murtada al-Husayni al-Zabidi"
+         },
+         {
+           "t": "Taj al-‘Arus min Jawahir al-Qamus",
+           "a": "by Muhammad Murtada al-Husayni al-Zabidi"
+         },
+         {
+           "t": "Al-Qamus al-Muhit",
+           "a": "by Majd al-Din Muhammad ibn Ya‘qub al-Fayruzabadi al-Shirazi"
+         },
+         {
+           "t": "Basa’ir Dhawi al-Tamyiz fi Lata’if al-Kitab al-‘Aziz",
+           "a": "by Majd al-Din Muhammad ibn Ya‘qub al-Fayruzabadi"
+         },
+         {
+           "t": "Al-Bulgha fi Tarajim A’immat al-Nahw wa-l-Lugha",
+           "a": "by Majd al-Din Muhammad ibn Ya‘qub al-Fayruzabadi"
+         },
+         {
+           "t": "Al-Burhan fi ‘Ulum al-Qur’an",
+           "a": "by Badr al-Din Muhammad ibn ‘Abd Allah al-Zarkashi"
+         },
+         {
+           "t": "Al-Bahr al-Muhit fi Usul al-Fiqh",
+           "a": "by Badr al-Din Muhammad ibn ‘Abd Allah al-Zarkashi"
+         },
+         {
+           "t": "Al-Manthur fi al-Qawa‘id",
+           "a": "by Badr al-Din Muhammad ibn ‘Abd Allah al-Zarkashi"
+         },
+         {
+           "t": "I‘lam al-Sajid bi-Ahkam al-Masajid",
+           "a": "by Badr al-Din Muhammad ibn ‘Abd Allah al-Zarkashi"
+         },
+         {
+           "t": "Al-Itqan fi ‘Ulum al-Qur’an",
+           "a": "by Jalal al-Din ‘Abd al-Rahman ibn Abi Bakr al-Suyuti"
+         },
+         {
+           "t": "Al-Durr al-Manthur fi al-Tafsir bi-l-Ma’thur",
+           "a": "by Jalal al-Din ‘Abd al-Rahman ibn Abi Bakr al-Suyuti"
+         },
+         {
+           "t": "Al-Muzhir fi ‘Ulum al-Lugha wa-Anwa‘iha",
+           "a": "by Jalal al-Din ‘Abd al-Rahman ibn Abi Bakr al-Suyuti"
+         },
+         {
+           "t": "Ihya’ ‘Ulum al-Din",
+           "a": "by Abu Hamid Muhammad ibn Muhammad al-Ghazali"
+         },
+         {
+           "t": "Al-Mustasfa min ‘Ilm al-Usul",
+           "a": "by Abu Hamid Muhammad ibn Muhammad al-Ghazali"
+         },
+         {
+           "t": "Al-Iqtisad fi al-I‘tiqad",
+           "a": "by Abu Hamid Muhammad ibn Muhammad al-Ghazali"
+         },
+         {
+           "t": "Al-Minhaj Sharh Sahih Muslim ibn al-Hajjaj",
+           "a": "by Abu Zakariyya Yahya ibn Sharaf al-Nawawi"
+         },
+         {
+           "t": "Riyad al-Salihin",
+           "a": "by Abu Zakariyya Yahya ibn Sharaf al-Nawawi"
+         },
+         {
+           "t": "Al-Adhkar",
+           "a": "by Abu Zakariyya Yahya ibn Sharaf al-Nawawi"
+         },
+         {
+           "t": "Fath al-Bari Sharh Sahih al-Bukhari",
+           "a": "by Ahmad ibn ‘Ali ibn Hajar al-‘Asqalani"
+         },
+         {
+           "t": "Al-Isaba fi Tamyiz al-Sahaba",
+           "a": "by Ahmad ibn ‘Ali ibn Hajar al-‘Asqalani"
+         },
+         {
+           "t": "Jami‘ al-Bayan ‘an Ta’wil Ay al-Qur’an",
+           "a": "by Abu Ja‘far Muhammad ibn Jarir al-Tabari"
+         },
+         {
+           "t": "Al-Jami‘ li-Ahkam al-Qur’an",
+           "a": "by Abu ‘Abd Allah Muhammad ibn Ahmad al-Qurtubi"
+         },
+         {
+           "t": "Mufradat Alfaz al-Qur’an",
+           "a": "by Abu al-Qasim al-Husayn ibn Muhammad, known as al-Raghib al-Isfahani"
+         },
+         {
+           "t": "Al-Shifa bi-Ta‘rif Huquq al-Mustafa",
+           "a": "by Qadi Abu al-Fadl ‘Iyad ibn Musa al-Yahsubi"
+         },
+         {
+           "t": "Чорна рада",
+           "a": "Пантелеймон Куліш",
+           "l": "uk"
+         },
+         {
+           "t": "Перехресні стежки",
+           "a": "Іван Франко",
+           "l": "uk"
+         },
+         {
+           "t": "Кассандра",
+           "a": "Леся Українка",
+           "l": "uk"
+         },
+         {
+           "t": "Тіні забутих предків",
+           "a": "Михайло Коцюбинський",
+           "l": "uk"
+         },
+         {
+           "t": "Захар Беркут",
+           "a": "Іван Франко",
+           "l": "uk"
+         },
+         {
+           "t": "Decameron",
+           "a": "Giovanni Boccaccio",
+           "l": "it"
+         },
+         {
+           "t": "Le città invisibili",
+           "a": "Italo Calvino",
+           "l": "it"
+         },
+         {
+           "t": "Se questo è un uomo",
+           "a": "Primo Levi",
+           "l": "it"
+         },
+         {
+           "t": "Homo faber",
+           "a": "Max Frisch",
+           "l": "de"
+         },
+         {
+           "t": "Die Physiker",
+           "a": "Friedrich Dürrenmatt",
+           "l": "de"
+         },
+         {
+           "t": "Nineteen Eighty-Four",
+           "a": "George Orwell",
+           "l": "en"
+         },
+         {
+           "t": "A Room of One’s Own",
+           "a": "Virginia Woolf",
+           "l": "en"
+         }
+       ]
+     }
+   ]
+ }
 }
