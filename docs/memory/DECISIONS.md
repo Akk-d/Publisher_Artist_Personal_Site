@@ -15,3 +15,4 @@ Format: - YYYY-MM-DD: <decision>. <reason>.
 - 2026-10-11: Long-form content (biography) stored in i18n as structured arrays (`bio.intro`, `bio.parts[]` with p/list/works/books), Arabic keeping the source's full diacritics; English is a Claude translation approved by the user. Keeps all text in i18n while letting templates loop.
 - 2026-10-11: Biography laid out like jamesclear.com/about (user request): summary checklist + contents + ruled sections, all source text kept visible. Long pages stay readable without cutting client text.
 - 2026-10-11: Deploy via GitHub Actions (build on push to main), `_site/` stays gitignored. No manual deploy step; checks gate publishing.
+- 2026-10-12: Buttons restyled for visibility (users couldn't see the menu): solid ink fill, 44px targets, lapis hover, gold focus, CSS-only ☰/✕ icon (no new i18n text). Stage 6 CSS loads after per-page styles so it wins over them.
