@@ -33,3 +33,4 @@ data (`src/_data` + `lib/urls.js`) → `entries.js` × languages → `pages.11ty
 - Routes: `/`, `/books/`, `/books/<slug>/`, `/paintings/`, `/biography/`, `/qualifications/`, `/herbal-medicine/`, `/publications/`; English under `/en/...`.
 - `npm run check` → `tools/check-site.mjs`.
 - `.claude/launch.json`: preview server config (Eleventy on port 8091).
+- `.github/workflows/deploy.yml`: on push to `main`, runs `build:pages` + `check:pages` and publishes `_site/` to GitHub Pages (Pages source must be "GitHub Actions").

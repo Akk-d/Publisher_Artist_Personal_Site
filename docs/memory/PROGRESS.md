@@ -16,7 +16,7 @@ _Last updated: 2026-10-11_
 - "قيد الصدور" assigned to جمهورية الأقنعة ج2 (it sat on its own line in the PDF).
 - Source fixes: "مِنْهَجُ"→"مَنْهَجُ" in دستوري; stray "ن" before التحصيل removed.
 ## Next up
-1. Commit Stage 5.
+1. Commit Stage 5 (+ deploy workflow), set Pages source to GitHub Actions, push, confirm live site.
 2. Qualifications page: could reuse the academic part of the bio (degrees) until `my-content/qualifications/` has material.
 3. Herbal medicine, publications: wait for content in `my-content/`.
 4. Home & contact content (`my-content/home-and-contact/` empty).
