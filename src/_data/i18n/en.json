@@ -65,7 +65,7 @@
  "paintings":{"p1":"Untitled I","p2":"Untitled II","p3":"Untitled III","p4":"Untitled IV"},
  "soon_book":"Book description coming soon.",
  "palt":{"p1":"Painting of a white horse among pink flowers in a gold frame","p2":"Painting of a path between birch trees in a dark wooden frame","p3":"Painting of a vase of roses in an ornate gold frame","p4":"Painting of a canal between terracotta-roofed buildings, hung on a wall"},
- "photos":{"standing":{"cap":"At home","alt":"Dr. Yousef Ahmad Al-Maiari standing with arms crossed, smiling"},"portrait":{"cap":"Writing","alt":"Dr. Yousef Ahmad Al-Maiari writing in a notebook at a table"},"reading":{"cap":"Reading","alt":"Dr. Yousef Ahmad Al-Maiari reading, with the book “On the Wall of Time” beside him"},"studio":{"cap":"In the studio","alt":"Dr. Yousef Ahmad Al-Maiari painting at an easel by a window"}},
+ "photos":{"portrait":{"cap":"Writing","alt":"Dr. Yousef Ahmad Al-Maiari writing in a notebook at a table"},"reading":{"cap":"Reading","alt":"Dr. Yousef Ahmad Al-Maiari reading, with the book “On the Wall of Time” beside him"},"studio":{"cap":"In the studio","alt":"Dr. Yousef Ahmad Al-Maiari painting at an easel by a window"}},
  "bio":{
    "soon": "forthcoming",
    "sep": ", ",
