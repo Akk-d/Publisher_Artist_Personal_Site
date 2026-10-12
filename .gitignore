@@ -2,3 +2,13 @@ node_modules/
 _site/
 book-sources/
 .DS_Store
+
+# Full book PDFs: keep local only, never commit (not readable/downloadable yet)
+/my-content/books/3ala-Jidar-Alzaman/عَـلَـــــى    جِـــــــدَارِ    الـــــــــــزَّمَـــــــــنِ.pdf
+/my-content/books/Dostori/دُسْتُورِي مِيزَانُ قَلْبٍ.pdf
+/my-content/books/Nahr-Al3ishik-Wa-Baher-Algharam/نَهْــــــــرُ العِشْـــــقِ وَبَحْــــــرُ الغَــــرَامِ.pdf
+/my-content/books/untitled folder 4/فِي رِحَابِ الحُرِّيِّة.pdf
+/my-content/books/untitled folder 5/فِي حَضْرَةِ الصَّـمْتِ.pdf
+/my-content/books/untitled folder 6/نَحْـــــنُ  أَصْـــــــــلُ  الْحِكَايَـــــــةِ+.pdf
+/my-content/books/untitled folder 7/كَـلِـمَــةُ   عَهْـدٍ  وَرَايَـــةُ  قُـــرْبٍ.pdf
+/my-content/books/untitled folder 8/سُمُوُّ الْعَاطِفَةِ وَسِيَادَةُ الْحُبِّ +.pdf
