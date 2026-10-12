@@ -17,3 +17,6 @@ Format: - YYYY-MM-DD: <decision>. <reason>.
 - 2026-10-11: Deploy via GitHub Actions (build on push to main), `_site/` stays gitignored. No manual deploy step; checks gate publishing.
 - 2026-10-12: Buttons restyled for visibility (users couldn't see the menu): solid ink fill, 44px targets, lapis hover, gold focus, CSS-only ☰/✕ icon (no new i18n text). Stage 6 CSS loads after per-page styles so it wins over them.
 - 2026-10-12: Text darkened on user feedback but must stay warm brown, never black/grey (user's explicit rule). Done by overriding `--ink`/`--soft` tokens in a stage CSS file, not editing style.css.
+- 2026-10-12: Name shown as "يوسف أحمد الميعاري" / "Yousef Ahmad Al-Maiari" without "بن"/"bin" (user request; matches Bio.pdf).
+- 2026-10-12: Arabic lists use commas with «و» only before the last item, like English "A, B and C" (user's style rule; repeated «و» is discouraged).
+- 2026-10-12: Paintings shown without the cream paper mat and with the white photo backdrop cropped off (user request); the photographed frame is the frame. Gallery is a JS shortest-column masonry (user wanted Pinterest) with a CSS-columns fallback; tall works capped at 2× column width, very wide ones (ratio ≥1.9) span 2 columns, never cropped.

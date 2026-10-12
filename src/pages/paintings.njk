@@ -5,7 +5,7 @@ navKey: paintings
 pagination: { data: entries.paintings, size: 1, alias: entry, addAllPagesToCollections: true }
 styles: ["/css/stage4-additions.css"]
 hasViewer: true
-scripts: ["/js/viewer.js"]
+scripts: ["/js/viewer.js", "/js/masonry.js"]
 ---
 {% from "components/macros.njk" import paintingFrame %}
 <main><section class="paint" style="border-top:0"><div class="wrap">{% set headH = t.h_paint %}{% set headSub = t.s_paint2 %}{% include "components/page-head.njk" %}<div class="gal2">{% for p in paintings %}{{ paintingFrame(p, t.paintings[p.id], t.palt[p.id]) }}{% endfor %}</div></div></section></main>

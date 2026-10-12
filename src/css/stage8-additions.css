@@ -1,2 +1,38 @@
 /* Stage 8: keep tall (portrait) photos inside the home hero frames instead of spilling into the caption strip. */
 .print .ph{grid-template:minmax(0,1fr)/minmax(0,1fr);overflow:hidden}
+
+/* Stage 8: paintings, Pinterest-style masonry. The photos already show each painting's own frame, so the cream
+   paper mat is dropped. Fallback (no JS): CSS columns. With js/masonry.js the gallery becomes a grid of 2px rows
+   and the script places each painting in the shortest column (.is-masonry, --cols, --maxh). */
+.gal,.gal2{--gap:1.3rem;--min:200px;display:block;columns:var(--min) 4;column-gap:var(--gap)}
+.gal2{--gap:1.8rem;--min:260px}
+.gal .frame:nth-child(n),.gal2 .frame:nth-child(n){break-inside:avoid;margin:0 0 var(--gap);transform:none;grid-column:auto}
+.gal.is-masonry,.gal2.is-masonry{display:grid;columns:auto;grid-template-columns:repeat(var(--cols),minmax(0,1fr));grid-auto-rows:2px;row-gap:0;align-items:start}
+.is-masonry .frame:nth-child(n){margin:0}
+
+.frame{background:none;padding:0;box-shadow:none}.frame:hover{box-shadow:none}
+.frame .pin{display:block;position:relative;width:fit-content;max-width:100%;margin-inline:auto;overflow:hidden;border-radius:4px;box-shadow:0 8px 20px rgba(30,20,5,.32);transition:transform .3s ease,box-shadow .3s ease}
+.frame .pin img{display:block;width:auto;height:auto;max-width:100%;max-height:var(--maxh,75vh);transition:transform .6s ease}
+/* hover: soft lift, slow zoom, dark veil with a magnifier badge */
+.frame .pin::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,14,6,.45),transparent 45%);opacity:0;transition:opacity .3s}
+.frame .pin::before{content:"";position:absolute;z-index:1;inset-block-end:.6rem;inset-inline-end:.6rem;width:2.1rem;height:2.1rem;border-radius:50%;background:rgba(239,230,207,.92) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232a2118' stroke-width='2' stroke-linecap='round'><circle cx='10.5' cy='10.5' r='6'/><path d='M15 15l5 5M10.5 8v5M8 10.5h5'/></svg>") center/1.1rem no-repeat;opacity:0;transform:scale(.8);transition:opacity .3s,transform .3s}
+.frame:hover .pin,.frame:focus-visible .pin{transform:translateY(-4px);box-shadow:0 16px 34px rgba(30,20,5,.42)}
+.frame:hover .pin img,.frame:focus-visible .pin img{transform:scale(1.03)}
+.frame:hover .pin::after,.frame:focus-visible .pin::after,.frame:hover .pin::before,.frame:focus-visible .pin::before{opacity:1;transform:none}
+.frame:focus-visible{outline:none}.frame:focus-visible .pin{outline:2px solid var(--gold);outline-offset:3px}
+.frame figcaption{position:static;margin-top:.65rem;font-size:.82rem;color:var(--soft);line-height:1.4;text-align:center}
+[dir=rtl] .frame figcaption{font-size:1.05rem}
+@media(hover:none){.frame .pin::before{opacity:.85;transform:none;width:1.8rem;height:1.8rem;background-size:.95rem}}
+@media(prefers-reduced-motion:no-preference){.is-masonry:not(.is-in) .frame{opacity:0}.is-masonry.is-in .frame{animation:pin-in .6s ease both;animation-delay:calc(var(--i,0) * 80ms)}@keyframes pin-in{from{opacity:0;transform:translateY(14px)}}}
+@media(prefers-reduced-motion:reduce){.frame .pin,.frame .pin img{transition:none}}
+#vs img{max-width:94vw;max-height:84vh}
+@media(max-width:800px){.gal,.gal2{--gap:.9rem;--min:150px}#vs img{max-width:100vw}}
+/* Home paintings on desktop: title, subtitle and "all paintings" beside a two-column masonry
+   (the same interlocking look as on phones). Phones keep the normal stacked flow. */
+@media(min-width:900px){
+ .paint-feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);grid-template-areas:"head gal" "more gal";grid-template-rows:auto 1fr;column-gap:clamp(2.5rem,6vw,5rem);align-items:start}
+ .paint-feature .paint-head{grid-area:head;padding-top:3rem}
+ .paint-feature .paint-head h2{font-size:clamp(2.4rem,4vw,3.4rem)}
+ .paint-feature .gal{grid-area:gal;--gap:1.6rem;--min:250px}
+ .paint-feature .more{grid-area:more;margin-top:0;text-align:start}
+}
