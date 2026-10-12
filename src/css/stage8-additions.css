@@ -1,0 +1,2 @@
+/* Stage 8: keep tall (portrait) photos inside the home hero frames instead of spilling into the caption strip. */
+.print .ph{grid-template:minmax(0,1fr)/minmax(0,1fr);overflow:hidden}
