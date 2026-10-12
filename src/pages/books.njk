@@ -6,4 +6,4 @@ pagination: { data: entries.books, size: 1, alias: entry, addAllPagesToCollectio
 styles: ["/css/stage4-additions.css"]
 ---
 {% from "components/macros.njk" import bookCard %}
-<main><section><div class="wrap">{% set headH = t.h_books %}{% set headSub = t.s_books %}{% include "components/page-head.njk" %}<div class="shelf">{% for b in books %}{{ bookCard(b, t.books[b.slug], lang) }}{% endfor %}</div></div></section></main>
+<main><section><div class="wrap">{% set headH = t.h_books %}{% set headSub = t.s_books %}{% include "components/page-head.njk" %}<div class="shelf">{% for b in books %}{{ bookCard(b, t.books[b.slug], lang, t.name) }}{% endfor %}</div></div></section></main>

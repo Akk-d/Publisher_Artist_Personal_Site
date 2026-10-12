@@ -1,37 +1,28 @@
 # Progress
 _Last updated: 2026-10-12_
 ## Current state
-- Stages 1–7 committed: Eleventy 3 site, Arabic at `/`, English at `/en/`, per-language pages, hreflang, sitemap, robots, legacy redirects, real images, per-page header photos (`heroes.json`), James Clear–style biography, button renovation (Stage 6), darker brown text (Stage 7), deploy workflow.
-- Stage 8 (`2d34f9b`..`bba67de`, not pushed):
-  - Name is now "د. يوسف أحمد الميعاري" / "Dr. Yousef Ahmad Al-Maiari" everywhere (no "بن"/"bin"); "[الاسم]" placeholders in ar meta descs filled.
-  - Home hero: user's new photo (`my-content/dr_photos/Pasted 2026-10-12 at 2.26.53 AM.heic` → `src/assets/images/dr/standing.jpg`, 960×1280) replaces the studio photo in the FRONT print frame. Back print still `portrait.jpg`. Caption `cap` = name only. On mobile the frame sits directly under the lede.
-  - "Explore the books" hero button removed (desktop + mobile); `cta` i18n key deleted.
-  - `stage8-additions.css`: `.print .ph` grid fix so tall photos stay inside the frame.
-  - Arabic lede: commas, «و» only before last item: "طبيبٌ، أديبٌ، شاعرٌ ورسّام — كتبٌ عن العشق، الزمن والحياة، ولوحاتٌ من المرسم."
-  - Paintings (uncommitted, user approved look): white photo backdrop cropped off horse/birch/flowers (canal untouched); cream mat dropped. Pinterest masonry via `src/js/masonry.js` on home + paintings page (CSS columns fallback). Home desktop (≥900px): title/sub/button beside a 2-col masonry (`.paint-feature`); user loved the mobile view.
-- Biography page header photo unchanged (`portrait`). User calls the home hero / #about area "the about page", NOT the biography page.
-- Stub sections ("coming soon"): qualifications, herbal medicine, publications.
-- `site.js` has `preview: true` (shows "Design preview" banner).
+- Stages 1–8 committed (last: `ef0c515` new books + paintings source files). Not pushed.
+- Stage 9 (uncommitted, built + checked + previewed desktop/mobile):
+  - 5 new books from `my-content/books/untitled folder 4–8`: `fi-rihab-al-hurriya` (4), `fi-hadrat-al-samt` (5), `nahnu-asl-al-hikaya` (6, both texts; 2nd under heading "مفتاح الحكاية"), `kalimat-ahd-wa-rayat-qurb` (7), `sumuw-al-atifa` (8; cover = PDF title page, no publisher, text from the .pages file).
+  - i18n `books.<slug>`: title, `sub` (cover subtitle), type/pub, d1, `desc[]` (string = paragraph, `[a,b]` = verse, `{h}` = heading). Arabic transcribed from PDFs (3 garbled → typed from page images); English = Claude translation.
+  - Book page: byline "تأليف/By + name", disabled "Read the book · Coming soon" button (user: full book must NOT be readable/downloadable yet), "About the book" with first 3 items + `<details>` "Read the full text", sticky framed cover, empty meta hidden.
+  - Cards show author name instead of publisher. Shelf order mixed (user said "random order"; interpreted as any order, not per-load shuffle).
+  - Covers: `.bk-frame` gold hairline mat + spine shading; hover = rotateY turn on spine + deeper shadow + light sweep (reduced-motion off). `stage9-additions.css`, loaded globally in base.njk.
+  - Bio works list: 5 new titles linked by slug; EN title renamed to "A Word of Covenant and a Banner of Nearness". Books meta desc lists all 8.
 ## To confirm with user
-- Apply the same «و» rule to home `meta.home.title`/`desc` ("طبيب وأديب وشاعر ورسّام") and elsewhere? (asked, no answer yet)
-- Studio photo no longer shown in home hero (still on paintings page header). OK?
-- Wording of the "At a glance" lines and card titles (ar + en), written by Claude from Bio.pdf facts.
-- Whether to fold the 10-paragraph intro behind "Read more".
-- "قيد الصدور" assigned to جمهورية الأقنعة ج2.
+- Arabic transcriptions need a human proofread (diacritics typed by hand).
+- English translations: user asked about literary quality; offered (1) Claude polish pass, (2) human literary translator, (3) shorter EN descriptions. No answer yet.
+- Per-load random shuffle of books wanted? Limit home shelf to 4 (8 is long on mobile)?
+- Descriptions for the 3 old books (user will add); they still show "coming soon" d2.
+- Older open items: «و» rule for `meta.home.title/desc`; studio photo absent from home hero; "At a glance" wording; folding bio intro; "قيد الصدور" on جمهورية الأقنعة ج2.
 ## Next up
-0. Commit the painting work (awaiting approval). `my-content/` changes are the user's: originals of the 4 site paintings were deleted, ~24 new painting photos and 5 new book folders (`books/untitled folder 4–8`, PDFs) were added. Ask before committing those.
-1. Add the new paintings from `my-content/paintings/` (crop white backdrop, thumb ≤800px, add to `paintings.js` + i18n `paintings`/`palt` titles). Masonry handles any count/ratio.
-1b. Add the new books from `my-content/books/untitled folder 4–8`.
-2. Push, set Pages source to GitHub Actions, confirm live site.
-2. Qualifications page: could reuse the academic part of the bio until `my-content/qualifications/` has material.
-3. Herbal medicine, publications, home & contact: wait for content in `my-content/`.
-4. Before launch: `preview: false`, real domain in `lib/urls.js`, replace "Dr. [Name]" placeholders (README).
+1. Commit Stage 9 (awaiting approval).
+2. Add new paintings from `my-content/paintings/` (crop backdrop, thumb ≤800px, `paintings.js` + i18n `paintings`/`palt`).
+3. Push, set Pages source to GitHub Actions, confirm live site.
+4. Qualifications page (could reuse academic bio part). Herbal, publications, contact: wait for content.
+5. Before launch: `preview: false`, real domain in `lib/urls.js`, README placeholders; wire real "Read the book" link when allowed.
 ## Known issues
-- Cropped painting JPEGs are larger than before (thumbs 157–347 KB); could recompress / use smaller thumbs or WebP.
-- Built-in browser pane was hidden while testing, which pauses rAF/animations; masonry fade-in was not watched live.
-- `bio.sep` i18n key unused; can be removed.
-- Global `nav` styles in style.css hit any `<nav>`; `nav.bio-toc` overrides them.
-- Book page "← back" link and viewer controls not restyled in Stage 6.
-- README title still "Dr. [Name]" placeholder and says "Stage 2".
-- Stale eleventy servers: user had paused (Ctrl+Z) servers holding 8081–8083 and an old one on 8080 serving outdated content; `npm start` then picks the next free port. Use Ctrl+C to stop; `npm start -- --port=8081` for a fixed port. Preview config uses 8091.
-- User's shell may not load nvm: `source ~/.nvm/nvm.sh` before npm if "command not found".
+- Cropped painting JPEGs large (157–347 KB); `nahnu-asl-al-hikaya.jpg` ~260 KB.
+- No pdftotext/pypdf; pip blocked. PDF text via swift PDFKit (`PDFDocument.string`) inserts spaces in Arabic; render pages to PNG with PDFKit to read. `.pages` text: unzip `Index/Document.iwa`, snappy-decompress (custom no-CRC framing).
+- `bio.sep` i18n key unused. Global `nav` styles hit any `<nav>`. README still "Dr. [Name]"/"Stage 2".
+- Stale eleventy servers may hold 8080–8083; preview uses 8091. User shell may need `source ~/.nvm/nvm.sh`.

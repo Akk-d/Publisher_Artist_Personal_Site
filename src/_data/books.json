@@ -1,5 +1,10 @@
 [
   {"slug": "nahr-al-ishq-wa-bahr-al-gharam", "image": "/assets/images/books/nahr-al-ishq-wa-bahr-al-gharam.jpg", "w": 671, "h": 936, "year": "", "pages": "", "isbn": "", "buy": "", "excerpt": ""},
+  {"slug": "fi-hadrat-al-samt", "image": "/assets/images/books/fi-hadrat-al-samt.jpg", "w": 593, "h": 767, "year": "", "pages": "", "isbn": "", "buy": "", "excerpt": ""},
   {"slug": "ala-jidar-al-zaman", "image": "/assets/images/books/ala-jidar-al-zaman.jpg", "w": 564, "h": 784, "year": "", "pages": "", "isbn": "", "buy": "", "excerpt": ""},
-  {"slug": "dostori", "image": "/assets/images/books/dostori.jpg", "w": 846, "h": 1182, "year": "", "pages": "", "isbn": "", "buy": "", "excerpt": ""}
+  {"slug": "nahnu-asl-al-hikaya", "image": "/assets/images/books/nahnu-asl-al-hikaya.jpg", "w": 695, "h": 1000, "year": "", "pages": "", "isbn": "", "buy": "", "excerpt": ""},
+  {"slug": "dostori", "image": "/assets/images/books/dostori.jpg", "w": 846, "h": 1182, "year": "", "pages": "", "isbn": "", "buy": "", "excerpt": ""},
+  {"slug": "kalimat-ahd-wa-rayat-qurb", "image": "/assets/images/books/kalimat-ahd-wa-rayat-qurb.jpg", "w": 406, "h": 583, "year": "", "pages": "", "isbn": "", "buy": "", "excerpt": ""},
+  {"slug": "fi-rihab-al-hurriya", "image": "/assets/images/books/fi-rihab-al-hurriya.jpg", "w": 481, "h": 666, "year": "", "pages": "", "isbn": "", "buy": "", "excerpt": ""},
+  {"slug": "sumuw-al-atifa", "image": "/assets/images/books/sumuw-al-atifa.jpg", "w": 638, "h": 900, "year": "", "pages": "", "isbn": "", "buy": "", "excerpt": ""}
 ]

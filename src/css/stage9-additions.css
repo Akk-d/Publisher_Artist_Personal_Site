@@ -1,0 +1,67 @@
+/* Stage 9 additions: framed book covers, 3D hover, book page text. Does not touch style.css. */
+
+/* Frame: a thin gold hairline set off the cover like a mat. The frame stays still; the book inside turns. */
+.bk-frame{display:block;width:100%;max-width:236px;margin:0 auto;padding:10px;border:1px solid color-mix(in srgb,var(--gold) 55%,transparent);background:color-mix(in srgb,var(--paper2) 45%,transparent);box-shadow:inset 0 0 0 4px color-mix(in srgb,var(--paper) 70%,transparent);perspective:1100px}
+.bk{position:relative;display:block;transform-origin:left center;transition:transform .55s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+[dir=rtl] .bk{transform-origin:right center}
+.bk .cover-img{max-width:none;width:100%;margin:0;border-radius:1px 3px 3px 1px;box-shadow:0 1px 1px rgba(30,20,5,.25),0 10px 22px -8px rgba(30,20,5,.45);transition:box-shadow .55s ease}
+[dir=rtl] .bk .cover-img{border-radius:3px 1px 1px 3px}
+/* Spine shading on the binding edge, and a light sweep that crosses the cover on hover. */
+.bk::before,.bk::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit}
+.bk::before{background:linear-gradient(90deg,rgba(0,0,0,.28) 0,rgba(255,255,255,.18) 2.2%,rgba(0,0,0,.08) 4.5%,transparent 9%)}
+[dir=rtl] .bk::before{background:linear-gradient(270deg,rgba(0,0,0,.28) 0,rgba(255,255,255,.18) 2.2%,rgba(0,0,0,.08) 4.5%,transparent 9%)}
+.bk::after{background:linear-gradient(105deg,transparent 35%,rgba(255,250,235,.38) 50%,transparent 65%);background-size:250% 100%;background-position:120% 0;opacity:0;transition:background-position .9s ease,opacity .3s ease}
+
+/* Cancel the old lift; hover turns the book on its spine instead. */
+a.book:hover .cover-img{transform:none}
+a.book:hover .bk,a.book:focus-visible .bk,.bookpg .bk-frame:hover .bk{transform:rotateY(-16deg)}
+[dir=rtl] a.book:hover .bk,[dir=rtl] a.book:focus-visible .bk,[dir=rtl] .bookpg .bk-frame:hover .bk{transform:rotateY(16deg)}
+a.book:hover .bk .cover-img,a.book:focus-visible .bk .cover-img,.bookpg .bk-frame:hover .cover-img{box-shadow:0 1px 1px rgba(30,20,5,.25),14px 18px 30px -10px rgba(30,20,5,.55)}
+[dir=rtl] a.book:hover .bk .cover-img,[dir=rtl] a.book:focus-visible .bk .cover-img,[dir=rtl] .bookpg .bk-frame:hover .cover-img{box-shadow:0 1px 1px rgba(30,20,5,.25),-14px 18px 30px -10px rgba(30,20,5,.55)}
+a.book:hover .bk::after,a.book:focus-visible .bk::after,.bookpg .bk-frame:hover .bk::after{opacity:1;background-position:-20% 0}
+a.book:hover .bk-frame{border-color:var(--gold)}
+.bk-frame{transition:border-color .3s ease}
+a.book:focus-visible{outline:none}
+a.book:focus-visible .bk-frame{outline:2px solid var(--gold);outline-offset:3px}
+
+/* Book page: larger frame, sticky like the old cover. */
+.bookpg > div:first-child{align-self:stretch}
+.bookpg .bk-frame{max-width:340px;padding:12px;position:sticky;top:6rem}
+.bookpg .cover-img{position:static;max-width:none}
+@media(max-width:800px){.bookpg .bk-frame{position:static;max-width:260px}}
+
+/* Title block */
+.bookpg h1{margin-bottom:.3rem}
+.book-sub{font-style:italic;color:var(--soft);font-size:1.15rem;margin:0 0 .6rem!important}
+[dir=rtl] .book-sub{font-style:normal;font-size:1.3rem}
+.byline{margin:0 0 .4rem!important;color:var(--soft)}
+.byline strong{color:var(--ink);font-weight:600}
+[dir=rtl] .byline strong{font-weight:700}
+.book-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin:1.4rem 0 .4rem}
+.btn.is-soon{cursor:not-allowed;opacity:.75;box-shadow:none;background:transparent;color:var(--ink);font:inherit}
+.btn.is-soon:hover{background:transparent;color:var(--ink);border-color:var(--ink);transform:none}
+.btn.is-soon small{font-size:.75em;padding:.1em .55em;border:1px solid color-mix(in srgb,var(--gold) 70%,transparent);color:var(--gold);border-radius:999px;letter-spacing:.02em}
+
+/* About the book */
+.book-about{margin-top:2.6rem;padding-top:1.6rem;border-top:1px solid color-mix(in srgb,var(--gold) 45%,transparent)}
+.book-about h2{font-size:clamp(1.4rem,2.6vw,1.8rem);margin:0 0 1rem}
+.book-about h3{font-size:1.25rem;margin:2rem 0 .8rem;color:var(--lapis)}
+.book-about p{line-height:1.85}
+[dir=rtl] .book-about p{line-height:2.05;font-size:1.08em}
+.book-about .verse{display:grid;grid-template-columns:1fr 1fr;gap:.3rem 2rem;max-width:44rem;margin:0 0 .5rem;font-weight:600;line-height:1.7}
+.book-about .verse+.verse{margin-top:-.1rem}
+.book-about p:not(.verse)+.verse{margin-top:1.4rem}
+.book-about .verse+p:not(.verse){margin-top:1.4rem}
+[dir=rtl] .book-about .verse span:last-child{text-align:left}
+[dir=ltr] .book-about .verse{font-style:italic;font-weight:400;grid-template-columns:1fr;gap:0;margin-bottom:.7rem}
+[dir=ltr] .book-about .verse span:last-child{padding-inline-start:1.5rem}
+.book-more summary{display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;margin:.6rem 0 1rem;padding:.45rem 1.1rem;border:1px solid var(--ink);border-radius:2px;list-style:none;font-weight:600;transition:background-color .2s ease,color .2s ease}
+.book-more summary::-webkit-details-marker{display:none}
+.book-more summary::after{content:"";width:.5em;height:.5em;border-inline-end:1.5px solid currentColor;border-block-end:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s ease}
+.book-more[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.book-more summary:hover{background:var(--lapis);border-color:var(--lapis);color:#fff}
+.book-more summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.book-more[open] summary{margin-bottom:1.4rem}
+@media(max-width:600px){.book-about .verse{grid-template-columns:1fr;gap:0;margin-bottom:.9rem}[dir=rtl] .book-about .verse span:last-child{text-align:right;padding-inline-start:1.5rem}[dir=ltr] .book-about .verse span:last-child{padding-inline-start:1.5rem}}
+
+@media(prefers-reduced-motion:reduce){.bk,.bk .cover-img,.bk::after,.bk-frame{transition:none}a.book:hover .bk,a.book:focus-visible .bk,.bookpg .bk-frame:hover .bk,[dir=rtl] a.book:hover .bk,[dir=rtl] a.book:focus-visible .bk,[dir=rtl] .bookpg .bk-frame:hover .bk{transform:none}a.book:hover .bk::after,.bookpg .bk-frame:hover .bk::after{opacity:0}}
