@@ -18,6 +18,13 @@ export default function (eleventyConfig) {
     return [...pool.filter((b) => b.featured), ...pool.filter((b) => !b.featured)].slice(0, n);
   });
 
+  // Article teaser: the opening paragraphs (up to `n`, stopping at the first heading/list) and the rest.
+  eleventyConfig.addFilter("splitLead", (blocks = [], n = 2) => {
+    let i = 0;
+    while (i < n && i < blocks.length && typeof blocks[i] === "string") i++;
+    return [blocks.slice(0, i), blocks.slice(i)];
+  });
+
   return {
     dir: { input: "src", output: "_site" },
     pathPrefix: base,

@@ -4,6 +4,83 @@ pageKey: herbal
 navKey: herbal
 secKey: herbal
 pagination: { data: entries.herbal, size: 1, alias: entry, addAllPagesToCollections: true }
-styles: ["/css/stage4-additions.css"]
+styles: ["/css/stage4-additions.css", "/css/stage5-additions.css", "/css/stage14-additions.css"]
+scripts: ["/js/herbal.js"]
 ---
-{% include "components/section-stub.njk" %}
+{#- Text comes from my-content/herbal-medicine/*.pdf via i18n `herbal` (articles by id); order and images in _data/herbal.json.
+    Layout follows the Biography page: header with principles, contents, then one section per part. -#}
+{%- set H = t.herbal -%}{%- set A = H.articles -%}
+{%- macro blocks(list, lvl) -%}
+{%- for b in list -%}
+{%- if b is string %}<p>{{ b }}</p>
+{%- elif b.h %}<h{{ lvl }} class="hm-h">{{ b.h }}</h{{ lvl }}>
+{%- elif b.h4 %}<h{{ lvl + 1 }} class="hm-h2">{{ b.h4 }}</h{{ lvl + 1 }}>
+{%- elif b.note %}<p class="hm-note">{{ b.note }}</p>
+{%- else %}{% set tag = 'ol' if b.ol else 'ul' %}<{{ tag }} class="hm-list">{% for li in (b.ol or b.ul) %}<li>{% if li is string %}{{ li }}{% else %}<strong>{{ li[0] }}</strong> {{ li[1] }}{% endif %}</li>{% endfor %}</{{ tag }}>
+{%- endif -%}
+{%- endfor -%}
+{%- endmacro -%}
+{%- macro figure(key, cls) -%}
+{%- set im = herbal.images[key] -%}
+<figure class="{{ cls }}"><img src="{{ ('/assets/images/herbal/' + im.file) | asset }}" width="{{ im.w }}" height="{{ im.h }}" alt="{{ H.img[key].alt }}" loading="lazy" decoding="async"><figcaption>{{ H.img[key].cap }}</figcaption></figure>
+{%- endmacro -%}
+{%- macro teaser(id, a, lvl, n) -%}
+{%- set parts = a.blocks | splitLead(n) -%}
+<div class="hm-body">{{ blocks(parts[0], lvl) }}</div>
+{%- if parts[1].length %}<details class="hm-more"><summary><span class="hm-open">{{ H.more }}</span><span class="hm-close">{{ H.less }}</span></summary><div class="hm-body">{{ blocks(parts[1], lvl) }}</div></details>{% endif %}
+{%- endmacro -%}
+<main><section class="bio-page hm-page"><div class="wrap">{% set headH = t.sections.herbal.h %}{% set headSub = t.sections.herbal.sub %}{% set headList = H.glance %}{% set headListH = H.glanceH %}{% include "components/page-head.njk" %}
+<nav class="bio-toc" aria-labelledby="hm-toc-h"><p id="hm-toc-h" class="bio-toc-h">{{ H.toc }}</p><ol>
+<li><a href="#intro">{{ H.intro.h }}</a></li>
+<li><a href="#essays">{{ H.essays.h }}</a></li>
+<li><a href="#qa">{{ H.qa.h }}</a></li>
+<li><a href="#care">{{ H.care.h }}</a></li></ol></nav>
+<div class="bio">
+
+{%- set a = A.why %}
+<section class="bio-part" id="intro" aria-labelledby="intro-h"><h2 id="intro-h">{{ H.intro.h }}</h2>
+<p class="hm-by">{{ H.intro.sub }}</p>
+<blockquote class="hm-ask"><span class="hm-ask-l">{{ H.qLabel }}</span><p>{{ a.q }}</p></blockquote>
+<div class="hm-intro">{{ teaser('why', a, 3, 3) }}</div>
+<p class="bio-top"><a href="#top">{{ H.top }}</a></p></section>
+
+<section class="bio-part" id="essays" aria-labelledby="essays-h"><h2 id="essays-h">{{ H.essays.h }}</h2>
+<p class="hm-sub">{{ H.essays.sub }}</p>
+<ol class="hm-index">{% for id in herbal.essays %}<li><a href="#e-{{ id }}"><span class="hm-index-t">{{ A[id].h }}</span><span class="hm-index-by">{{ A[id].by }}</span></a></li>{% endfor %}</ol>
+{%- for id in herbal.essays %}{% set a = A[id] %}
+<article class="hm-essay" id="e-{{ id }}" aria-labelledby="e-{{ id }}-h">
+{%- if herbal.images[id] %}{{ figure(id, 'hm-fig') }}{% endif %}
+<h3 id="e-{{ id }}-h">{{ a.h }}</h3>
+<p class="hm-by">{{ a.by }}</p>
+{%- if a.q %}<p class="hm-lead">{{ a.q }}</p>{% endif %}
+{{ teaser(id, a, 4, 2) }}
+</article>
+{%- endfor %}
+<p class="bio-top"><a href="#top">{{ H.top }}</a></p></section>
+
+<section class="bio-part" id="qa" aria-labelledby="qa-h"><h2 id="qa-h">{{ H.qa.h }}</h2>
+<p class="hm-sub">{{ H.qa.sub }}</p>
+{{ figure('qa', 'hm-banner') }}
+<p class="hm-hint">{{ H.qa.hint }}</p>
+{%- for g in herbal.qa %}
+<h3 class="hm-group">{{ H.qa.groups[g.key] }}</h3>
+<div class="hm-qas">
+{%- for id in g.items %}{% set a = A[id] %}
+<details class="hm-qa" id="q-{{ id }}"><summary><span class="hm-qa-t">{{ a.h }}</span><span class="hm-qa-q">{{ a.q }}</span></summary>
+<div class="hm-qa-a"><p class="hm-qa-l">{{ H.aLabel }}</p>{{ blocks(a.blocks, 4) }}</div></details>
+{%- endfor %}
+</div>
+{%- endfor %}
+<p class="bio-top"><a href="#top">{{ H.top }}</a></p></section>
+
+<section class="bio-part" id="care" aria-labelledby="care-h"><h2 id="care-h">{{ H.care.h }}</h2>
+<p class="hm-sub">{{ H.care.sub }}</p>
+<p class="hm-quote">{{ H.care.quote }}</p>
+{%- for id in herbal.care %}{% set a = A[id] %}
+<article class="hm-care" id="c-{{ id }}" aria-labelledby="c-{{ id }}-h"><h3 id="c-{{ id }}-h">{{ a.h }}</h3>
+<p class="hm-by">{{ a.by }}</p>
+<blockquote class="hm-ask"><span class="hm-ask-l">{{ H.qLabel }}</span><p>{{ a.q }}</p></blockquote>
+<div class="hm-body">{{ blocks(a.blocks, 4) }}</div></article>
+{%- endfor %}
+<p class="bio-top"><a href="#top">{{ H.top }}</a></p></section>
+</div></div></section></main>

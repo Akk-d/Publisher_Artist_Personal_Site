@@ -1,0 +1,106 @@
+/* Stage 14 additions: Herbal Medicine page (src/pages/herbal-medicine.njk). Builds on the Stage 5 biography layout
+   (.bio-page, .bio-toc, .bio-part, .bio-top); everything here is prefixed hm-. Does not touch style.css. */
+
+.hm-page .bio{max-width:72ch}
+
+/* Bylines and section subtitles: typewriter in English, Amiri in Arabic, like .sub. */
+.hm-by,.hm-sub{font-family:var(--f-type);font-size:.8rem;letter-spacing:.04em;color:var(--soft);line-height:1.5}
+[dir=rtl] .hm-by,[dir=rtl] .hm-sub{font-family:var(--f-ar);font-size:1.02rem;letter-spacing:0}
+.hm-by{margin:-.5rem 0 1.3rem}
+.hm-sub{margin:-.6rem 0 1.8rem}
+
+/* The question a piece answers: tinted card with a gold rule. */
+.hm-ask,[dir=rtl] .hm-ask{max-width:none;margin:0 0 1.6rem;padding:.9rem 1.2rem 1rem;border-inline-start:3px solid var(--gold);background:color-mix(in srgb,var(--paper2) 65%,transparent);text-align:start;font-family:inherit;font-size:inherit;line-height:inherit}
+[dir=rtl] .hm-ask{font-family:var(--f-ar);font-weight:400}
+.hm-ask p{margin:0;font-style:italic;line-height:1.55}
+[dir=rtl] .hm-ask p{font-style:normal;line-height:1.85}
+.hm-ask-l,.hm-qa-l{display:block;font-family:var(--f-type);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 .25rem}
+[dir=rtl] .hm-ask-l,[dir=rtl] .hm-qa-l{font-family:var(--f-ar);font-size:.98rem;letter-spacing:0;font-weight:700}
+.hm-intro .hm-body>p:first-child{font-size:1.1em;line-height:1.65}
+[dir=rtl] .hm-intro .hm-body>p:first-child{line-height:1.9}
+
+/* Essay index: numbered cards linking to each essay. */
+.hm-index{list-style:none;counter-reset:hm;margin:0 0 1rem;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
+.hm-index li{counter-increment:hm;margin:0}
+.hm-index a{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:.8rem;align-content:start;height:100%;box-sizing:border-box;padding:.8rem 1rem;border:1px solid color-mix(in srgb,var(--ink) 14%,transparent);background:color-mix(in srgb,var(--paper2) 55%,transparent);color:var(--ink);text-decoration:none;transition:border-color .2s ease,background-color .2s ease}
+.hm-index a::before{content:counter(hm,decimal-leading-zero);grid-row:span 2;font-family:var(--f-type);font-size:.85rem;line-height:1.9;color:var(--gold)}
+[dir=rtl] .hm-index a::before{content:counter(hm,arabic-indic);font-family:var(--f-ar);font-size:1.15rem;line-height:1.5}
+.hm-index a:hover,.hm-index a:focus-visible{border-color:var(--gold);background:color-mix(in srgb,#f6f1e4 70%,transparent)}
+.hm-index a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.hm-index-t{font-weight:600;line-height:1.35}
+[dir=rtl] .hm-index-t{font-weight:700;line-height:1.6}
+.hm-index-by{font-size:.82em;color:var(--soft);line-height:1.5}
+
+/* Essays: one reading column, separated by a dashed rule; photo floats beside the opening. */
+.hm-essay{margin-top:2.4rem;padding-top:2.2rem;border-top:1px dashed color-mix(in srgb,var(--ink) 22%,transparent)}
+.hm-essay::after{content:"";display:block;clear:both}
+.hm-essay h3,.hm-care h3{font-size:clamp(1.3rem,3vw,1.6rem);line-height:1.35;margin:0 0 .9rem;scroll-margin-top:5rem}
+[dir=rtl] .hm-essay h3,[dir=rtl] .hm-care h3{font-family:var(--f-ar);font-weight:700;line-height:1.6}
+.hm-essay,.hm-care,.hm-qa{scroll-margin-top:5rem}
+.hm-lead{margin:0 0 1.2rem;padding-inline-start:1rem;border-inline-start:3px solid var(--gold);color:var(--soft);font-size:.96em}
+
+.hm-fig,.hm-banner{margin:0;padding:8px;background:#f6f1e4;border:1px solid color-mix(in srgb,var(--gold) 60%,transparent);box-shadow:inset 0 0 0 4px #fbf8f0,0 1px 2px rgba(30,20,5,.2),0 14px 30px -12px rgba(30,20,5,.45)}
+.hm-fig{float:right;width:clamp(150px,36%,260px);margin:.4rem 0 1rem 1.6rem}
+[dir=rtl] .hm-fig{float:left;margin:.4rem 1.6rem 1rem 0}
+.hm-fig img,.hm-banner img{display:block;width:100%;height:auto;border:1px solid color-mix(in srgb,var(--ink) 12%,transparent)}
+.hm-fig img{aspect-ratio:1;object-fit:cover}
+.hm-banner{margin:0 0 1.2rem}
+.hm-banner img{aspect-ratio:16/7;object-fit:cover}
+.hm-fig figcaption,.hm-banner figcaption{margin-top:7px;padding-top:.4rem;border-top:1px solid color-mix(in srgb,var(--gold) 45%,transparent);text-align:center;font-family:var(--f-type);font-size:.74rem;line-height:1.35;color:var(--soft);text-wrap:balance}
+[dir=rtl] .hm-fig figcaption,[dir=rtl] .hm-banner figcaption{font-family:var(--f-ar);font-size:.95rem}
+
+/* "Continue reading" fold. */
+.hm-more>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:.55rem;min-height:40px;margin:.2rem 0 1rem;padding:.3rem .95rem;border:1.5px solid color-mix(in srgb,var(--gold) 75%,transparent);border-radius:2px;font-family:var(--f-type);font-size:.8rem;color:var(--ink);transition:background-color .2s ease,border-color .2s ease}
+[dir=rtl] .hm-more>summary{font-family:var(--f-ar);font-size:1.02rem}
+.hm-more>summary::-webkit-details-marker{display:none}
+.hm-more>summary::after{content:"";width:.45em;height:.45em;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-.15em) rotate(45deg);transition:transform .2s ease}
+.hm-more[open]>summary::after{transform:translateY(.1em) rotate(225deg)}
+.hm-more>summary:hover{background:color-mix(in srgb,var(--gold) 14%,transparent)}
+.hm-more>summary:focus-visible,.hm-qa>summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.hm-more .hm-close,.hm-more[open] .hm-open{display:none}
+.hm-more[open] .hm-close{display:inline}
+
+/* Article body: sub-headings, lists and highlighted notes. */
+.hm-page .hm-h{font-size:1.15rem;line-height:1.4;margin:1.9rem 0 .6rem;display:flex;align-items:baseline;gap:.6rem}
+.hm-page .hm-h::before{content:"";flex:none;width:1.1rem;height:2px;background:var(--gold);transform:translateY(-.3em)}
+[dir=rtl] .hm-page .hm-h{font-family:var(--f-ar);font-weight:700;font-size:1.2rem;line-height:1.7}
+.hm-page .hm-h2{font-size:1rem;margin:1.3rem 0 .4rem;color:var(--soft)}
+[dir=rtl] .hm-page .hm-h2{font-family:var(--f-ar);font-weight:700;font-size:1.08rem}
+.hm-list{margin:0 0 1.3rem;padding-inline-start:1.5rem}
+.hm-list li{margin-bottom:.4rem}
+.hm-list li::marker{color:var(--gold)}
+[dir=rtl] ol.hm-list{list-style-type:arabic-indic}
+.hm-note{margin:1.2rem 0 1.4rem;padding:.9rem 1.1rem;border:1px solid color-mix(in srgb,var(--gold) 55%,transparent);border-inline-start-width:4px;background:color-mix(in srgb,#f6f1e4 60%,transparent);font-size:.96em}
+
+/* The Patient Asks: question cards that fold open. */
+.hm-hint{margin:0 0 .4rem;font-size:.86em;color:var(--soft)}
+.hm-group{display:flex;align-items:center;gap:.9rem;font-size:1.2rem;margin:2rem 0 .9rem}
+.hm-group::after{content:"";flex:1;height:1px;background:color-mix(in srgb,var(--gold) 55%,transparent)}
+[dir=rtl] .hm-group{font-family:var(--f-ar);font-weight:700;font-size:1.25rem}
+.hm-qas{display:grid;gap:.7rem}
+.hm-qa{border:1px solid color-mix(in srgb,var(--ink) 16%,transparent);background:color-mix(in srgb,var(--paper2) 50%,transparent);transition:border-color .2s ease,background-color .2s ease}
+.hm-qa:hover{border-color:color-mix(in srgb,var(--gold) 70%,transparent)}
+.hm-qa[open]{border-color:var(--gold);background:color-mix(in srgb,#f6f1e4 72%,transparent)}
+.hm-qa>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.15rem 1rem;align-items:center;padding:.95rem 1.2rem}
+.hm-qa>summary::-webkit-details-marker{display:none}
+.hm-qa>summary::after{content:"+";grid-column:2;grid-row:1/span 2;display:grid;place-items:center;width:2rem;height:2rem;border:1.5px solid var(--gold);border-radius:50%;font-family:var(--f-type);font-size:1.1rem;line-height:1;color:var(--gold)}
+.hm-qa[open]>summary::after{content:"−"}
+.hm-qa-t{font-weight:600;font-size:1.1rem;line-height:1.35}
+[dir=rtl] .hm-qa-t{font-family:var(--f-ar);font-weight:700;line-height:1.6}
+.hm-qa-q{font-size:.9em;line-height:1.5;color:var(--soft)}
+[dir=rtl] .hm-qa-q{line-height:1.8}
+.hm-qa-a{margin:0 1.2rem;padding:1rem 0 .4rem;border-top:1px dashed color-mix(in srgb,var(--ink) 22%,transparent)}
+
+/* Before You Take a Herb: pull quote and two short answers. */
+.hm-quote{max-width:32ch;margin:.4rem auto 1.4rem;padding:1.1rem 0;border-block:1px solid color-mix(in srgb,var(--gold) 60%,transparent);text-align:center;font-style:italic;font-size:clamp(1.3rem,3.2vw,1.7rem);line-height:1.4;color:var(--ink);text-wrap:balance}
+[dir=rtl] .hm-quote{font-family:var(--f-cal);font-style:normal;line-height:1.8}
+.hm-care{margin-top:2rem;padding-top:1.8rem;border-top:1px dashed color-mix(in srgb,var(--ink) 22%,transparent)}
+
+@media (max-width:700px){
+  .hm-index{grid-template-columns:1fr}
+  .hm-fig,[dir=rtl] .hm-fig{float:none;width:auto;max-width:340px;margin:0 auto 1.3rem}
+  .hm-fig img{aspect-ratio:4/3}
+  .hm-banner img{aspect-ratio:16/9}
+  .hm-qa>summary{padding:.85rem 1rem}
+  .hm-qa-a{margin:0 1rem}
+}
