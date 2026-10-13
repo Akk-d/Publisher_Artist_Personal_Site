@@ -1,28 +1,33 @@
 # Progress
-_Last updated: 2026-10-12_
+_Last updated: 2026-10-13_
 ## Current state
-- Stages 1–8 committed (last: `ef0c515` new books + paintings source files). Not pushed.
-- Stage 9 (uncommitted, built + checked + previewed desktop/mobile):
-  - 5 new books from `my-content/books/untitled folder 4–8`: `fi-rihab-al-hurriya` (4), `fi-hadrat-al-samt` (5), `nahnu-asl-al-hikaya` (6, both texts; 2nd under heading "مفتاح الحكاية"), `kalimat-ahd-wa-rayat-qurb` (7), `sumuw-al-atifa` (8; cover = PDF title page, no publisher, text from the .pages file).
-  - i18n `books.<slug>`: title, `sub` (cover subtitle), type/pub, d1, `desc[]` (string = paragraph, `[a,b]` = verse, `{h}` = heading). Arabic transcribed from PDFs (3 garbled → typed from page images); English = Claude translation.
-  - Book page: byline "تأليف/By + name", disabled "Read the book · Coming soon" button (user: full book must NOT be readable/downloadable yet), "About the book" with first 3 items + `<details>` "Read the full text", sticky framed cover, empty meta hidden.
-  - Cards show author name instead of publisher. Shelf order mixed (user said "random order"; interpreted as any order, not per-load shuffle).
-  - Covers: `.bk-frame` gold hairline mat + spine shading; hover = rotateY turn on spine + deeper shadow + light sweep (reduced-motion off). `stage9-additions.css`, loaded globally in base.njk.
-  - Bio works list: 5 new titles linked by slug; EN title renamed to "A Word of Covenant and a Banner of Nearness". Books meta desc lists all 8.
+- Stages 1–9 committed and pushed to origin/main (last: `9ad84e5`). Deploy run after push not verified (no `gh` CLI); Pages source may still need "GitHub Actions". Full-book PDFs purged from history, ignored by exact path.
+- Stage 10 (built + checked + previewed; commit pending approval):
+  - Formal headshot `src/assets/images/dr/headshot.jpg` in bio "Literary works" section (`.bio-works-wrap`, `.bio-photo`, caption `t.by` + `photos.headshot.cap`), floats inline-end at every width.
+  - Arabic Ruqaa headings weight 400 site-wide; `stage10-additions.css` loaded globally from base.njk.
+  - Home "About": `a1`/`a2` rewritten from bio highlights (doctorates, herbal medicine, cancer/chronic diseases, Ukraine centre, poet/artist, 5 languages, 17 works, 3 book titles); old "full bio in preparation" removed. New `read_bio` button → biography, placed under the `a1` column (right in AR, left in EN; between the paragraphs on phone).
+  - Accent `--lapis` now tan leather `#6a3a1e` (was blue). Button hover not visually confirmed in preview (synthetic hover didn't trigger); variable verified.
+## "Coming soon" still on the site
+- Qualifications, Herbal Medicine, Publications pages: `section-stub`. `my-content/` folders empty for all three + home-and-contact. Qualifications can be built from the bio's academic part now.
+- 3 old books (نهر العشق، على جدار الزمن، دستوري): d2 "description in preparation"; user will send.
+- "Read the book" button: disabled "Coming soon" on every book (not allowed yet).
+- Bio header photo is a placeholder; user will send a new one.
+- Bio works list: 3 forthcoming titles (correct, not yet published).
 ## To confirm with user
-- Arabic transcriptions need a human proofread (diacritics typed by hand).
-- English translations: user asked about literary quality; offered (1) Claude polish pass, (2) human literary translator, (3) shorter EN descriptions. No answer yet.
-- Per-load random shuffle of books wanted? Limit home shelf to 4 (8 is long on mobile)?
-- Descriptions for the 3 old books (user will add); they still show "coming soon" d2.
-- Older open items: «و» rule for `meta.home.title/desc`; studio photo absent from home hero; "At a glance" wording; folding bio intro; "قيد الصدور" on جمهورية الأقنعة ج2.
+- Keep tan leather accent after seeing it live? Phone: keep button between paragraphs or move to the end?
+- Heading diacritics option 3 (strip marks except shadda in Ruqaa headings) needs approval: touches the full-diacritics decision.
+- Arabic transcriptions need a human proofread. EN translation quality: Claude polish / human / shorter EN?
+- Per-load random shuffle of books? Limit home shelf to 4?
+- Older: «و» rule for `meta.home.title/desc`; studio photo absent from home hero; "At a glance" wording; folding bio intro; "قيد الصدور" on جمهورية الأقنعة ج2.
 ## Next up
-1. Commit Stage 9 (awaiting approval).
-2. Add new paintings from `my-content/paintings/` (crop backdrop, thumb ≤800px, `paintings.js` + i18n `paintings`/`palt`).
-3. Push, set Pages source to GitHub Actions, confirm live site.
-4. Qualifications page (could reuse academic bio part). Herbal, publications, contact: wait for content.
+1. Commit Stage 10 (awaiting approval), push.
+2. Qualifications page from bio academic content.
+3. Add new paintings from `my-content/paintings/` (crop backdrop, thumb ≤800px, `paintings.js` + i18n `paintings`/`palt`).
+4. Set Pages source to GitHub Actions, check Actions tab, confirm live site.
 5. Before launch: `preview: false`, real domain in `lib/urls.js`, README placeholders; wire real "Read the book" link when allowed.
 ## Known issues
-- Cropped painting JPEGs large (157–347 KB); `nahnu-asl-al-hikaya.jpg` ~260 KB.
-- No pdftotext/pypdf; pip blocked. PDF text via swift PDFKit (`PDFDocument.string`) inserts spaces in Arabic; render pages to PNG with PDFKit to read. `.pages` text: unzip `Index/Document.iwa`, snappy-decompress (custom no-CRC framing).
+- Placeholder cover gradient `.c1` in style.css still uses old blue #22405a (only visible if a cover image is missing).
+- Cropped painting JPEGs large (157–347 KB). New full-book PDF from client: add exact path to `.gitignore` before committing.
+- No pdftotext/pypdf; pip blocked. PDF text via swift PDFKit; render pages to PNG to read Arabic.
 - `bio.sep` i18n key unused. Global `nav` styles hit any `<nav>`. README still "Dr. [Name]"/"Stage 2".
-- Stale eleventy servers may hold 8080–8083; preview uses 8091. User shell may need `source ~/.nvm/nvm.sh`.
+- Preview on 8091 (stale servers may hold 8080–8083). `#about` anchor/JS scroll unreliable in preview: use computer scroll. Built-in browser can't open scratchpad files.

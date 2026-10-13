@@ -1,0 +1,35 @@
+/* Stage 10 (loaded globally). Arabic calligraphic headings (Aref Ruqaa) at regular weight: the bold cut crowds the
+   full diacritics (e.g. shadda + kasra stacks). Diacritics themselves are unchanged. */
+[dir=rtl] :is(h1,h2,blockquote,.cap,.cover strong){font-weight:400}
+
+/* Formal headshot in the literary works section of the biography page (matted portrait + "By / name").
+   All widths: the works list is one column and the portrait floats to the inline-end (left in Arabic), top-aligned with
+   the heading; titles run beside it and reclaim the full width below it. Phones get a smaller portrait and shorter caption. */
+.bio-photo{float:right;width:clamp(108px,30%,190px);margin:-3.6rem 0 1rem 1.4rem;padding:8px;background:#f6f1e4;border:1px solid color-mix(in srgb,var(--gold) 60%,transparent);box-shadow:inset 0 0 0 4px #fbf8f0,0 1px 2px rgba(30,20,5,.2),0 14px 30px -12px rgba(30,20,5,.45)}
+[dir=rtl] .bio-photo{float:left;margin:-3.6rem 1.4rem 1rem 0}
+.bio-photo img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border:1px solid color-mix(in srgb,var(--ink) 12%,transparent)}
+.bio-photo figcaption{display:flex;flex-direction:column;align-items:center;gap:.05rem;margin-top:8px;padding:.5rem .1rem 0;border-top:1px solid color-mix(in srgb,var(--gold) 45%,transparent);text-align:center;line-height:1.3;text-wrap:balance;hyphens:none}
+.bio-photo .kicker{margin:0}
+.bio-photo-name{font-size:.95rem;color:var(--ink)}
+[dir=rtl] .bio-photo-name{font-family:var(--f-ar);font-size:1.02rem}
+.bio-page .bio-works-wrap .bio-works{display:block}
+.bio-page .bio-works-wrap .bio-works li+li{margin-top:.6rem}
+.bio-works-wrap::after{content:"";display:block;clear:both}
+@media(max-width:700px){
+  .bio-photo{width:clamp(96px,27%,130px);margin-left:.9rem;padding:5px}
+  [dir=rtl] .bio-photo{margin-right:.9rem}
+  .bio-photo figcaption{margin-top:5px;padding-top:.4rem}
+  .bio-photo .kicker{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+  .bio-photo-name{font-size:.74rem}
+  [dir=rtl] .bio-photo-name{font-size:.84rem}
+}
+
+/* Home "about" subtitle: the doctor's own line on pen and brush, on one line with his signature in gold.
+   Quote marks come from the i18n text, so <q>'s automatic quotes are turned off. */
+.about-quote q{quotes:none;font-style:italic;color:var(--ink)}
+[dir=rtl] .about-quote q{font-style:normal}
+.about-quote cite{font-style:normal;color:var(--gold);white-space:nowrap}
+
+/* Accent: tan-leather brown (book-binding spine) replaces the original lapis blue #22405a. The variable keeps its
+   name so every existing rule (drop caps, sub-headings, links, button hovers) picks it up. */
+:root{--lapis:#6a3a1e}

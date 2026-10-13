@@ -12,6 +12,11 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("prependOrigin", (p) => origin + p);
   eleventyConfig.addFilter("absDefault", (r) => abs(r, defaultLang));
   eleventyConfig.addFilter("hrefDefault", (r) => href(r, defaultLang));
+  // Short book shelf: the featured books (first uploaded), minus `skipSlug`, topped up in list order to `n`.
+  eleventyConfig.addFilter("shelf", (books, skipSlug = "", n = 3) => {
+    const pool = books.filter((b) => b.slug !== skipSlug);
+    return [...pool.filter((b) => b.featured), ...pool.filter((b) => !b.featured)].slice(0, n);
+  });
 
   return {
     dir: { input: "src", output: "_site" },

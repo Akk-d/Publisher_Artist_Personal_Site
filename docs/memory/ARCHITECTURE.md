@@ -9,19 +9,19 @@
 - `src/_data/i18n/ar.json`, `en.json`: all UI/page text, meta titles/descs, book texts.
 - `src/_data/books.json`: book facts (slug, image, w/h; array order = shelf order). Texts in i18n `books.<slug>` (title, sub, type, pub, d1, d2, desc[]).
 - `src/_data/paintings.js`: paintings list (thumb/full paths, w/h of thumb; macro `paintingFrame` sets `--r` aspect ratio and wraps the img in `.pin`).
-- `src/_data/drphotos.json`: doctor photos (key, width, height). `src/assets/images/dr/standing.jpg` (home hero front frame) is referenced directly in `home.njk`, not via drphotos.
+- `src/_data/drphotos.json`: doctor photos (key, width, height). `src/assets/images/dr/standing.jpg` (home hero front frame) is referenced directly in `home.njk`; `headshot.jpg` is used only in the bio literary-works section (`biography.njk`), not as a page header.
 - `src/_data/legacy.json`: old `.html` URL → new route redirects.
 - `src/pages/*.njk`: one template per page type (home, books, book, paintings, biography, qualifications, herbal-medicine, publications).
 - `src/pages/pages.11tydata.js`: ROUTES, permalink, title, description, canonical, hreflang.
 - `src/_includes/layouts/base.njk`: HTML shell.
 - `src/_includes/components/`: header, footer, seo-head, viewer (painting lightbox), section-stub, page-head (title + header photo + optional `headList` checklist), macros.
 - `src/legacy.njk`, `src/sitemap.njk`, `src/robots.njk`: redirects, sitemap.xml, robots.txt.
-- `src/css/style.css`: prototype design (don't edit); `stage2-additions.css`, `stage3-additions.css`, `stage4-additions.css` (page header photos, biography), `stage5-additions.css` (biography layout: glance checklist, contents, cards, 2-col lists), `stage6-additions.css` (site-wide buttons: menu toggle, lang switcher, .btn, back-to-top), `stage7-additions.css` (darker brown `--ink`/`--soft` token overrides), `stage8-additions.css` (home hero `.print .ph` fix; painting gallery: masonry, `.pin` hover, home `.paint-feature` desktop layout), `stage9-additions.css` (book cover frame `.bk-frame`/`.bk` + 3D hover, book page byline/subtitle/read-soon button, `.book-about` description + verses + `<details>`; loaded last in base.njk), `home.css`: additions.
+- `src/css/style.css`: prototype design (don't edit); `stage2-additions.css`, `stage3-additions.css`, `stage4-additions.css` (page header photos, biography), `stage5-additions.css` (biography layout: glance checklist, contents, cards, 2-col lists), `stage6-additions.css` (site-wide buttons: menu toggle, lang switcher, .btn, back-to-top), `stage7-additions.css` (darker brown `--ink`/`--soft` token overrides), `stage8-additions.css` (home hero `.print .ph` fix; painting gallery: masonry, `.pin` hover, home `.paint-feature` desktop layout), `stage9-additions.css` (book cover frame `.bk-frame`/`.bk` + 3D hover, book page byline/subtitle/read-soon button, `.book-about` description + verses + `<details>`; loaded globally in base.njk), `stage10-additions.css` (global, loaded last: Arabic Ruqaa headings weight 400; bio literary-works headshot `.bio-works-wrap`/`.bio-photo`; `--lapis` accent override to tan leather `#6a3a1e`), `home.css`: additions.
 - `src/js/`: `nav.js` (menu), `viewer.js` (painting viewer), `home-bg.js` (home background), `masonry.js` (Pinterest-style shortest-column layout for `.gal`/`.gal2`; loaded via page `scripts` on home + paintings).
 - `src/assets/images/{books,dr,paintings}/`: site images.
 - `tools/check-site.mjs`: post-build checks on `_site/`.
 - `prototype-original/`: frozen original HTML prototype. Never edit.
-- `my-content/`: source of truth for content (client PDFs, photos); committed, not part of the build. `biography/Bio.pdf` → i18n `bio`.
+- `my-content/`: source of truth for content (client PDFs, photos); committed, not part of the build, except full book PDFs (local only, gitignored by exact path). `biography/Bio.pdf` → i18n `bio`.
 - `src/_data/heroes.json`: which doctor photo (`drphotos.json` key) heads each page; rendered by `components/page-head.njk`.
 - `_site/`: build output (gitignored).
 
