@@ -20,7 +20,9 @@ _Last updated: 2026-10-13_
 - Per-load random shuffle of books? Limit home shelf to 4?
 - Older: «و» rule for `meta.home.title/desc`; studio photo absent from home hero; folding bio intro; "قيد الصدور" on جمهورية الأقنعة ج2.
 - Herbal: user chose to publish all herbal answers as written (cupping Q&A under the cupping essay, manuka + olive leaf in Q&A cards). Kept out by user: drugs lecture, «العناية بالزوجة», Venice lecture (page numbers in Claude memory `herbal-set-aside-items`).
-- Herbal: proofread Claude-written sub-headings inside articles, section titles, captions/alts, full EN translation.
+- Herbal provenance audit (2026-10-13): all AR body text matches the PDFs word for word (diacritics added by Claude); matcha intro restored to the PDF wording (patient's quote back in the text; card question unchanged; EN not updated). Not yet checked: nothing from the PDFs missing from the page.
+- Herbal, open question to user (no answer yet): remove Claude-added essay sub-headings, use the question as title for untitled Q&A, restore exact PDF titles/credit lines, drop 4th glance principle + Claude section/group headings? Also: adopt "doctor's words only, ask before adding text" as a site rule?
+- Herbal: proofread Claude-written UI labels, captions/alts, full EN translation.
 ## Next up
 1. Push Stages 10–14.
 2. Set Pages source to GitHub Actions, check Actions tab, confirm live site.
