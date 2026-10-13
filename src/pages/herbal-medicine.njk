@@ -24,6 +24,10 @@ scripts: ["/js/herbal.js"]
 {%- set im = herbal.images[key] -%}
 <figure class="{{ cls }}"><img src="{{ ('/assets/images/herbal/' + im.file) | asset }}" width="{{ im.w }}" height="{{ im.h }}" alt="{{ H.img[key].alt }}" loading="lazy" decoding="async"><figcaption>{{ H.img[key].cap }}</figcaption></figure>
 {%- endmacro -%}
+{%- macro qaCard(id, a) -%}
+<details class="hm-qa" id="q-{{ id }}"><summary><span class="hm-qa-t">{{ a.h }}</span><span class="hm-qa-q">{{ a.q }}</span></summary>
+<div class="hm-qa-a"><p class="hm-qa-l">{{ H.aLabel }}</p>{{ blocks(a.blocks, 4) }}</div></details>
+{%- endmacro -%}
 {%- macro teaser(id, a, lvl, n) -%}
 {%- set parts = a.blocks | splitLead(n) -%}
 <div class="hm-body">{{ blocks(parts[0], lvl) }}</div>
@@ -33,8 +37,7 @@ scripts: ["/js/herbal.js"]
 <nav class="bio-toc" aria-labelledby="hm-toc-h"><p id="hm-toc-h" class="bio-toc-h">{{ H.toc }}</p><ol>
 <li><a href="#intro">{{ H.intro.h }}</a></li>
 <li><a href="#essays">{{ H.essays.h }}</a></li>
-<li><a href="#qa">{{ H.qa.h }}</a></li>
-<li><a href="#care">{{ H.care.h }}</a></li></ol></nav>
+<li><a href="#qa">{{ H.qa.h }}</a></li></ol></nav>
 <div class="bio">
 
 {%- set a = A.why %}
@@ -54,6 +57,7 @@ scripts: ["/js/herbal.js"]
 <p class="hm-by">{{ a.by }}</p>
 {%- if a.q %}<p class="hm-lead">{{ a.q }}</p>{% endif %}
 {{ teaser(id, a, 4, 2) }}
+{%- if herbal.attach[id] %}<div class="hm-attach">{{ qaCard(herbal.attach[id], A[herbal.attach[id]]) }}</div>{% endif %}
 </article>
 {%- endfor %}
 <p class="bio-top"><a href="#top">{{ H.top }}</a></p></section>
@@ -65,22 +69,11 @@ scripts: ["/js/herbal.js"]
 {%- for g in herbal.qa %}
 <h3 class="hm-group">{{ H.qa.groups[g.key] }}</h3>
 <div class="hm-qas">
-{%- for id in g.items %}{% set a = A[id] %}
-<details class="hm-qa" id="q-{{ id }}"><summary><span class="hm-qa-t">{{ a.h }}</span><span class="hm-qa-q">{{ a.q }}</span></summary>
-<div class="hm-qa-a"><p class="hm-qa-l">{{ H.aLabel }}</p>{{ blocks(a.blocks, 4) }}</div></details>
+{%- for id in g.items %}
+{{ qaCard(id, A[id]) }}
 {%- endfor %}
 </div>
 {%- endfor %}
 <p class="bio-top"><a href="#top">{{ H.top }}</a></p></section>
 
-<section class="bio-part" id="care" aria-labelledby="care-h"><h2 id="care-h">{{ H.care.h }}</h2>
-<p class="hm-sub">{{ H.care.sub }}</p>
-<p class="hm-quote">{{ H.care.quote }}</p>
-{%- for id in herbal.care %}{% set a = A[id] %}
-<article class="hm-care" id="c-{{ id }}" aria-labelledby="c-{{ id }}-h"><h3 id="c-{{ id }}-h">{{ a.h }}</h3>
-<p class="hm-by">{{ a.by }}</p>
-<blockquote class="hm-ask"><span class="hm-ask-l">{{ H.qLabel }}</span><p>{{ a.q }}</p></blockquote>
-<div class="hm-body">{{ blocks(a.blocks, 4) }}</div></article>
-{%- endfor %}
-<p class="bio-top"><a href="#top">{{ H.top }}</a></p></section>
 </div></div></section></main>

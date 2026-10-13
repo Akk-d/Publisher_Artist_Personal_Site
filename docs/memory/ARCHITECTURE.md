@@ -10,7 +10,7 @@
 - `src/_data/books.json`: book facts (slug, image, w/h; array order = shelf order). Texts in i18n `books.<slug>` (title, sub, type, pub, d1, d2, desc[]).
 - `src/_data/paintings.js`: paintings list via `p(id, w, h, home, cut)`: files `/assets/images/paintings/<id>[-thumb].jpg` (`.avif` when `cut`), w/h of thumb, `home` = order on home page, `cut` = transparent cut-out (`.cutout` class). Alt text i18n `palt.<id>`; no titles. Macro `paintingFrame(p, alt)` sets `--r` and wraps the img in `.pin`.
 - `src/_data/drphotos.json`: doctor photos (key, width, height). `src/assets/images/dr/standing.jpg` (home hero front frame) is referenced directly in `home.njk`; `headshot.jpg` is used only in the bio literary-works section (`biography.njk`), not as a page header.
-- `src/_data/herbal.json`: Herbal page order (`essays`, `qa` groups, `care`) and images (`assets/images/herbal/`); texts in i18n `herbal` (`articles.<id>` + page labels). Filter `splitLead` (eleventy.config.js) splits article teaser/rest.
+- `src/_data/herbal.json`: Herbal page order (`essays`, `qa` groups, `attach` = Q&A card shown under an essay) and images (`assets/images/herbal/`); texts in i18n `herbal` (`articles.<id>` + page labels). Filter `splitLead` (eleventy.config.js) splits article teaser/rest.
 - `src/_data/legacy.json`: old `.html` URL → new route redirects.
 - `src/pages/*.njk`: one template per page type (home, books, book, paintings, biography, herbal-medicine).
 - `src/pages/pages.11tydata.js`: ROUTES, permalink, title, description, canonical, hreflang.

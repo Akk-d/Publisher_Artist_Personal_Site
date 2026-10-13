@@ -1,15 +1,66 @@
 {
   "_note": "Herbal Medicine page structure. Text lives in i18n under herbal.articles.<id>; sources: my-content/herbal-medicine/*.pdf.",
-  "essays": ["asil", "akhlat", "qust", "hijama", "thyroid", "ibs"],
-  "qa": [
-    { "key": "plants", "items": ["saliva", "basil", "lionsmane", "matcha"] },
-    { "key": "conditions", "items": ["hepatitis", "albumin", "kidneys", "thalassemia", "lupus"] }
+  "essays": [
+    "asil",
+    "akhlat",
+    "qust",
+    "hijama",
+    "thyroid",
+    "ibs"
   ],
-  "care": ["social", "humours"],
+  "qa": [
+    {
+      "key": "plants",
+      "items": [
+        "saliva",
+        "basil",
+        "manuka",
+        "lionsmane",
+        "olive",
+        "matcha"
+      ]
+    },
+    {
+      "key": "conditions",
+      "items": [
+        "hepatitis",
+        "albumin",
+        "kidneys",
+        "thalassemia",
+        "lupus"
+      ]
+    },
+    {
+      "key": "safety",
+      "items": [
+        "social",
+        "humours"
+      ]
+    }
+  ],
   "images": {
-    "qust": { "file": "qust.jpg", "w": 900, "h": 900 },
-    "hijama": { "file": "hijama.jpg", "w": 1100, "h": 733 },
-    "ibs": { "file": "pots.jpg", "w": 1100, "h": 599 },
-    "qa": { "file": "herbs.jpg", "w": 1024, "h": 559 }
+    "qust": {
+      "file": "qust.jpg",
+      "w": 900,
+      "h": 900
+    },
+    "hijama": {
+      "file": "hijama.jpg",
+      "w": 1100,
+      "h": 733
+    },
+    "ibs": {
+      "file": "pots.jpg",
+      "w": 1100,
+      "h": 599
+    },
+    "qa": {
+      "file": "herbs.jpg",
+      "w": 1024,
+      "h": 559
+    }
+  },
+  "attach": {
+    "hijama": "hijamaqa"
   }
 }

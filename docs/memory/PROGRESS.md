@@ -1,10 +1,10 @@
 # Progress
 _Last updated: 2026-10-13_
 ## Current state
-- Stages 1–9 pushed. Stages 10–14 committed locally, not pushed (main ahead of origin by 6). Deploy after push never verified (no `gh` CLI); Pages source may still need "GitHub Actions".
+- Stages 1–9 pushed. Stages 10–14 committed locally, not pushed (main ahead of origin by 7 after the Stage 14 follow-up commit). Deploy after push never verified (no `gh` CLI); Pages source may still need "GitHub Actions".
 - Stage 12 (`43456a9`): Qualifications + Publications pages removed; nav "About" links to home top. Nav: About · Biography · Herbal Medicine · Books · Paintings · Contact.
 - Stage 13 (`05f36d9`, `2fc322f`): Biography page wording from user (i18n only, ar+en): `sections.bio.h/sub`, `glance`, `photos.portrait.cap`, `toc`. Nav label «السيرة الذاتية» and bio `meta` title unchanged (asked user, no answer yet).
-- Stage 14 (`0189cb7`): Herbal Medicine page built from `my-content/herbal-medicine/` (2 PDFs + 5 photos): why-statement, 6 essays (folded), 9 Q&A cards, responsible-use section; AR+EN in i18n `herbal`, structure in `_data/herbal.json`, hero = grey-suit photo (`dr/suit.jpg`).
+- Stage 14 (`0189cb7` + follow-up): Herbal Medicine page built from `my-content/herbal-medicine/` (2 PDFs + 5 photos): why-statement, 6 essays (folded), 13 Q&A cards in 3 topic groups (herbs; conditions & tests; recipe vs evidence) + cupping Q&A card under the cupping essay (`herbal.json` `attach`); AR+EN in i18n `herbal`, structure in `_data/herbal.json`, hero = grey-suit photo (`dr/suit.jpg`).
 ## "Coming soon" still on the site
 - `my-content/home-and-contact/` still empty.
 - 3 old books (نهر العشق، على جدار الزمن، دستوري): d2 "description in preparation"; user will send.
@@ -19,7 +19,7 @@ _Last updated: 2026-10-13_
 - Arabic transcriptions need a human proofread. EN translation quality: Claude polish / human / shorter EN?
 - Per-load random shuffle of books? Limit home shelf to 4?
 - Older: «و» rule for `meta.home.title/desc`; studio photo absent from home hero; folding bio intro; "قيد الصدور" on جمهورية الأقنعة ج2.
-- Herbal: 3 answers held back (cupping Q&A, manuka in pregnancy, olive leaf vs insulin) because they contradict his safety essays; publish or not? Also left out (user: keep aside): drugs lecture, «العناية بالزوجة», Venice lecture. Page numbers in Claude memory `herbal-set-aside-items`.
+- Herbal: user chose to publish all herbal answers as written (cupping Q&A under the cupping essay, manuka + olive leaf in Q&A cards). Kept out by user: drugs lecture, «العناية بالزوجة», Venice lecture (page numbers in Claude memory `herbal-set-aside-items`).
 - Herbal: proofread Claude-written sub-headings inside articles, section titles, captions/alts, full EN translation.
 ## Next up
 1. Push Stages 10–14.

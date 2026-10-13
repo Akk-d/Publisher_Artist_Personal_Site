@@ -406,14 +406,10 @@
    "sub": "A question-and-answer series with Dr. Yousef Ahmad Al-Maiari, prepared by the RC Centre",
    "groups": {
     "plants": "Herbs and plants",
-    "conditions": "Conditions and tests"
+    "conditions": "Conditions and tests",
+    "safety": "Herbs between recipe and evidence"
    },
    "hint": "Select a question to read the answer."
-  },
-  "care": {
-   "h": "Before You Take a Herb",
-   "sub": "Using herbs responsibly",
-   "quote": "The word “natural” does not mean a preparation is safe for everyone."
   },
   "img": {
    "qust": {
@@ -663,7 +659,6 @@
      "Whoever wishes to advise people should point them towards verification and consultation, for their words may reach someone in pain who clings to them in hope and accepts them in trust. Let words be as honest as they are influential: health is too precious to be pledged on a promise, and human life too valuable to be left to random experiment."
     ],
     "h": "Herbal recipes on social media",
-    "by": "Prepared by the RC Centre",
     "q": "Herbal recipes are spreading on social media, with claims that this herb treats that disease and that one helps with this symptom. How should we deal with these recipes? Does what helps one person help another? And when can using herbs cause harm?"
    },
    "humours": {
@@ -678,7 +673,6 @@
      "This principle applies in health and in illness alike: whether a food or drink is suitable is judged by reliable knowledge and its actual effect, taking each person’s individual circumstances into account. No inherited description justifies harm, and no supposed compatibility comes before the patient’s safety; what counts is what protects their health, improves their treatment and preserves their well-being."
     ],
     "h": "The humours and “body nature” versus the medical condition",
-    "by": "Prepared by the RC Centre",
     "q": "Some people say: “We treat according to the humours and the nature of the body.” What are the humours? What is meant by heat, cold, moisture and dryness? And if a food or drink is said to suit someone’s nature, but they have diabetes or high blood pressure, do we follow this classification, or do we put the needs of their medical condition first?"
    },
    "saliva": {
@@ -1235,6 +1229,75 @@
     ],
     "h": "What the kidneys do, and the foods that help them",
     "q": "What do the kidneys do, and which foods benefit them and help them work well?"
+   },
+   "hijamaqa": {
+    "blocks": [
+     "Cupping is part of Prophetic medicine and is used to treat many diseases and health problems. It works by drawing a quantity of blood from the affected area to the skin using suction cups, then removing this corrupt blood from the body, so that it is separated from the circulation; this eases pain and inflammation in the affected area.",
+     "The Prophet, peace and blessings be upon him, taught that cupping is an important means of healing and treatment. Abu Dawud reported: “No one complained to the Messenger of God, peace and blessings be upon him, of a pain… but he said: ‘Be cupped.’” Among the benefits of cupping are that it treats general headache and relieves migraine, clears nicotine deposits caused by smoking, overcomes allergies and sinus inflammation, treats eye diseases and inflammations and inflammation of the middle and inner ear, and protects against disorders of the circulatory system.",
+     "Cupping stimulates the memory, increases concentration and energy, relieves mental and nervous illnesses, and brings calm and rest to the nerves. It also treats dental problems, relieves nerve inflammation, protects against high blood pressure, hemiplegia and vaginal bleeding, and relieves psychological stress, fatigue, insomnia and exhaustion. It improves blood flow to the brain, thereby increasing concentration and energy, protects against cancer, and guards against rheumatism, joint disease and paralysis.",
+     "Cupping stimulates the lymphatic and blood circulation, relieves pressure on the nerves and provokes reactions in the body, which helps the brain pay more attention to the organs so that it sends the necessary instructions to the body’s systems to take suitable action. It clears the effects of toxins and harmful medicines from the body, strengthens immunity and protects against serious diseases.",
+     "Cupping helps the body get rid of corrupt blood containing microbes and germs, helps activate the body’s organs and functions, and increases the delivery of oxygen to the organs concerned. It stimulates the thyroid gland and the sebaceous glands in the skin, which helps prompt the body to rid itself of harmful substances."
+    ],
+    "h": "Cupping and the benefits attributed to it",
+    "q": "What is cupping, what has been reported about it, and what therapeutic benefits are attributed to it?"
+   },
+   "manuka": {
+    "blocks": [
+     "Manuka has many benefits, ranging from cosmetic and therapeutic benefits to benefits for hormonal balance and for pregnant women, as well as many others.",
+     "Many people prefer natural products to manufactured ones, especially when it comes to the skin and skin care. Natural products such as honey are therefore widely used as an alternative to ointments and therapeutic formulations, or even to cosmetics, because of the negative side effects the chemicals in those products may have.",
+     "Manuka honey is the most beneficial kind of honey in particular, and of natural products in general, in this respect. Its benefit far exceeds that of any other kind of honey, thanks to the antioxidant, antibacterial and anti-inflammatory substances it contains, such as hydrogen peroxide and methylglyoxal. Manuka honey can be used on the skin for therapeutic or preventive purposes, or for regular skin care.",
+     {
+      "h": "Manuka distillate"
+     },
+     "Manuka distillate is very effective at preserving the hair and protecting it from hair loss and dryness. Its benefits include:",
+     {
+      "ol": [
+       "Increasing hair growth.",
+       "Moisturising dry hair.",
+       "Killing bacteria.",
+       "Fighting dandruff.",
+       "Adding volume to the hair.",
+       "Restoring the hair’s natural rate of growth.",
+       "Giving every hair a touch of shine and fullness."
+      ]
+     },
+     "Using manuka honey on your hair is very easy; you can:",
+     {
+      "ol": [
+       "Mix a little of it with the shampoo you normally use.",
+       "Mix manuka honey with manuka distillate and olive oil, and apply the mixture to dried hair for thirty minutes.",
+       "Then wash your hair with ordinary shampoo, or shampoo mixed with manuka distillate, and enjoy hair as soft as silk."
+      ]
+     },
+     {
+      "h": "Manuka and the hormone oestrogen"
+     },
+     "Manuka has a clear effect on the activity of the hormone oestrogen, which points to remarkable and direct benefits of manuka products for hormonal balance in the body.",
+     "But how do we use manuka for this? We will soon publish many manuka recipes, but it is enough to add it to your breakfast.",
+     "Another benefit of manuka, as mentioned above, is that it fights bacteria. Its benefits do not stop there: it is also excellent for maintaining the body’s immune system, and a strong immune system is the key to hormonal balance.",
+     {
+      "h": "Is manuka suitable during pregnancy?"
+     },
+     "The definite answer is yes. It is not only suitable but extremely important, and manuka is completely safe for pregnant mothers. Manuka honey and its distillate are an excellent alternative to all other forms of medicine used during pregnancy; because they are entirely natural, they have no negative side effects, and so they are of great benefit to pregnant women.",
+     {
+      "h": "Other benefits of manuka honey and its distillate"
+     },
+     "A whole book might not be enough to cover manuka and its benefits, let alone an article. We will therefore work hard to bring you more information about manuka and its therapeutic and cosmetic benefits."
+    ],
+    "h": "Manuka: the plant, its honey and its distillate",
+    "q": "What are the benefits of the manuka plant, its honey and its distillate?"
+   },
+   "olive": {
+    "blocks": [
+     "Scientific and practical trials have shown that taking olive leaves may help prevent or delay the onset of diabetes and lower blood sugar, by bringing blood glucose back to normal levels and limiting the damage caused by the blood sugar spikes that people with diabetes experience. Reduced sensitivity to insulin and a reduced response from the pancreas are important factors in the development of type 2 diabetes.",
+     "This is what blood sugar tests have shown: a marked fall in blood sugar after taking olive leaves or an olive-leaf decoction, at a rate comparable to, and sometimes greater than, the fall produced by insulin injections. This is attributed to several mechanisms: olive leaves slow the conversion of starches into simple sugars, slow the absorption of sugars in the intestine and increase the uptake of glucose from the blood by the tissues. They also raise the levels of natural antioxidants and protect the tissues from oxidative damage, including the damage that occurs when glucose binds to them.",
+     "Continued use of olive leaf and its decoction may therefore be an alternative, natural treatment for people with diabetes, together with regular blood sugar tests three to four hours after drinking olive-leaf tea, and a diet based on giving up simple sugars and refined sugar, such as table sugar, altogether, and eating limited amounts of starches instead.",
+     {
+      "note": "However, people with diabetes must consult a specialist doctor before using olive leaf as a treatment, and they are also asked not to take olive leaves at the same time as insulin injections or diabetes medicines, to avoid a severe drop in blood sugar and serious complications."
+     }
+    ],
+    "h": "Olive leaf for people with diabetes",
+    "q": "What are the benefits of olive leaf for people with diabetes?"
    }
   }
  }

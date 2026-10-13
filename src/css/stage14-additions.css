@@ -34,9 +34,9 @@
 /* Essays: one reading column, separated by a dashed rule; photo floats beside the opening. */
 .hm-essay{margin-top:2.4rem;padding-top:2.2rem;border-top:1px dashed color-mix(in srgb,var(--ink) 22%,transparent)}
 .hm-essay::after{content:"";display:block;clear:both}
-.hm-essay h3,.hm-care h3{font-size:clamp(1.3rem,3vw,1.6rem);line-height:1.35;margin:0 0 .9rem;scroll-margin-top:5rem}
-[dir=rtl] .hm-essay h3,[dir=rtl] .hm-care h3{font-family:var(--f-ar);font-weight:700;line-height:1.6}
-.hm-essay,.hm-care,.hm-qa{scroll-margin-top:5rem}
+.hm-essay h3{font-size:clamp(1.3rem,3vw,1.6rem);line-height:1.35;margin:0 0 .9rem;scroll-margin-top:5rem}
+[dir=rtl] .hm-essay h3{font-family:var(--f-ar);font-weight:700;line-height:1.6}
+.hm-essay,.hm-qa{scroll-margin-top:5rem}
 .hm-lead{margin:0 0 1.2rem;padding-inline-start:1rem;border-inline-start:3px solid var(--gold);color:var(--soft);font-size:.96em}
 
 .hm-fig,.hm-banner{margin:0;padding:8px;background:#f6f1e4;border:1px solid color-mix(in srgb,var(--gold) 60%,transparent);box-shadow:inset 0 0 0 4px #fbf8f0,0 1px 2px rgba(30,20,5,.2),0 14px 30px -12px rgba(30,20,5,.45)}
@@ -91,11 +91,6 @@
 [dir=rtl] .hm-qa-q{line-height:1.8}
 .hm-qa-a{margin:0 1.2rem;padding:1rem 0 .4rem;border-top:1px dashed color-mix(in srgb,var(--ink) 22%,transparent)}
 
-/* Before You Take a Herb: pull quote and two short answers. */
-.hm-quote{max-width:32ch;margin:.4rem auto 1.4rem;padding:1.1rem 0;border-block:1px solid color-mix(in srgb,var(--gold) 60%,transparent);text-align:center;font-style:italic;font-size:clamp(1.3rem,3.2vw,1.7rem);line-height:1.4;color:var(--ink);text-wrap:balance}
-[dir=rtl] .hm-quote{font-family:var(--f-cal);font-style:normal;line-height:1.8}
-.hm-care{margin-top:2rem;padding-top:1.8rem;border-top:1px dashed color-mix(in srgb,var(--ink) 22%,transparent)}
-
 @media (max-width:700px){
   .hm-index{grid-template-columns:1fr}
   .hm-fig,[dir=rtl] .hm-fig{float:none;width:auto;max-width:340px;margin:0 auto 1.3rem}
@@ -104,3 +99,6 @@
   .hm-qa>summary{padding:.85rem 1rem}
   .hm-qa-a{margin:0 1rem}
 }
+
+/* A question card attached to the end of an essay (e.g. the cupping Q&A). */
+.hm-attach{clear:both;margin-top:.6rem}
