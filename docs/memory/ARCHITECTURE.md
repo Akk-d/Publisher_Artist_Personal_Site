@@ -11,7 +11,7 @@
 - `src/_data/paintings.js`: paintings list via `p(id, w, h, home, cut)`: files `/assets/images/paintings/<id>[-thumb].jpg` (`.avif` when `cut`), w/h of thumb, `home` = order on home page, `cut` = transparent cut-out (`.cutout` class). Alt text i18n `palt.<id>`; no titles. Macro `paintingFrame(p, alt)` sets `--r` and wraps the img in `.pin`.
 - `src/_data/drphotos.json`: doctor photos (key, width, height). `src/assets/images/dr/standing.jpg` (home hero front frame) is referenced directly in `home.njk`; `headshot.jpg` is used only in the bio literary-works section (`biography.njk`), not as a page header.
 - `src/_data/legacy.json`: old `.html` URL → new route redirects.
-- `src/pages/*.njk`: one template per page type (home, books, book, paintings, biography, qualifications, herbal-medicine, publications).
+- `src/pages/*.njk`: one template per page type (home, books, book, paintings, biography, herbal-medicine).
 - `src/pages/pages.11tydata.js`: ROUTES, permalink, title, description, canonical, hreflang.
 - `src/_includes/layouts/base.njk`: HTML shell.
 - `src/_includes/components/`: header, footer, seo-head, viewer (painting lightbox), section-stub, page-head (title + header photo + optional `headList` checklist), macros.
@@ -30,7 +30,7 @@ data (`src/_data` + `lib/urls.js`) → `entries.js` × languages → `pages.11ty
 
 ## Entry points
 - `npm start` / `npm run build` → `eleventy.config.js`.
-- Routes: `/`, `/books/`, `/books/<slug>/`, `/paintings/`, `/biography/`, `/qualifications/`, `/herbal-medicine/`, `/publications/`; English under `/en/...`.
+- Routes: `/`, `/books/`, `/books/<slug>/`, `/paintings/`, `/biography/`, `/herbal-medicine/`; English under `/en/...`.
 - `npm run check` → `tools/check-site.mjs`.
 - `.claude/launch.json`: preview server config (Eleventy on port 8091).
 - `.github/workflows/deploy.yml`: on push to `main`, runs `build:pages` + `check:pages` and publishes `_site/` to GitHub Pages (Pages source must be "GitHub Actions").

@@ -8,8 +8,6 @@ export default {
   books: languages.map((lang) => ({ lang })),
   paintings: languages.map((lang) => ({ lang })),
   bio: languages.map((lang) => ({ lang })),
-  qualifications: languages.map((lang) => ({ lang })),
   herbal: languages.map((lang) => ({ lang })),
-  publications: languages.map((lang) => ({ lang })),
   book: languages.flatMap((lang) => books.map((book) => ({ lang, book }))),
 };

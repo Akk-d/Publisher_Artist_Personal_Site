@@ -1,5 +1,5 @@
 # Project: dr-name-site
-Multilingual (Arabic default, English) static personal site for a doctor, author and painter: books, paintings, biography, qualifications, herbal medicine, publications. Built with Eleventy, published on GitHub Pages.
+Multilingual (Arabic default, English) static personal site for a doctor, author and painter: books, paintings, biography, herbal medicine. Built with Eleventy, published on GitHub Pages.
 
 ## Stack & commands
 - Run: `npm start` (Eleventy dev server with live reload)
