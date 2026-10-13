@@ -1,6 +1,7 @@
 /* Full-screen painting viewer (zoom, pan, pinch, keyboard).
    Logic is unchanged from the prototype; only the data source differs:
-   paintings and captions are now read from the page's own <figure class="frame"> elements. */
+   paintings are now read from the page's own <figure class="frame"> elements. Paintings have no titles,
+   so the caption slot shows the position ("3 / 21") in the digits of #vw[data-locale] (i18n num_locale). */
 (function () {
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const B = document.body, vw = $('#vw'), vs = $('#vs');
@@ -24,7 +25,8 @@
     vs.innerHTML = f.querySelector('svg,img').outerHTML;
     const im = vs.querySelector('img');
     if (im) { im.removeAttribute('loading'); if (im.dataset.full) im.src = im.dataset.full; }  // zoom uses the full-size file
-    $('#vcap').textContent = f.querySelector('figcaption').textContent;
+    const n = x => x.toLocaleString(vw.dataset.locale);
+    $('#vcap').textContent = `${n(V.i + 1)} / ${n(frames.length)}`;
     draw();
   }
   function openV(i) { vw.hidden = false; B.style.overflow = 'hidden'; show(i); $('#vx').focus(); }

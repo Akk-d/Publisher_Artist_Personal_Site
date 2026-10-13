@@ -1,0 +1,5 @@
+/* Stage 11: carved frames cut out of their photo backdrop (transparent AVIF). A box shadow would draw the old
+   rectangle again, so these take a drop-shadow that follows the frame's outline. Does not touch style.css. */
+.frame.cutout .pin{box-shadow:none;border-radius:0;overflow:visible;filter:drop-shadow(0 8px 12px rgba(30,20,5,.32))}
+.frame.cutout:hover .pin,.frame.cutout:focus-visible .pin{box-shadow:none;filter:drop-shadow(0 14px 18px rgba(30,20,5,.42))}
+.frame.cutout .pin::after{display:none}
