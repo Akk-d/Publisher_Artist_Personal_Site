@@ -5,10 +5,9 @@ _Last updated: 2026-10-13_
 - Stage 12 (`43456a9`): Qualifications + Publications pages removed; nav "About" links to home top. Nav: About · Biography · Herbal Medicine · Books · Paintings · Contact.
 - Stage 13 (`05f36d9`, `2fc322f`): Biography page wording from user (i18n only, ar+en): `sections.bio.h/sub`, `glance`, `photos.portrait.cap`, `toc`. Nav label «السيرة الذاتية» and bio `meta` title unchanged (asked user, no answer yet).
 - Stage 14 (`0189cb7` + follow-up): Herbal Medicine page built from `my-content/herbal-medicine/` (2 PDFs + 5 photos): why-statement, 6 essays (folded), 13 Q&A cards in 3 topic groups (herbs; conditions & tests; recipe vs evidence) + cupping Q&A card under the cupping essay (`herbal.json` `attach`); AR+EN in i18n `herbal`, structure in `_data/herbal.json`, hero = grey-suit photo (`dr/suit.jpg`).
-- Stage 15: على جدار الزمن + دستوري descriptions from `my-content` (AR word for word, multi-paragraph `desc`; EN by Claude, needs proofread); دستوري year 2025 (first edition per docx). Bio header photo: user confirmed the current photo is the one they want (may swap photos later).
+- Stage 15: على جدار الزمن + دستوري + نهر العشق descriptions from `my-content` (AR word for word, multi-paragraph `desc`; EN by Claude, needs proofread); دستوري year 2025 (first edition per docx). نهر العشق desc = the author's foreword «كلمة المؤلف» (PDF pp. 1–5, book pp. 11–15) without the closing poem (p. 6); text via Vision OCR, checked against page images (OCR keeps most diacritics but slips on some). Bio header photo: user confirmed the current photo is the one they want (may swap photos later).
 ## "Coming soon" still on the site
 - `my-content/home-and-contact/` still empty.
-- نهر العشق: only a one-line d2. `my-content/books/Nahr-.../‎…pdf.pdf` is the author's foreword (book pp. 11–16, prose + poem), text layer unusable; asked user whether to use it as the description (needs transcription from page images).
 - "Read the book" button: disabled "Coming soon" on every book (not allowed yet).
 ## To confirm with user
 - Keep `aria-current` highlight on "About" when on home?
