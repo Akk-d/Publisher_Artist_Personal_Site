@@ -1,3 +1,9 @@
 /* Stage 17. Biography heading «التَّكْوِينُ الْأَكَادِيمِيُّ وَالْعِلْمِيُّ» only: close the gaps inside its words.
    word-spacing gives back what letter-spacing takes from each space, so the gaps between words stay unchanged. */
 [dir=rtl] #part-1-h{letter-spacing:-.06em;word-spacing:.06em}
+
+/* Biography heading «رَوَافِدُ تَكْوِينِهِ الْمَعْرِفِيِّ وَمَنْهَجُهُ فِي الْقِرَاءَةِ» only: its word spaces were narrower than the
+   gaps inside its words, so «مَنْهَجُهُ فِي» ran together while «وَ» floated loose. Slightly wider word spaces, and the
+   «وَ» of «وَمَنْهَجُهُ» (marked .join in i18n hHtml) pulled back onto its word. */
+[dir=rtl] #part-7-h{word-spacing:.15em}
+[dir=rtl] #part-7-h .join{margin-inline-end:-.07em}

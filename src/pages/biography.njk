@@ -13,7 +13,7 @@ styles: ["/css/stage4-additions.css", "/css/stage5-additions.css"]
 <div class="bio">
 <section class="bio-part" id="intro" aria-labelledby="intro-h"><h2 id="intro-h">{{ t.bio.introH }}</h2>
 <div class="bio-intro">{% for p in t.bio.intro %}<p>{{ p }}</p>{% endfor %}</div></section>
-{% for part in t.bio.parts %}<section class="bio-part" id="part-{{ loop.index }}" aria-labelledby="part-{{ loop.index }}-h"><h2 id="part-{{ loop.index }}-h">{{ part.h }}</h2>
+{% for part in t.bio.parts %}<section class="bio-part" id="part-{{ loop.index }}" aria-labelledby="part-{{ loop.index }}-h"><h2 id="part-{{ loop.index }}-h">{% if part.hHtml %}{{ part.hHtml | safe }}{% else %}{{ part.h }}{% endif %}</h2>
 {%- for p in part.p %}<p>{{ p }}</p>{% endfor %}
 {%- if part.list %}<ul class="bio-list">{% for li in part.list %}<li>{{ li }}</li>{% endfor %}</ul>{% endif %}
 {%- if part.works %}<div class="bio-works-wrap">{% for ph in drphotos %}{% if ph.key == 'headshot' %}<figure class="bio-photo"><img src="{{ '/assets/images/dr/headshot.jpg' | asset }}" width="{{ ph.w }}" height="{{ ph.h }}" alt="{{ t.photos.headshot.alt }}" loading="lazy" decoding="async"></figure>{% endif %}{% endfor %}<ol class="bio-works">{% for w in part.works %}<li>{% if w.slug %}<a href="{{ ('/books/' + w.slug + '/') | href(lang) }}">{{ w.t }}</a>{% else %}<span>{{ w.t }}</span>{% endif %}{% if w.soon %} <span class="soon">{{ t.bio.soon }}</span>{% endif %}</li>{% endfor %}</ol></div>{% endif %}
