@@ -10,3 +10,6 @@
 /* «قَيْدُ الصُّدُورِ» tag: same pill as the biography list (stage5 .bio-page .bio-works .soon) */
 .home-works .soon{display:inline-block;margin-inline-start:.35rem;padding:0 .5rem;border:1px solid color-mix(in srgb,var(--soft) 50%,transparent);border-radius:999px;font-size:.72em;line-height:1.6;vertical-align:.12em;color:var(--soft);white-space:nowrap}
 @media(max-width:640px){.home-works{margin-bottom:2rem;padding-block:1rem}}
+
+/* Home: close the gap between the about paragraph (its button) and «الكتب»; section padding was 80px (user, 2026-10-15) */
+#about{padding-bottom:1rem}
