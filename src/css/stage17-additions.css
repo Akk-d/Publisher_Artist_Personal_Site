@@ -17,3 +17,7 @@
 .gal-home .frame .pin{width:100%}
 .gal-home .frame .pin img{width:100%;max-height:none}
 @media(min-width:900px){.paint-feature .gal-home{gap:1.6rem}}
+
+/* Alternative Medicine: smaller article images (client request) */
+.hm-fig{width:clamp(110px,24%,170px)}
+@media (max-width:700px){.hm-fig,[dir=rtl] .hm-fig{max-width:220px}}
