@@ -39,3 +39,4 @@ Format: - YYYY-MM-DD: <decision>. <reason>.
 - 2026-10-14: Alternative Medicine section 1 is the doctor's essay «الطِّبُّ الْأَصِيلُ: جُذُورٌ رَاسِخَةٌ…» (`asil`); the «لماذا…» Q&A by RC moved to the essays list (user: swap whole sections, not just headings). Page images carry no captions.
 - 2026-10-14: Books page and menu use the user's literary names («ثَمَرَاتُ الْفِكْرِ», «إِطْلَالَةٌ», «الْمُؤَلَّفَاتُ») only where pointed at; tab titles and the home books heading keep «الكتب» (separate key `h_books_page`).
 - 2026-10-15: Book cards force one cover shape (5:7, object-fit cover) instead of each image's own ratio (0.69–0.77), so rows line up (user: "all books equivalent size"); book detail pages keep the full uncropped cover.
+- 2026-10-15: Home publications list reuses the bio `works` array (i18n `bio.parts`) instead of a copy, so titles, links and «قَيْدُ الصُّدُورِ» tags stay in one place.
