@@ -17,3 +17,6 @@
 .gal-home .frame .pin{width:100%}
 .gal-home .frame .pin img{width:100%;max-height:none}
 @media(min-width:900px){.paint-feature .gal-home{gap:1.6rem}}
+
+/* Alternative Medicine: show all three pots in the IBS image, same frame size */
+#e-ibs .hm-fig img{object-fit:contain;background:#eae4df}
