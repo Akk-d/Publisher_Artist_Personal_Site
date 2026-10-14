@@ -85,10 +85,10 @@
    "introH": "Introduction",
    "top": "Back to top",
    "highlights": [
-     "Doctorate in public health; professor of natural herbal medicine",
-     "Specialist in treating cancer and chronic diseases; founder of a medical research centre in Ukraine",
-     "Doctorate in Arabic language and literature; poet and author of 17 literary works",
-     "Speaks five languages",
+     "Holds a doctorate in public health, and is a professor of natural herbal medicine",
+     "Specialist in treating cancer and chronic diseases, and founder of a medical research centre in Ukraine",
+     "Holds a doctorate in Arabic language and literature; a poet and the author of seventeen literary works",
+     "Masters five languages",
      "Visual artist and athlete"
    ],
    "intro": [
@@ -217,8 +217,8 @@
        ]
      },
      {
-       "h": "The sources of my learning and how I read",
-       "hHtml": "The sources of my learning and how I read",
+       "h": "The sources of his learning and his approach to reading",
+       "hHtml": "The sources of his learning and his approach to reading",
        "p": [
          "The value of reading is not measured by the number of pages we turn, but by the depth of the meanings we understand, the accuracy of the knowledge we gain and the soundness of the judgements we build. I have read these books in full, reflected on the knowledge, methods and experience they contain, and been influenced by much of what I found in them: careful research, breadth of view, beauty of expression and a deep portrayal of people and life.",
          "But reading something does not mean endorsing it, and being influenced does not mean adopting it. Not everything that is read is accepted, and not everything that is beautifully worded is true. Listing these books is not an endorsement of all their contents, nor agreement with every word, opinion or idea in them. Whatever contradicts my faith and my principles I reject and do not follow: the fame of a speaker does not make his words true, and elegant phrasing does not make an error right.",
@@ -727,7 +727,7 @@
    "matcha": {
     "blocks": [
      "In an age when health trends are promoted by influencers rather than doctors, and marketing comes before accurate information, a new star has appeared: matcha, a green powder that has found its way into cafés, homes and hearts, and is sold as the elixir and the only answer for losing weight and regaining health and energy. But does matcha really do all this? Or are we facing a new wave of mass hype, driven by advertising rather than led by science?",
-     "In one consultation, a patient asked me this question sincerely and with some puzzlement. My answer was clear, based on science, not illusion; far from marketing and close to the truth. Here is the scientific account of what matcha really is, between benefit and exaggeration.",
+     "In one consultation, a patient asked me, sincerely and with some puzzlement: “Doctor, is what they say about matcha’s role in weight loss true? Does it really deserve all this noise?” My answer was clear, based on science, not illusion; far from marketing and close to the truth. Here is the scientific account of what matcha really is, between benefit and exaggeration.",
      {
       "h": "What is matcha?"
      },
