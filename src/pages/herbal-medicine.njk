@@ -22,7 +22,7 @@ scripts: ["/js/herbal.js"]
 {%- endmacro -%}
 {%- macro figure(key, cls) -%}
 {%- set im = herbal.images[key] -%}
-<figure class="{{ cls }}"><img src="{{ ('/assets/images/herbal/' + im.file) | asset }}" width="{{ im.w }}" height="{{ im.h }}" alt="{{ H.img[key].alt }}" loading="lazy" decoding="async"><figcaption>{{ H.img[key].cap }}</figcaption></figure>
+<figure class="{{ cls }}"><img src="{{ ('/assets/images/herbal/' + im.file) | asset }}" width="{{ im.w }}" height="{{ im.h }}" alt="{{ H.img[key].alt }}" loading="lazy" decoding="async"></figure>
 {%- endmacro -%}
 {%- macro qaCard(id, a) -%}
 <details class="hm-qa" id="q-{{ id }}"><summary><span class="hm-qa-t">{{ a.h }}</span><span class="hm-qa-q">{{ a.q }}</span></summary>
