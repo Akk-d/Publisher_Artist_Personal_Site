@@ -20,3 +20,7 @@
 
 /* Alternative Medicine: show all three pots in the IBS image, same frame size */
 #e-ibs .hm-fig img{object-fit:contain;background:#eae4df}
+
+/* Home about: single paragraph replaces heading, quote and two columns (user, 2026-10-14) */
+.about.one{grid-template-columns:1fr}
+.about.one p.drop{max-width:68ch}
