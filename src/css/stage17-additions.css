@@ -24,3 +24,5 @@
 /* Home about: single paragraph replaces heading, quote and two columns (user, 2026-10-14) */
 .about.one{grid-template-columns:1fr}
 .about.one p.drop{max-width:68ch}
+/* Book cards: one cover shape for all books (covers range 0.69–0.77); slight trim via object-fit */
+a.book .bk .cover-img{aspect-ratio:5/7;height:auto;object-fit:cover}
