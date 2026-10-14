@@ -40,11 +40,10 @@ scripts: ["/js/herbal.js"]
 <li><a href="#qa">{{ H.qa.h }}</a></li></ol></nav>
 <div class="bio">
 
-{%- set a = A.why %}
+{%- set a = A.asil %}
 <section class="bio-part" id="intro" aria-labelledby="intro-h"><h2 id="intro-h">{{ H.intro.h }}</h2>
-<p class="hm-by">{{ H.intro.sub }}</p>
-<blockquote class="hm-ask"><span class="hm-ask-l">{{ H.qLabel }}</span><p>{{ a.q }}</p></blockquote>
-<div class="hm-intro">{{ teaser('why', a, 3, 3) }}</div>
+<p class="hm-by">{{ a.by }}</p>
+<div class="hm-intro">{{ teaser('asil', a, 3, 3) }}</div>
 <p class="bio-top"><a href="#top">{{ H.top }}</a></p></section>
 
 <section class="bio-part" id="essays" aria-labelledby="essays-h"><h2 id="essays-h">{{ H.essays.h }}</h2>

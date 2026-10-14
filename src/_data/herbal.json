@@ -1,7 +1,7 @@
 {
   "_note": "Herbal Medicine page structure. Text lives in i18n under herbal.articles.<id>; sources: my-content/herbal-medicine/*.pdf.",
   "essays": [
-    "asil",
+    "why",
     "akhlat",
     "qust",
     "hijama",
