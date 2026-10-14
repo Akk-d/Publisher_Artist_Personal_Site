@@ -1,0 +1,11 @@
+/* Stage 18. Home «الكتب»: index of all publications (bio `works` list) above the three featured covers.
+   Numbered, two columns between thin gold rules; one column on phones. */
+.home-works{margin:0 0 2.8rem;padding:1.3rem 0 1.3rem;padding-inline-start:1.8rem;border-block:1px solid color-mix(in srgb,var(--gold) 55%,transparent);columns:2 18rem;column-gap:3rem;column-rule:1px solid color-mix(in srgb,var(--gold) 25%,transparent)}
+[dir=rtl] .home-works{list-style-type:arabic-indic}
+.home-works li{break-inside:avoid;margin:0 0 .5rem;line-height:1.5;padding-inline-start:.3rem}
+.home-works li::marker{color:var(--gold)}
+.home-works a{color:var(--lapis);text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .25s}
+[dir=rtl] .home-works a{background-position:100% 100%}
+.home-works a:hover,.home-works a:focus-visible{background-size:100% 1px}
+.home-works .soon{color:var(--soft);font-size:.82em;white-space:nowrap}
+@media(max-width:640px){.home-works{margin-bottom:2rem;padding-block:1rem}}
