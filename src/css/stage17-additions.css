@@ -1,3 +1,4 @@
-/* Stage 17. Biography heading «التَّكْوِينُ الْأَكَادِيمِيُّ وَالْعِلْمِيُّ» only: close the gaps inside its words.
+/* Stage 17. Two biography headings only (user-flagged): «التَّكْوِينُ الْأَكَادِيمِيُّ وَالْعِلْمِيُّ» and
+   «رَوَافِدُ تَكْوِينِهِ الْمَعْرِفِيِّ وَمَنْهَجُهُ فِي الْقِرَاءَةِ»: close the gaps inside their words.
    word-spacing gives back what letter-spacing takes from each space, so the gaps between words stay unchanged. */
-[dir=rtl] #part-1-h{letter-spacing:-.06em;word-spacing:.06em}
+[dir=rtl] :is(#part-1-h,#part-7-h){letter-spacing:-.06em;word-spacing:.06em}
