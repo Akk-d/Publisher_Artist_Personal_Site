@@ -1,10 +1,10 @@
-/* Pinterest-style masonry for the painting galleries (.gal on home, .gal2 on the paintings page).
+/* Pinterest-style masonry for the painting galleries (.gal2 on the paintings page; the home .gal-home has a fixed layout).
    Each painting goes into the currently shortest column, keeping DOM order for keyboard and screen readers.
    Column count follows the gallery width (CSS --min = narrowest column). Very wide paintings may span two
    columns; very tall ones are capped in height (--maxh) so no single work dominates.
    Without this script (or ResizeObserver) the CSS columns fallback in stage8-additions.css is used. */
 (function () {
-  const grids = [...document.querySelectorAll('.gal, .gal2')];
+  const grids = [...document.querySelectorAll('.gal:not(.gal-home), .gal2')];
   if (!grids.length || !('ResizeObserver' in window)) return;
   const ROW = 2; // px per grid row; items span ceil(height / ROW) rows
 

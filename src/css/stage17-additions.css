@@ -7,3 +7,13 @@
    «وَ» of «وَمَنْهَجُهُ» (marked .join in i18n hHtml) pulled back onto its word. */
 [dir=rtl] #part-7-h{word-spacing:.15em}
 [dir=rtl] #part-7-h .join{margin-inline-end:-.14em}
+
+/* Home paintings (the user's four, in paintings.js `home` order): a fixed hang instead of masonry. The three landscapes
+   stack in one column beside the tall birch alley (4th), which spans all three rows on the outer side. Column ratio
+   1 : 1.47 makes the birch as tall as the stack, so top and bottom edges line up. Revisit if the home set changes. */
+.gal-home,.paint-feature .gal-home{display:grid;columns:auto;grid-template-columns:minmax(0,1fr) minmax(0,1.47fr);grid-template-rows:repeat(3,auto);gap:.9rem;align-items:center}
+.gal-home .frame:nth-child(n){grid-column:1;margin:0;transform:none}
+.gal-home .frame:nth-child(4){grid-column:2;grid-row:1/span 3}
+.gal-home .frame .pin{width:100%}
+.gal-home .frame .pin img{width:100%;max-height:none}
+@media(min-width:900px){.paint-feature .gal-home{gap:1.6rem}}
