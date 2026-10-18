@@ -12,10 +12,11 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("prependOrigin", (p) => origin + p);
   eleventyConfig.addFilter("absDefault", (r) => abs(r, defaultLang));
   eleventyConfig.addFilter("hrefDefault", (r) => href(r, defaultLang));
-  // Short book shelf: the featured books (first uploaded), minus `skipSlug`, topped up in list order to `n`.
+  // Short book shelf: the featured books in their `featured` order (1 first), minus `skipSlug`, topped up in list order to `n`.
   eleventyConfig.addFilter("shelf", (books, skipSlug = "", n = 3) => {
     const pool = books.filter((b) => b.slug !== skipSlug);
-    return [...pool.filter((b) => b.featured), ...pool.filter((b) => !b.featured)].slice(0, n);
+    const featured = pool.filter((b) => b.featured).sort((x, y) => Number(x.featured) - Number(y.featured));
+    return [...featured, ...pool.filter((b) => !b.featured)].slice(0, n);
   });
 
   // Article teaser: the opening paragraphs (up to `n`, stopping at the first heading/list) and the rest.
