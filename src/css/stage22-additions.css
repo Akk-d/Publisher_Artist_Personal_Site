@@ -6,3 +6,9 @@
 /* Contact cards: square corners like the site's frames and buttons; hover changes the border only (no lift). */
 .contact a.ct-card{border-radius:2px;transition:border-color .2s,background .2s}
 .contact a.ct-card:hover,.contact a.ct-card:focus-visible{transform:none}
+
+/* "At a glance" lists (biography credentials, herbal principles): small gold dot instead of a round check badge,
+   the same marker as the biography lists. */
+.checklist li{padding-inline-start:1.3rem}
+.checklist li::before{width:.42rem;height:.42rem;top:.6em;background:var(--gold)}
+[dir=rtl] .checklist li::before{top:.68em}
