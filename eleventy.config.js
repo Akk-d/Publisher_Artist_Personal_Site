@@ -11,6 +11,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("asset", asset);               // /css/style.css -> with base path
   eleventyConfig.addFilter("prependOrigin", (p) => origin + p);
   eleventyConfig.addFilter("absDefault", (r) => abs(r, defaultLang));
+  // JSON for a <script> tag: "<" escaped so text can never close the tag.
+  eleventyConfig.addFilter("jsonld", (o) => JSON.stringify(o).replace(/</g, "\\u003c"));
   eleventyConfig.addFilter("hrefDefault", (r) => href(r, defaultLang));
   // Short book shelf: the featured books in their `featured` order (1 first), minus `skipSlug`, topped up in list order to `n`.
   eleventyConfig.addFilter("shelf", (books, skipSlug = "", n = 3) => {
