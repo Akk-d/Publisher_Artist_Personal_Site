@@ -1,0 +1,4 @@
+/* Stage 22: UI polish (loaded on every page, after stage20). */
+
+/* Contact: WhatsApp icon in the site's gold, like the email icon (no brand neon green). */
+.ct-wa{background:var(--gold);color:var(--night)}
