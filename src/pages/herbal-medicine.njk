@@ -37,7 +37,8 @@ scripts: ["/js/herbal.js"]
 <nav class="bio-toc" aria-labelledby="hm-toc-h"><p id="hm-toc-h" class="bio-toc-h">{{ H.toc }}</p><ol>
 <li><a href="#intro">{{ H.intro.h }}</a></li>
 <li><a href="#essays">{{ H.essays.h }}</a></li>
-<li><a href="#qa">{{ H.qa.h }}</a></li></ol></nav>
+<li><a href="#qa">{{ H.qa.h }}</a></li>
+<li class="hm-review"><a href="#lectures">{{ H.lectures.h }}</a></li></ol></nav>
 <div class="bio">
 
 {%- set a = A.asil %}
@@ -64,7 +65,6 @@ scripts: ["/js/herbal.js"]
 <section class="bio-part" id="qa" aria-labelledby="qa-h"><h2 id="qa-h">{{ H.qa.h }}</h2>
 <p class="hm-sub">{{ H.qa.tag }}</p>
 <p class="hm-sub">{{ H.qa.sub }}</p>
-{{ figure('qa', 'hm-banner') }}
 <p class="hm-hint">{{ H.qa.hint }}</p>
 {%- for g in herbal.qa %}
 <h3 class="hm-group">{{ H.qa.groups[g.key] }}</h3>
@@ -73,6 +73,18 @@ scripts: ["/js/herbal.js"]
 {{ qaCard(id, A[id]) }}
 {%- endfor %}
 </div>
+{%- endfor %}
+<p class="bio-top"><a href="#top">{{ H.top }}</a></p></section>
+
+<section class="bio-part hm-review" id="lectures" aria-labelledby="lectures-h"><h2 id="lectures-h">{{ H.lectures.h }}</h2>
+{%- for id in herbal.lectures %}{% set a = A[id] %}
+<article class="hm-essay" id="e-{{ id }}" aria-labelledby="e-{{ id }}-h">
+{%- if a.kick %}<p class="hm-sub">{{ a.kick }}</p>{% endif %}
+<h3 id="e-{{ id }}-h">{{ a.h }}</h3>
+<p class="hm-by">{{ a.by }}{% if a.date %}<br>{{ a.date }}{% endif %}</p>
+{{ teaser(id, a, 4, 2) }}
+{%- if a.end %}<p class="hm-by hm-end">{{ a.end }}</p>{% endif %}
+</article>
 {%- endfor %}
 <p class="bio-top"><a href="#top">{{ H.top }}</a></p></section>
 

@@ -1,5 +1,9 @@
 {
   "_note": "Herbal Medicine page structure. Text lives in i18n under herbal.articles.<id>; sources: my-content/herbal-medicine/*.pdf.",
+  "lectures": [
+    "drugs",
+    "wives"
+  ],
   "essays": [
     "why",
     "akhlat",
@@ -53,11 +57,6 @@
       "file": "pots.jpg",
       "w": 1100,
       "h": 599
-    },
-    "qa": {
-      "file": "herbs.jpg",
-      "w": 1024,
-      "h": 559
     }
   },
   "attach": {

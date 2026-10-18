@@ -1,0 +1,30 @@
+/* Stage 20: home paintings: the doctor at his easel, under "all paintings". */
+.paint-artist{margin:1.6rem 0 0}
+.paint-artist img{display:block;width:100%;height:auto;border:6px solid #f3ecd9;box-shadow:0 6px 18px rgba(40,25,10,.25)}
+@media(min-width:900px){
+ .paint .paint-feature{grid-template-areas:"head gal" "more gal" "artist gal";grid-template-rows:auto auto 1fr}
+ .paint .paint-feature .paint-artist{grid-area:artist;margin-top:3rem}
+}
+/* Herbal page: lectures added for the client's review, marked in red until approved. */
+.hm-review{--review:#b3261e}
+.hm-review>h2,.bio-toc .hm-review a{color:var(--review)}
+.hm-review .hm-essay{border-inline-start:4px solid var(--review);padding-inline-start:1rem;background:color-mix(in srgb,var(--review) 6%,transparent)}
+.hm-review .hm-essay h3{color:var(--review)}
+.hm-end{margin:1rem 0 0}
+/* Contact: two action cards (WhatsApp channel, email). */
+.ct-cards{display:grid;gap:.9rem;align-content:start}
+.contact a.ct-card{display:flex;align-items:center;gap:1rem;margin:0;padding:1rem 1.2rem;border:1px solid color-mix(in srgb,var(--nightink) 22%,transparent);border-radius:12px;text-decoration:none;transition:border-color .2s,background .2s,transform .2s}
+.contact a.ct-card:hover,.contact a.ct-card:focus-visible{border-color:color-mix(in srgb,var(--nightink) 55%,transparent);background:color-mix(in srgb,var(--nightink) 6%,transparent);transform:translateY(-2px)}
+.ct-ic{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center}
+.ct-wa{background:#25d366;color:#0b3d1f}
+.ct-mail{background:var(--gold);color:var(--night)}
+.ct-tx{display:grid;gap:.2rem;min-width:0}
+.ct-tx strong{font-family:var(--f-en);font-size:1.15rem;font-weight:600;color:var(--nightink)}
+.ct-tx small{font-size:.85rem;color:color-mix(in srgb,var(--nightink) 65%,transparent);overflow-wrap:anywhere}
+[dir=rtl] .ct-tx strong,[dir=rtl] .ct-tx small{font-family:var(--f-ar)}
+[dir=rtl] .ct-tx strong{font-size:1.2rem;font-weight:400}
+.ct-tx small bdi{font-family:var(--f-type)}
+/* Home: video at the end of the page. */
+.film .film-frame{margin:1.5rem 0 0;padding:8px;background:#f3ecd9;box-shadow:0 8px 24px rgba(40,25,10,.28)}
+.film video{display:block;width:100%;height:auto;background:var(--night)}
+@media(min-width:900px){.film .film-frame{max-width:880px;margin-inline:auto}}
