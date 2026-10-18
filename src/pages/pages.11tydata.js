@@ -1,6 +1,11 @@
 // All per-page logic lives here: URLs, titles, canonical, hreflang.
 import { languages, defaultLang, abs, asset, origin } from "../../lib/urls.js";
 import { plain, plainDeep } from "../../lib/text.js";
+import { readFileSync } from "node:fs";
+import paintings from "../_data/paintings.js";
+// Read directly (not via `d`): Eleventy's computed-data dependency pass hands arrays in as placeholders.
+const json = (f) => JSON.parse(readFileSync(new URL(`../_data/${f}`, import.meta.url)));
+const books = json("books.json"), herbal = json("herbal.json");
 
 const ROUTES = {
   home: () => "/",
@@ -70,6 +75,28 @@ export default {
         name: t.name, description: t.meta.home.desc, inLanguage: lang.code, publisher: ref, about: ref });
       if (d.pageKey === "bio") graph.push({ "@type": "ProfilePage", url: canonical, name: t.meta.bio.title,
         inLanguage: lang.code, mainEntity: ref });
+      if (d.pageKey === "books") graph.push({ "@type": "CollectionPage", url: canonical, name: t.meta.books.title,
+        inLanguage: lang.code, about: ref, mainEntity: { "@type": "ItemList", itemListElement: books.map((b, i) => ({
+          "@type": "ListItem", position: i + 1, url: abs(`/books/${b.slug}/`, lang), name: t.books[b.slug].title })) } });
+      if (d.pageKey === "paintings") graph.push({ "@type": "ImageGallery", url: canonical, name: t.meta.paintings.title,
+        description: t.meta.paintings.desc, inLanguage: lang.code, author: ref,
+        associatedMedia: paintings.filter((p) => p.full).map((p) => ({ "@type": "ImageObject",
+          contentUrl: origin + asset(p.full), thumbnailUrl: origin + asset(p.thumb), description: t.palt[p.id],
+          creator: ref, copyrightHolder: ref })) });
+      if (d.pageKey === "herbal") {
+        const h = herbal, a = t.herbal.articles;
+        const art = (id, anchor) => ({ "@type": "Article", "@id": `${canonical}#${anchor}`, url: `${canonical}#${anchor}`,
+          headline: a[id].h, author: ref, inLanguage: lang.code, isPartOf: { "@id": canonical },
+          ...(h.images[id] && { image: origin + asset(`/assets/images/herbal/${h.images[id].file}`) }) });
+        const parts = [
+          ...h.essays.map((id) => art(id, `e-${id}`)),
+          ...Object.values(h.attach).map((id) => art(id, `q-${id}`)),
+          ...h.qa.flatMap((g) => g.items.map((id) => art(id, `q-${id}`))),
+          ...h.lectures.map((id) => art(id, `e-${id}`)),
+        ];
+        graph.push({ "@type": "MedicalWebPage", "@id": canonical, url: canonical, name: t.meta.herbal.title,
+          description: t.meta.herbal.desc, inLanguage: lang.code, author: ref, hasPart: parts.map((x) => ({ "@id": x["@id"] })) }, ...parts);
+      }
       if (d.pageKey === "book") {
         const b = d.entry.book, bt = t.books[b.slug];
         graph.push({
