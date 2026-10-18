@@ -12,3 +12,6 @@
 .checklist li{padding-inline-start:1.3rem}
 .checklist li::before{width:.42rem;height:.42rem;top:.6em;background:var(--gold)}
 [dir=rtl] .checklist li::before{top:.68em}
+
+/* Home hero name: lines break only between words, never at the hyphen of "Al-Maiari". */
+.hero-name span{white-space:nowrap}

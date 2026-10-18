@@ -10,7 +10,7 @@ scripts: ["/js/viewer.js", "/js/masonry.js", "/js/home-bg.js"]
 <main>
 <div class="stage"><canvas id="bg" aria-hidden="true"></canvas>
 <div class="wrap hero">
- <div class="reveal"><h1>{{ t.hero_name }}</h1>
+ <div class="reveal"><h1 class="hero-name">{% for w in t.hero_name.split(" ") %}<span>{{ w }}</span>{% if not loop.last %} {% endif %}{% endfor %}</h1>
   <svg class="ink-line" viewBox="0 0 340 18" fill="none" aria-hidden="true"><path d="M2 12 C60 2, 110 16, 170 9 S290 4, 338 11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
   <p class="lede">{{ t.lede }}</p></div>
  <div class="prints" role="img" aria-label="{{ t.portrait_label }}"><div class="print b torn"><div class="ph"><img class="ph-img" src="{{ '/assets/images/dr/portrait.jpg' | asset }}" width="960" height="1280" alt="" fetchpriority="high"></div></div><div class="print torn"><div class="ph"><img class="ph-img" src="{{ '/assets/images/dr/standing.jpg' | asset }}" width="960" height="1280" alt=""></div></div></div>
