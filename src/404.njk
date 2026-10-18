@@ -1,0 +1,23 @@
+---js
+{
+  layout: "layouts/base.njk",
+  permalink: "/404.html",
+  eleventyExcludeFromCollections: true,
+  noindex: true,
+  route: "/",
+  styles: ["/css/stage21-additions.css"],
+  eleventyComputed: {
+    lang: (d) => d.languages[0],
+    t: (d) => d.i18n[d.languages[0].code],
+    title: (d) => d.i18n[d.languages[0].code].nf.title,
+    description: (d) => d.i18n[d.languages[0].code].nf.desc,
+  },
+}
+---
+{#- Page not found. GitHub Pages serves this file for any missing address, so it is in every language at once (one block each). -#}
+<main><section class="nf"><div class="wrap">
+{%- for l in languages %}{% set tl = i18n[l.code] %}
+<div class="nf-block" lang="{{ l.code }}" dir="{{ l.dir }}">{% if loop.first %}<h1>{{ tl.nf.h }}</h1>{% else %}<h2>{{ tl.nf.h }}</h2>{% endif %}<p>{{ tl.nf.p }}</p>
+<ul class="nf-links"><li><a class="btn" href="{{ '/' | href(l) }}">{{ tl.nf.home }}</a></li><li><a class="btn ghost" href="{{ '/biography/' | href(l) }}">{{ tl.n_bio }}</a></li><li><a class="btn ghost" href="{{ '/books/' | href(l) }}">{{ tl.n_books }}</a></li><li><a class="btn ghost" href="{{ '/paintings/' | href(l) }}">{{ tl.n_paint }}</a></li><li><a class="btn ghost" href="{{ '/herbal-medicine/' | href(l) }}">{{ tl.n_herbal }}</a></li></ul></div>
+{%- endfor %}
+</div></section></main>

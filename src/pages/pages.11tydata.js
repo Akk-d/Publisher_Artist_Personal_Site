@@ -1,5 +1,6 @@
 // All per-page logic lives here: URLs, titles, canonical, hreflang.
 import { languages, defaultLang, abs, asset, origin } from "../../lib/urls.js";
+import { plain, plainDeep } from "../../lib/text.js";
 
 const ROUTES = {
   home: () => "/",
@@ -15,7 +16,7 @@ const PAGE_PHOTO = { home: "studio", bio: "headshot" };
 const photo = (d, key) => {
   const p = d.drphotos.find((x) => x.key === key);
   return { src: origin + asset(`/assets/images/dr/${key}.jpg`), w: p.w, h: p.h,
-    alt: d.i18n[d.entry.lang.code].photos[key].alt };
+    alt: plain(d.i18n[d.entry.lang.code].photos[key].alt) };
 };
 
 // "Dr. Name" -> { prefix: "Dr.", name: "Name" }
@@ -30,13 +31,13 @@ export default {
     permalink: (d) => `${d.entry.lang.prefix}${ROUTES[d.pageKey](d)}index.html`,
     title: (d) => {
       const t = d.i18n[d.entry.lang.code];
-      return d.pageKey === "book"
+      return plain(d.pageKey === "book"
         ? `${t.books[d.entry.book.slug].title} — ${t.name}`
-        : t.meta[d.pageKey].title;
+        : t.meta[d.pageKey].title);
     },
     description: (d) => {
       const t = d.i18n[d.entry.lang.code];
-      return d.pageKey === "book" ? t.books[d.entry.book.slug].d1 : t.meta[d.pageKey].desc;
+      return plain(d.pageKey === "book" ? t.books[d.entry.book.slug].d1 : t.meta[d.pageKey].desc);
     },
     canonical: (d) => abs(ROUTES[d.pageKey](d), d.entry.lang),
     alternates: (d) =>
@@ -46,7 +47,7 @@ export default {
     ogImage: (d) => {
       if (d.pageKey === "book") {
         const b = d.entry.book, t = d.i18n[d.entry.lang.code];
-        return { src: origin + asset(b.image), w: b.w, h: b.h, alt: t.books[b.slug].title };
+        return { src: origin + asset(b.image), w: b.w, h: b.h, alt: plain(t.books[b.slug].title) };
       }
       return photo(d, PAGE_PHOTO[d.pageKey] || d.heroes[d.pageKey]);
     },
@@ -85,7 +86,7 @@ export default {
           { "@type": "ListItem", position: 3, name: bt.title, item: canonical },
         ] });
       }
-      return { "@context": "https://schema.org", "@graph": graph };
+      return plainDeep({ "@context": "https://schema.org", "@graph": graph });
     },
   },
 };

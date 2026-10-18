@@ -1,0 +1,5 @@
+/* Stage 21: page not found (404.html), one block per language. */
+.nf { padding-block: 4rem 3rem; text-align: center; }
+.nf-block + .nf-block { margin-block-start: 3rem; padding-block-start: 2.5rem; border-block-start: 1px solid currentColor; border-block-start-color: color-mix(in srgb, currentColor 18%, transparent); }
+.nf-block p { margin-inline: auto; max-width: 36rem; }
+.nf-links { list-style: none; padding: 0; margin: 1.5rem 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; }

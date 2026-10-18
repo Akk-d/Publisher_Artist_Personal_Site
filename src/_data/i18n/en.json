@@ -51,6 +51,7 @@
  "h_contact":"Write to him",
  "cp":"For contact, enquiries and invitations.","wa_channel":"“Mishkat al-Hikma” channel","wa_join":"Join the channel on WhatsApp","mail_label":"Email",
  "copy":"© 2026 Dr. Yousef Ahmad Al-Maiari. All rights reserved.",
+ "nf":{"title": "Page not found — Dr. Yousef Ahmad Al-Maiari", "desc": "The page you asked for does not exist on the site of Dr. Yousef Ahmad Al-Maiari.", "h": "Page not found", "p": "This page may have moved, or the link is wrong. You can continue from here:", "home": "Home page"},
  "meta":{
   "bio":{"title":"Biography — Dr. Yousef Ahmad Al-Maiari","desc":"The biography of Dr. Yousef Ahmad Al-Maiari: background, education, and literary and artistic career."},
   "herbal":{"title":"Alternative Medicine — Dr. Yousef Ahmad Al-Maiari","desc":"Essays by Dr. Yousef Ahmad Al-Maiari on authentic medicine and healing with herbs, and the series “The Patient Asks, the Doctor Answers”."},

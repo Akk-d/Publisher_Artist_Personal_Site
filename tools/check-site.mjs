@@ -44,10 +44,12 @@ for (const f of htmlFiles) {
     else if (!existsSync(t)) err(`${f}: broken link ${u}`);
   }
   if (isStub) continue;
+  const is404 = f === join(OUT, "404.html"); // not a real page: noindex, no canonical/hreflang
   const need = (ok, what) => { if (!ok) err(`${f}: ${what}`); };
   need(/<html lang="[a-z-]+" dir="(rtl|ltr)">/.test(html), "missing lang/dir on <html>");
   need(/<title>[^<]+<\/title>/.test(html), "missing <title>");
   need(/<meta name="description" content="[^"]+">/.test(html), "missing meta description");
+  if (is404) { need(html.includes('content="noindex"'), "404 page must be noindex"); continue; }
   need(/<link rel="canonical" href="https:\/\/[^"]+">/.test(html), "missing canonical");
   need((html.match(/<h1[\s>]/g) || []).length === 1, "page must have exactly one <h1>");
   for (const l of languages) need(html.includes(`hreflang="${l.code}"`), `missing hreflang ${l.code}`);
