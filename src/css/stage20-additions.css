@@ -28,3 +28,5 @@
 .film .film-frame{margin:1.5rem 0 0;padding:8px;background:#f3ecd9;box-shadow:0 8px 24px rgba(40,25,10,.28)}
 .film video{display:block;width:100%;height:auto;background:var(--night)}
 @media(min-width:900px){.film .film-frame{max-width:880px;margin-inline:auto}}
+/* Home hero (two columns): the name starts level with the top of the photo. */
+@media(min-width:801px){.stage>.hero{align-items:start}.hero .reveal h1{margin-top:0}}
