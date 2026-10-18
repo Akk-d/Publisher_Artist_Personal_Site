@@ -24,7 +24,12 @@
     const f = frames[V.i];
     vs.innerHTML = f.querySelector('svg,img').outerHTML;
     const im = vs.querySelector('img');
-    if (im) { im.removeAttribute('loading'); if (im.dataset.full) im.src = im.dataset.full; }  // zoom uses the full-size file
+    if (im) {  // zoom uses the full-size file: AVIF when the browser chose AVIF for the thumbnail, else the JPEG
+      im.removeAttribute('loading'); im.removeAttribute('srcset'); im.removeAttribute('sizes');
+      const avif = /\.avif(\?|$)/.test(f.querySelector('img').currentSrc || '');
+      const full = (avif && im.dataset.fullAvif) || im.dataset.full;
+      if (full) im.src = full;
+    }
     const n = x => x.toLocaleString(vw.dataset.locale);
     $('#vcap').textContent = `${n(V.i + 1)} / ${n(frames.length)}`;
     draw();

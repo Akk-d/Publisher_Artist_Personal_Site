@@ -1,4 +1,5 @@
 import { base, asset, href, abs, defaultLang, origin } from "./lib/urls.js";
+import { lighterImages } from "./lib/images.js";
 
 export default function (eleventyConfig) {
   // Copied as-is, never processed.
@@ -27,6 +28,9 @@ export default function (eleventyConfig) {
     while (i < n && i < blocks.length && typeof blocks[i] === "string") i++;
     return [blocks.slice(0, i), blocks.slice(i)];
   });
+
+  // AVIF + JPEG <picture> in two sizes for every site image (lib/images.js).
+  eleventyConfig.addTransform("lighter-images", lighterImages);
 
   return {
     dir: { input: "src", output: "_site" },
