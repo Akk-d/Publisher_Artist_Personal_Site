@@ -2,3 +2,7 @@
 
 /* Contact: WhatsApp icon in the site's gold, like the email icon (no brand neon green). */
 .ct-wa{background:var(--gold);color:var(--night)}
+
+/* Contact cards: square corners like the site's frames and buttons; hover changes the border only (no lift). */
+.contact a.ct-card{border-radius:2px;transition:border-color .2s,background .2s}
+.contact a.ct-card:hover,.contact a.ct-card:focus-visible{transform:none}
