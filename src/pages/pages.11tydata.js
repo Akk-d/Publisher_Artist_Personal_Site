@@ -56,6 +56,17 @@ export default {
       }
       return photo(d, PAGE_PHOTO[d.pageKey] || d.heroes[d.pageKey]);
     },
+    // Images listed for this page in sitemap.xml (helps image search): the sharing image plus the page's own images.
+    sitemapImages: (d) => {
+      const extra = {
+        home: ["portrait", "standing", "studio"].map((k) => `/assets/images/dr/${k}.jpg`),
+        paintings: paintings.filter((p) => p.full).map((p) => p.full),
+        herbal: Object.values(herbal.images).map((i) => `/assets/images/herbal/${i.file}`),
+      }[d.pageKey] || [];
+      const own = d.pageKey === "book" ? origin + asset(d.entry.book.image)
+        : origin + asset(`/assets/images/dr/${PAGE_PHOTO[d.pageKey] || d.heroes[d.pageKey]}.jpg`);
+      return [...new Set([own, ...extra.map((p) => origin + asset(p))])];
+    },
     // Structured data (JSON-LD) so search engines know who the doctor is and what his books are.
     jsonld: (d) => {
       const lang = d.entry.lang, t = d.i18n[lang.code];
