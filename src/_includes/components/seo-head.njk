@@ -1,5 +1,11 @@
 <title>{{ title }}</title>
 <meta name="description" content="{{ description }}">
+{%- if site.verify.google %}
+<meta name="google-site-verification" content="{{ site.verify.google }}">
+{%- endif %}
+{%- if site.verify.bing %}
+<meta name="msvalidate.01" content="{{ site.verify.bing }}">
+{%- endif %}
 {%- if noindex %}
 <meta name="robots" content="noindex">
 {%- endif %}

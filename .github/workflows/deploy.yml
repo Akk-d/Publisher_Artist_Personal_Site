@@ -26,8 +26,12 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      # Own domain: set repository variables SITE_ORIGIN (e.g. https://example.com) and PATH_PREFIX (/)
+      # under Settings → Secrets and variables → Actions. Unset = the github.io address.
       - run: npm run build:pages
+        env: { SITE_ORIGIN: "${{ vars.SITE_ORIGIN }}", PATH_PREFIX: "${{ vars.PATH_PREFIX }}" }
       - run: npm run check:pages
+        env: { SITE_ORIGIN: "${{ vars.SITE_ORIGIN }}", PATH_PREFIX: "${{ vars.PATH_PREFIX }}" }
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

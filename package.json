@@ -7,9 +7,9 @@
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy",
-    "build:pages": "PATH_PREFIX=/Publisher_Artist_Personal_Site/ eleventy",
+    "build:pages": "PATH_PREFIX=${PATH_PREFIX:-/Publisher_Artist_Personal_Site/} eleventy",
     "check": "node tools/check-site.mjs",
-    "check:pages": "PATH_PREFIX=/Publisher_Artist_Personal_Site/ node tools/check-site.mjs",
+    "check:pages": "PATH_PREFIX=${PATH_PREFIX:-/Publisher_Artist_Personal_Site/} node tools/check-site.mjs",
     "clean": "rm -rf _site"
   },
   "devDependencies": {
