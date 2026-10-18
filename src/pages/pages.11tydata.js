@@ -3,6 +3,7 @@ import { languages, defaultLang, abs, asset, origin } from "../../lib/urls.js";
 import { plain, plainDeep } from "../../lib/text.js";
 import { readFileSync } from "node:fs";
 import paintings from "../_data/paintings.js";
+import herbalArticles from "../_data/herbalArticles.js";
 // Read directly (not via `d`): Eleventy's computed-data dependency pass hands arrays in as placeholders.
 const json = (f) => JSON.parse(readFileSync(new URL(`../_data/${f}`, import.meta.url)));
 const books = json("books.json"), herbal = json("herbal.json");
@@ -14,6 +15,16 @@ const ROUTES = {
   bio: () => "/biography/",
   herbal: () => "/herbal-medicine/",
   book: (d) => `/books/${d.entry.book.slug}/`,
+  article: (d) => `/herbal-medicine/${d.entry.article.id}/`,
+};
+
+// Herbal article: its text, its picture (if any) and a short summary for search results.
+const article = (d) => d.i18n[d.entry.lang.code].herbal.articles[d.entry.article.id];
+const articleImage = (id) => herbal.images[id] && { ...herbal.images[id], src: origin + asset(`/assets/images/herbal/${herbal.images[id].file}`) };
+const summary = (a, max = 160) => {
+  const text = plain(a.q || a.blocks.find((b) => typeof b === "string") || a.h);
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max); return cut.slice(0, cut.lastIndexOf(" ")) + "…";
 };
 
 // Sharing image per page (og:image): the book's cover, else a photo of the doctor.
@@ -36,23 +47,30 @@ export default {
     permalink: (d) => `${d.entry.lang.prefix}${ROUTES[d.pageKey](d)}index.html`,
     title: (d) => {
       const t = d.i18n[d.entry.lang.code];
+      if (d.pageKey === "article") return plain(`${article(d).h} — ${t.name}`);
       return plain(d.pageKey === "book"
         ? `${t.books[d.entry.book.slug].title} — ${t.name}`
         : t.meta[d.pageKey].title);
     },
     description: (d) => {
       const t = d.i18n[d.entry.lang.code];
+      if (d.pageKey === "article") return summary(article(d));
       return plain(d.pageKey === "book" ? t.books[d.entry.book.slug].d1 : t.meta[d.pageKey].desc);
     },
     canonical: (d) => abs(ROUTES[d.pageKey](d), d.entry.lang),
     alternates: (d) =>
       languages.map((l) => ({ code: l.code, href: abs(ROUTES[d.pageKey](d), l) })),
     xDefault: (d) => abs(ROUTES[d.pageKey](d), defaultLang),
-    ogType: (d) => (d.pageKey === "book" ? "book" : d.pageKey === "bio" ? "profile" : "website"),
+    ogType: (d) => ({ book: "book", bio: "profile", article: "article" })[d.pageKey] || "website",
     ogImage: (d) => {
       if (d.pageKey === "book") {
         const b = d.entry.book, t = d.i18n[d.entry.lang.code];
         return { src: origin + asset(b.image), w: b.w, h: b.h, alt: plain(t.books[b.slug].title) };
+      }
+      if (d.pageKey === "article") {
+        const id = d.entry.article.id, im = articleImage(id);
+        if (im) return { src: im.src, w: im.w, h: im.h, alt: plain(d.i18n[d.entry.lang.code].herbal.img[id].alt) };
+        return photo(d, d.heroes.herbal);
       }
       return photo(d, PAGE_PHOTO[d.pageKey] || d.heroes[d.pageKey]);
     },
@@ -63,6 +81,7 @@ export default {
         paintings: paintings.filter((p) => p.full).map((p) => p.full),
         herbal: Object.values(herbal.images).map((i) => `/assets/images/herbal/${i.file}`),
       }[d.pageKey] || [];
+      if (d.pageKey === "article") { const im = articleImage(d.entry.article.id); return im ? [im.src] : []; }
       const own = d.pageKey === "book" ? origin + asset(d.entry.book.image)
         : origin + asset(`/assets/images/dr/${PAGE_PHOTO[d.pageKey] || d.heroes[d.pageKey]}.jpg`);
       return [...new Set([own, ...extra.map((p) => origin + asset(p))])];
@@ -95,18 +114,23 @@ export default {
           contentUrl: origin + asset(p.full), thumbnailUrl: origin + asset(p.thumb), description: t.palt[p.id],
           creator: ref, copyrightHolder: ref })) });
       if (d.pageKey === "herbal") {
-        const h = herbal, a = t.herbal.articles;
-        const art = (id, anchor) => ({ "@type": "Article", "@id": `${canonical}#${anchor}`, url: `${canonical}#${anchor}`,
-          headline: a[id].h, author: ref, inLanguage: lang.code, isPartOf: { "@id": canonical },
-          ...(h.images[id] && { image: origin + asset(`/assets/images/herbal/${h.images[id].file}`) }) });
-        const parts = [
-          ...h.essays.map((id) => art(id, `e-${id}`)),
-          ...Object.values(h.attach).map((id) => art(id, `q-${id}`)),
-          ...h.qa.flatMap((g) => g.items.map((id) => art(id, `q-${id}`))),
-          ...h.lectures.map((id) => art(id, `e-${id}`)),
-        ];
+        const a = t.herbal.articles;
+        const parts = herbalArticles.map(({ id }) => ({ "@type": "Article", "@id": abs(`/herbal-medicine/${id}/`, lang) + "#article",
+          url: abs(`/herbal-medicine/${id}/`, lang), headline: a[id].h, author: ref, inLanguage: lang.code,
+          ...(articleImage(id) && { image: articleImage(id).src }) }));
         graph.push({ "@type": "MedicalWebPage", "@id": canonical, url: canonical, name: t.meta.herbal.title,
           description: t.meta.herbal.desc, inLanguage: lang.code, author: ref, hasPart: parts.map((x) => ({ "@id": x["@id"] })) }, ...parts);
+      }
+      if (d.pageKey === "article") {
+        const id = d.entry.article.id, a = t.herbal.articles[id], herbalUrl = abs("/herbal-medicine/", lang);
+        graph.push({ "@type": "Article", "@id": canonical + "#article", url: canonical, mainEntityOfPage: canonical,
+          headline: a.h, description: summary(a), author: ref, publisher: ref, inLanguage: lang.code,
+          isPartOf: { "@id": herbalUrl }, ...(articleImage(id) && { image: articleImage(id).src }) });
+        graph.push({ "@type": "BreadcrumbList", itemListElement: [
+          { "@type": "ListItem", position: 1, name: t.name, item: home },
+          { "@type": "ListItem", position: 2, name: t.n_herbal, item: herbalUrl },
+          { "@type": "ListItem", position: 3, name: a.h, item: canonical },
+        ] });
       }
       if (d.pageKey === "book") {
         const b = d.entry.book, bt = t.books[b.slug];

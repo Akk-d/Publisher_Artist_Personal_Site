@@ -4,34 +4,24 @@ pageKey: herbal
 navKey: herbal
 secKey: herbal
 pagination: { data: entries.herbal, size: 1, alias: entry, addAllPagesToCollections: true }
-styles: ["/css/stage4-additions.css", "/css/stage5-additions.css", "/css/stage14-additions.css"]
+styles: ["/css/stage4-additions.css", "/css/stage5-additions.css", "/css/stage14-additions.css", "/css/stage21-additions.css"]
 scripts: ["/js/herbal.js"]
 ---
 {#- Text comes from my-content/herbal-medicine/*.pdf via i18n `herbal` (articles by id); order and images in _data/herbal.json.
-    Layout follows the Biography page: header with principles, contents, then one section per part. -#}
+    Layout follows the Biography page: header with principles, contents, then one section per part.
+    Each essay, question and lecture also has its own page (herbal-article.njk); here they show their opening and link there. -#}
 {%- set H = t.herbal -%}{%- set A = H.articles -%}
-{%- macro blocks(list, lvl) -%}
-{%- for b in list -%}
-{%- if b is string %}<p>{{ b }}</p>
-{%- elif b.h %}<h{{ lvl }} class="hm-h">{{ b.h }}</h{{ lvl }}>
-{%- elif b.h4 %}<h{{ lvl + 1 }} class="hm-h2">{{ b.h4 }}</h{{ lvl + 1 }}>
-{%- elif b.note %}<p class="hm-note">{{ b.note }}</p>
-{%- else %}{% set tag = 'ol' if b.ol else 'ul' %}<{{ tag }} class="hm-list">{% for li in (b.ol or b.ul) %}<li>{% if li is string %}{{ li }}{% else %}<strong>{{ li[0] }}</strong> {{ li[1] }}{% endif %}</li>{% endfor %}</{{ tag }}>
-{%- endif -%}
-{%- endfor -%}
-{%- endmacro -%}
-{%- macro figure(key, cls) -%}
-{%- set im = herbal.images[key] -%}
-<figure class="{{ cls }}"><img src="{{ ('/assets/images/herbal/' + im.file) | asset }}" width="{{ im.w }}" height="{{ im.h }}" alt="{{ H.img[key].alt }}" loading="lazy" decoding="async"></figure>
-{%- endmacro -%}
-{%- macro qaCard(id, a) -%}
-<details class="hm-qa" id="q-{{ id }}"><summary><span class="hm-qa-t">{{ a.h }}</span><span class="hm-qa-q">{{ a.q }}</span></summary>
-<div class="hm-qa-a"><p class="hm-qa-l">{{ H.aLabel }}</p>{{ blocks(a.blocks, 4) }}</div></details>
-{%- endmacro -%}
+{%- from "components/herbal-macros.njk" import blocks, figure, qaLink with context -%}
 {%- macro teaser(id, a, lvl, n) -%}
 {%- set parts = a.blocks | splitLead(n) -%}
 <div class="hm-body">{{ blocks(parts[0], lvl) }}</div>
 {%- if parts[1].length %}<details class="hm-more"><summary><span class="hm-open">{{ H.more }}</span><span class="hm-close">{{ H.less }}</span></summary><div class="hm-body">{{ blocks(parts[1], lvl) }}</div></details>{% endif %}
+{%- endmacro -%}
+{#- Opening paragraphs, then a link to the article's own page for the rest. -#}
+{%- macro lead(id, a, lvl, n) -%}
+{%- set parts = a.blocks | splitLead(n) -%}
+<div class="hm-body">{{ blocks(parts[0], lvl) }}</div>
+<p class="hm-more-link"><a href="{{ ('/herbal-medicine/' + id + '/') | href(lang) }}">{{ H.more }}</a></p>
 {%- endmacro -%}
 <main><section class="bio-page hm-page"><div class="wrap">{% set headH = t.sections.herbal.h %}{% set headSub = t.sections.herbal.sub %}{% set headList = H.glance %}{% set headListH = H.glanceH %}{% include "components/page-head.njk" %}
 <nav class="bio-toc" aria-labelledby="hm-toc-h"><p id="hm-toc-h" class="bio-toc-h">{{ H.toc }}</p><ol>
@@ -56,8 +46,8 @@ scripts: ["/js/herbal.js"]
 <h3 id="e-{{ id }}-h">{{ a.h }}</h3>
 <p class="hm-by">{{ a.by }}</p>
 {%- if a.q %}<p class="hm-lead">{{ a.q }}</p>{% endif %}
-{{ teaser(id, a, 4, 2) }}
-{%- if herbal.attach[id] %}<div class="hm-attach">{{ qaCard(herbal.attach[id], A[herbal.attach[id]]) }}</div>{% endif %}
+{{ lead(id, a, 4, 2) }}
+{%- if herbal.attach[id] %}<div class="hm-attach">{{ qaLink(herbal.attach[id]) }}</div>{% endif %}
 </article>
 {%- endfor %}
 <p class="bio-top"><a href="#top">{{ H.top }}</a></p></section>
@@ -70,7 +60,7 @@ scripts: ["/js/herbal.js"]
 <h3 class="hm-group">{{ H.qa.groups[g.key] }}</h3>
 <div class="hm-qas">
 {%- for id in g.items %}
-{{ qaCard(id, A[id]) }}
+{{ qaLink(id) }}
 {%- endfor %}
 </div>
 {%- endfor %}
@@ -82,7 +72,7 @@ scripts: ["/js/herbal.js"]
 {%- if a.kick %}<p class="hm-sub">{{ a.kick }}</p>{% endif %}
 <h3 id="e-{{ id }}-h">{{ a.h }}</h3>
 <p class="hm-by">{{ a.by }}{% if a.date %}<br>{{ a.date }}{% endif %}</p>
-{{ teaser(id, a, 4, 2) }}
+{{ lead(id, a, 4, 2) }}
 {%- if a.end %}<p class="hm-by hm-end">{{ a.end }}</p>{% endif %}
 </article>
 {%- endfor %}

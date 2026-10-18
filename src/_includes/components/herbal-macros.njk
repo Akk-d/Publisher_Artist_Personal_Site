@@ -1,0 +1,20 @@
+{#- Shared by the Herbal Medicine page and the article pages. Import "with context" (uses t, herbal, lang). -#}
+{%- macro blocks(list, lvl) -%}
+{%- for b in list -%}
+{%- if b is string %}<p>{{ b }}</p>
+{%- elif b.h %}<h{{ lvl }} class="hm-h">{{ b.h }}</h{{ lvl }}>
+{%- elif b.h4 %}<h{{ lvl + 1 }} class="hm-h2">{{ b.h4 }}</h{{ lvl + 1 }}>
+{%- elif b.note %}<p class="hm-note">{{ b.note }}</p>
+{%- else %}{% set tag = 'ol' if b.ol else 'ul' %}<{{ tag }} class="hm-list">{% for li in (b.ol or b.ul) %}<li>{% if li is string %}{{ li }}{% else %}<strong>{{ li[0] }}</strong> {{ li[1] }}{% endif %}</li>{% endfor %}</{{ tag }}>
+{%- endif -%}
+{%- endfor -%}
+{%- endmacro -%}
+{%- macro figure(key, cls, eager) -%}
+{%- set im = herbal.images[key] -%}
+<figure class="{{ cls }}"><img src="{{ ('/assets/images/herbal/' + im.file) | asset }}" width="{{ im.w }}" height="{{ im.h }}" alt="{{ t.herbal.img[key].alt }}"{% if eager %} fetchpriority="high"{% else %} loading="lazy"{% endif %} decoding="async"></figure>
+{%- endmacro -%}
+{#- A question card that links to the question's own page. -#}
+{%- macro qaLink(id) -%}
+{%- set a = t.herbal.articles[id] -%}
+<a class="hm-qa hm-qa-link" id="q-{{ id }}" href="{{ ('/herbal-medicine/' + id + '/') | href(lang) }}"><span class="hm-qa-t">{{ a.h }}</span><span class="hm-qa-q">{{ a.q }}</span></a>
+{%- endmacro -%}

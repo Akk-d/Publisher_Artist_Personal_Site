@@ -1,0 +1,43 @@
+---
+layout: layouts/base.njk
+pageKey: article
+navKey: herbal
+pagination: { data: entries.article, size: 1, alias: entry, addAllPagesToCollections: true }
+styles: ["/css/stage4-additions.css", "/css/stage5-additions.css", "/css/stage14-additions.css", "/css/stage21-additions.css"]
+---
+{#- One Herbal Medicine essay, question or lecture on its own page. Same text as on the Herbal Medicine page (i18n herbal.articles.<id>). -#}
+{%- from "components/herbal-macros.njk" import blocks, figure, qaLink with context -%}
+{%- set H = t.herbal -%}{%- set art = entry.article -%}{%- set a = H.articles[art.id] -%}
+<main><section class="bio-page hm-page hm-solo-page"><div class="wrap">
+<p class="hm-back"><a class="type" href="{{ '/herbal-medicine/' | href(lang) }}">{{ t.n_herbal }}</a></p>
+<div class="{% if art.kind == 'lecture' %}hm-review{% endif %}">
+<article class="hm-essay hm-solo">
+{%- if art.kind == 'essay' %}
+{%- if herbal.images[art.id] %}{{ figure(art.id, 'hm-fig', true) }}{% endif %}
+<h1>{{ a.h }}</h1>
+<p class="hm-by">{{ a.by }}</p>
+{%- if a.q %}<p class="hm-lead">{{ a.q }}</p>{% endif %}
+<div class="hm-body">{{ blocks(a.blocks, 2) }}</div>
+{%- if herbal.attach[art.id] %}<div class="hm-attach">{{ qaLink(herbal.attach[art.id]) }}</div>{% endif %}
+{%- elif art.kind == 'qa' %}
+<p class="hm-sub hm-kicker">{{ H.qa.groups[art.group] if art.group else H.qa.tag }}</p>
+<h1>{{ a.h }}</h1>
+{%- if a.by %}<p class="hm-by">{{ a.by }}</p>{% endif %}
+<div class="hm-ask"><span class="hm-ask-l">{{ H.qLabel }}</span><p>{{ a.q }}</p></div>
+<p class="hm-qa-l">{{ H.aLabel }}</p>
+<div class="hm-body">{{ blocks(a.blocks, 2) }}</div>
+{%- else %}
+{%- if a.kick %}<p class="hm-sub hm-kicker">{{ a.kick }}</p>{% endif %}
+<h1>{{ a.h }}</h1>
+<p class="hm-by">{{ a.by }}{% if a.date %}<br>{{ a.date }}{% endif %}</p>
+<div class="hm-body">{{ blocks(a.blocks, 2) }}</div>
+{%- if a.end %}<p class="hm-by hm-end">{{ a.end }}</p>{% endif %}
+{%- endif %}
+</article></div>
+{#- The other articles of the same kind, as on the Herbal Medicine page. -#}
+{%- set others = [] -%}{%- for o in herbalArticles %}{% if o.kind == art.kind and o.id != art.id %}{% set others = (others.push(o), others) %}{% endif %}{% endfor -%}
+{%- if others | length %}
+<nav class="hm-related" aria-labelledby="hm-related-h"><h2 id="hm-related-h">{{ {"essay": H.essays.h, "qa": H.qa.h, "lecture": H.lectures.h}[art.kind] }}</h2>
+<ol class="hm-index">{% for o in others %}<li><a href="{{ ('/herbal-medicine/' + o.id + '/') | href(lang) }}"><span class="hm-index-t">{{ H.articles[o.id].h }}</span><span class="hm-index-by">{{ H.articles[o.id].q if o.kind == 'qa' else H.articles[o.id].by }}</span></a></li>{% endfor %}</ol></nav>
+{%- endif %}
+</div></section></main>

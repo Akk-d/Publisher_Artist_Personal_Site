@@ -3,3 +3,33 @@
 .nf-block + .nf-block { margin-block-start: 3rem; padding-block-start: 2.5rem; border-block-start: 1px solid currentColor; border-block-start-color: color-mix(in srgb, currentColor 18%, transparent); }
 .nf-block p { margin-inline: auto; max-width: 36rem; }
 .nf-links { list-style: none; padding: 0; margin: 1.5rem 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; }
+
+/* Stage 21: each herbal essay, question and lecture has its own page. */
+/* Herbal page: "Continue reading" now links to the article's page (looks like the old fold button, arrow points onward). */
+.hm-more-link{margin:.2rem 0 1rem}
+.hm-more-link a{display:inline-flex;align-items:center;gap:.55rem;min-height:40px;padding:.3rem .95rem;border:1.5px solid color-mix(in srgb,var(--gold) 75%,transparent);border-radius:2px;font-family:var(--f-type);font-size:.8rem;color:var(--ink);text-decoration:none;transition:background-color .2s ease,border-color .2s ease}
+[dir=rtl] .hm-more-link a{font-family:var(--f-ar);font-size:1.02rem}
+.hm-more-link a::after{content:"→";color:var(--gold);font-family:var(--f-type)}
+[dir=rtl] .hm-more-link a::after{content:"←"}
+.hm-more-link a:hover{background:color-mix(in srgb,var(--gold) 14%,transparent)}
+.hm-more-link a:focus-visible,.hm-qa-link:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+/* Question cards are links now (same card, arrow instead of +). */
+.hm-qa-link{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.15rem 1rem;align-items:center;padding:.95rem 1.2rem;color:var(--ink);text-decoration:none}
+.hm-qa-link .hm-qa-t,.hm-qa-link .hm-qa-q{grid-column:1}
+.hm-qa-link::after{content:"→";grid-column:2;grid-row:1/span 2;display:grid;place-items:center;width:2rem;height:2rem;border:1.5px solid var(--gold);border-radius:50%;font-family:var(--f-type);font-size:1rem;line-height:1;color:var(--gold)}
+[dir=rtl] .hm-qa-link::after{content:"←"}
+.hm-qa-link:hover{background:color-mix(in srgb,#f6f1e4 72%,transparent)}
+@media (max-width:700px){.hm-qa-link{padding:.85rem 1rem}}
+
+/* Article page. */
+.hm-solo-page{padding-top:2.2rem}
+.hm-back{margin:0 0 1rem}
+.hm-solo{margin-top:0;padding-top:0;border-top:0;max-width:46rem}
+.hm-solo h1{font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.3;margin:0 0 .9rem}
+[dir=rtl] .hm-solo h1{font-family:var(--f-ar);font-weight:700;line-height:1.6}
+.hm-kicker{margin:0 0 .4rem;color:var(--gold)}
+.hm-review .hm-solo h1{color:var(--review)}
+.hm-review .hm-solo{padding:1rem 1.2rem}
+.hm-related{clear:both;margin-top:3rem;padding-top:2rem;border-top:1px dashed color-mix(in srgb,var(--ink) 22%,transparent)}
+.hm-related h2{font-size:1.3rem;margin:0 0 1rem}
+[dir=rtl] .hm-related h2{font-family:var(--f-ar);font-weight:700}
