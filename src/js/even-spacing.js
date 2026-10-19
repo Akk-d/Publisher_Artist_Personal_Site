@@ -116,10 +116,65 @@
     });
   }
 
-  // The Arabic sample makes the browser fetch the font's Arabic subset, not only its Latin one.
+  /* Body text (Amiri): the font tucks some letters under a non-joining letter's tail (e.g. «ك» under «ر» in «المعركة»),
+     but a vowel mark on that letter («رَ») breaks the kerning pair and leaves a gap as wide as a word space («المعر كة»).
+     Vowel marks take no width, so a word that gets narrower when the marks after such a letter are removed has lost
+     kerning there; that letter is wrapped in a span with the lost amount as a negative margin. */
+  const BODY_FONT = "Amiri";
+  const LOST = /[\u0627\u0623\u0625\u0622\u062F\u0630\u0631\u0632\u0648\u0624][\u064B-\u065F\u0670]+(?=[\u0621-\u064A])/g;
+  const kc = document.createElement("canvas").getContext("2d");
+  const widths = new Map();
+  const width = (font, w) => {
+    const key = font + "|" + w;
+    if (!widths.has(key)) { kc.font = font; kc.direction = "rtl"; kc.fontKerning = "normal"; widths.set(key, kc.measureText(w).width / S); }
+    return widths.get(key);
+  };
+
+  function kern(root) {
+    const fonts = new Map();
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    const has = new RegExp(LOST.source); // not global: .test() on a /g regex keeps state between strings
+    while (walker.nextNode()) if (has.test(walker.currentNode.data)) nodes.push(walker.currentNode);
+    for (const n of nodes) {
+      const parent = n.parentElement;
+      if (!parent || parent.closest("script, style, h1, h2, h3")) continue;
+      if (!fonts.has(parent)) {
+        const cs = getComputedStyle(parent);
+        fonts.set(parent, cs.fontFamily.replace(/["']/g, "").startsWith(BODY_FONT) ? `${cs.fontStyle} ${cs.fontWeight} ${S}px ${cs.fontFamily}` : null);
+      }
+      const font = fonts.get(parent);
+      if (!font) continue;
+      const t = n.data, fixes = [];
+      for (const m of t.matchAll(LOST)) {
+        const start = Math.max(t.lastIndexOf(" ", m.index), t.lastIndexOf("\n", m.index)) + 1;
+        let end = t.slice(m.index).search(/\s/);
+        end = end < 0 ? t.length : m.index + end;
+        const word = t.slice(start, end), i = m.index - start;
+        const bare = word.slice(0, i + 1) + word.slice(i + m[0].length);
+        const lost = width(font, word) - width(font, bare);
+        if (lost > 0.02) fixes.push([m.index, m[0].length, lost]);
+      }
+      if (!fixes.length) continue;
+      const frag = document.createDocumentFragment();
+      let at = 0;
+      for (const [i, len, lost] of fixes) {
+        frag.append(t.slice(at, i));
+        const k = document.createElement("span");
+        k.className = "kn"; k.textContent = t.slice(i, i + len);
+        k.style.marginInlineEnd = (-lost).toFixed(3) + "em";
+        frag.append(k);
+        at = i + len;
+      }
+      frag.append(t.slice(at));
+      n.replaceWith(frag);
+    }
+  }
+
+  // The Arabic sample makes the browser fetch the fonts' Arabic subsets, not only their Latin ones.
   const sample = "عَ ل";
-  Promise.all([document.fonts.ready, document.fonts.load(`16px "${FONT}"`, sample)]).then(() => {
-    if (!document.fonts.check(`16px "${FONT}"`, sample)) return;
-    document.querySelectorAll("h1, h2, h3").forEach(even);
+  Promise.all([document.fonts.ready, document.fonts.load(`16px "${FONT}"`, sample), document.fonts.load(`16px "${BODY_FONT}"`, sample)]).then(() => {
+    if (document.fonts.check(`16px "${FONT}"`, sample)) document.querySelectorAll("h1, h2, h3").forEach(even);
+    if (document.fonts.check(`16px "${BODY_FONT}"`, sample)) kern(document.body);
   });
 })();

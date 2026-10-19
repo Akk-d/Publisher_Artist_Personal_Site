@@ -15,3 +15,6 @@
 
 /* Home hero name: lines break only between words, never at the hyphen of "Al-Maiari". */
 .hero-name span{white-space:nowrap}
+
+/* Arabic text: always apply the fonts' kerning (js/even-spacing.js restores kerning pairs that vowel marks break). */
+[dir=rtl] body{font-kerning:normal}
