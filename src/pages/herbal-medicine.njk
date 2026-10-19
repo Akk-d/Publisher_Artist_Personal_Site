@@ -28,7 +28,8 @@ scripts: ["/js/herbal.js"]
 <li><a href="#intro">{{ H.intro.h }}</a></li>
 <li><a href="#essays">{{ H.essays.h }}</a></li>
 <li><a href="#qa">{{ H.qa.h }}</a></li>
-<li class="hm-review"><a href="#lectures">{{ H.lectures.h }}</a></li></ol></nav>
+<li class="hm-review"><a href="#lectures">{{ H.lectures.h }}</a></li>
+<li><a href="#presence">{{ H.presence.h }}</a></li></ol></nav>
 <div class="bio">
 
 {%- set a = A.asil %}
@@ -76,6 +77,14 @@ scripts: ["/js/herbal.js"]
 {%- if a.end %}<p class="hm-by hm-end">{{ a.end }}</p>{% endif %}
 </article>
 {%- endfor %}
+<p class="bio-top"><a href="#top">{{ H.top }}</a></p></section>
+
+{%- set P = H.presence %}
+<section class="bio-part" id="presence" aria-labelledby="presence-h"><h2 id="presence-h">{{ P.h }}</h2>
+<div class="hm-body">{% for p in P.intro %}<p>{{ p }}</p>{% endfor %}</div>
+<p class="hm-says-lead">{{ P.lead }}</p>
+<ul class="hm-says">{% for it in P.items %}<li>{% for p in it.p %}<p>{{ p }}</p>{% endfor %}{% if it.by %}<p class="hm-by">{{ it.by }}</p>{% endif %}</li>{% endfor %}</ul>
+<p class="hm-says-join"><a class="btn ghost" href="https://whatsapp.com/channel/0029Vb8Z7lzInlqMtByzUd1C" target="_blank" rel="noopener">{{ t.wa_join }}</a></p>
 <p class="bio-top"><a href="#top">{{ H.top }}</a></p></section>
 
 </div></div></section></main>

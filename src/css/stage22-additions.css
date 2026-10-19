@@ -18,3 +18,14 @@
 
 /* Arabic text: always apply the fonts' kerning (js/even-spacing.js restores kerning pairs that vowel marks break). */
 [dir=rtl] body{font-kerning:normal}
+
+/* Herbal page «حضور واسع» (#presence): his short articles, one after another, divided by a gold hairline with a small
+   diamond at its centre (in place of the 🍃 lines of the WhatsApp posts). */
+.hm-says-lead{margin:1.6rem 0 .4rem;font-weight:700}
+.hm-says{list-style:none;margin:0;padding:0}
+.hm-says li{position:relative;padding:1.3rem 0;border-top:1px solid color-mix(in srgb,var(--gold) 45%,transparent)}
+.hm-says li::before{content:"";position:absolute;top:-4px;left:50%;width:7px;height:7px;background:var(--paper);border:1px solid var(--gold);transform:translateX(-50%) rotate(45deg)}
+.hm-says p{margin:0 0 .7rem}
+.hm-says p:last-child{margin-bottom:0}
+.hm-says .hm-by{margin-top:.4rem}
+.hm-says-join{margin:1.4rem 0 0;padding-top:1.4rem;border-top:1px solid color-mix(in srgb,var(--gold) 45%,transparent)}
